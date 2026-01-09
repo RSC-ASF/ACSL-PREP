@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lessons - ACSL Prep</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body class="lessons-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">◆</span>ACSL<span class="accent">Prep</span></a>
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+                <div id="auth-nav" class="auth-nav"><button id="sign-in-btn" class="btn btn-primary">Sign In</button></div>
+                <div id="user-nav" class="user-nav hidden">
+                    <a href="profile.html" class="nav-link profile-link"><img id="user-avatar" src="" alt="Profile" class="user-avatar"><span id="user-name"></span></a>
+                    <button id="sign-out-btn" class="btn btn-secondary">Sign Out</button>
+                </div>
+            </div>
+            <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Parallax -->
+    <section class="lessons-hero" id="lessons-hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-glow"></div>
+        <div class="container">
+            <a href="../index.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Contests
+            </a>
+            <div class="hero-content">
+                <div class="contest-badge" id="contest-badge">Contest 1</div>
+                <h1 class="hero-title">
+                    <span class="title-line" id="title-line-1">Master the</span>
+                    <span class="title-line gradient-text" id="title-line-2">Fundamentals</span>
+                </h1>
+                <p class="hero-description" id="hero-description">
+                    Interactive lessons covering all the essential topics you need to ace this contest.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Topics</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">~30</span>
+                        <span class="stat-label">Minutes</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Practice</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lessons Grid -->
+    <section class="lessons-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose a Topic</h2>
+                <p>Click on any lesson to dive deep into the material</p>
+            </div>
+            <div class="lessons-grid" id="lessons-container">
+                <!-- Lessons loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Full-screen Lesson View -->
+    <div class="lesson-view" id="lesson-view">
+        <div class="lesson-view-header">
+            <button class="lesson-close" id="lesson-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                <span>Back to Lessons</span>
+            </button>
+            <div class="lesson-progress-bar">
+                <div class="lesson-progress-fill" id="lesson-progress"></div>
+            </div>
+        </div>
+        <div class="lesson-view-content">
+            <div class="lesson-sidebar" id="lesson-sidebar">
+                <!-- Table of contents -->
+            </div>
+            <div class="lesson-main">
+                <article class="lesson-article" id="lesson-article">
+                    <!-- Lesson content -->
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">◆</span> ACSL<span class="accent">Prep</span>
+                </div>
+                <p class="footer-text">Helping students master computer science competitions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* ========== Lessons Page Styles ========== */
+        
+        .lessons-page {
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .lessons-hero {
+            position: relative;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 60px;
+            overflow: hidden;
+        }
+
+        .hero-bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(239, 68, 68, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(239, 68, 68, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+            animation: gridPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(239, 68, 68, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+            transform: translateX(-4px);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contest-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 20px;
+            color: var(--accent);
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .title-line {
+            display: block;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .title-line:nth-child(1) { animation-delay: 0.1s; }
+        .title-line:nth-child(2) { animation-delay: 0.2s; }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent) 0%, #ff8a8a 50%, var(--accent) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.6s ease forwards, gradientShift 3s ease infinite;
+            animation-delay: 0.2s, 0s;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+            animation-delay: 0.4s;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Lessons Section */
+        .lessons-section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Lesson Cards */
+        .lesson-card {
+            position: relative;
+            background: linear-gradient(135deg, rgba(39, 39, 42, 0.8) 0%, rgba(24, 24, 27, 0.9) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardFadeIn 0.5s ease forwards;
+        }
+
+        .lesson-card:nth-child(1) { animation-delay: 0.1s; }
+        .lesson-card:nth-child(2) { animation-delay: 0.2s; }
+        .lesson-card:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes cardFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .lesson-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), #ff8a8a, var(--accent));
+            background-size: 200% 100%;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .lesson-card:hover::before {
+            transform: scaleX(1);
+            animation: borderGradient 2s linear infinite;
+        }
+
+        @keyframes borderGradient {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+
+        .lesson-card:hover {
+            border-color: rgba(239, 68, 68, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 40px rgba(239, 68, 68, 0.1);
+        }
+
+        .lesson-card-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .lesson-card:hover .lesson-card-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: rgba(239, 68, 68, 0.2);
+        }
+
+        .lesson-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .lesson-card-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .lesson-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .topic-tag {
+            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .lesson-card:hover .topic-tag {
+            border-color: rgba(239, 68, 68, 0.3);
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .lesson-card-arrow {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .lesson-card:hover .lesson-card-arrow {
+            background: var(--accent);
+            color: white;
+            transform: translateX(4px);
+        }
+    </style>
+
+    <style>
+        /* ========== Full-screen Lesson View ========== */
+        .lesson-view {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-primary);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .lesson-view.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lesson-view-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: rgba(12, 12, 13, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            z-index: 10;
+        }
+
+        .lesson-close {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .lesson-close:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .lesson-progress-bar {
+            flex: 1;
+            height: 4px;
+            background: var(--bg-tertiary);
+            border-radius: 2px;
+            margin-left: 2rem;
+            overflow: hidden;
+        }
+
+        .lesson-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent), #ff8a8a);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .lesson-view-content {
+            display: flex;
+            height: 100vh;
+            padding-top: 60px;
+        }
+
+        .lesson-sidebar {
+            width: 280px;
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border-color);
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+            transform: translateX(-100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .lesson-view.active .lesson-sidebar {
+            transform: translateX(0);
+            transition-delay: 0.1s;
+        }
+
+        .sidebar-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-item {
+            margin-bottom: 0.25rem;
+        }
+
+        .toc-link {
+            display: block;
+            padding: 10px 12px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            border-left: 2px solid transparent;
+        }
+
+        .toc-link:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+        }
+
+        .toc-link.active {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--accent);
+            border-left-color: var(--accent);
+        }
+
+        .lesson-main {
+            flex: 1;
+            overflow-y: auto;
+            padding: 3rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .lesson-view.active .lesson-main {
+            transform: translateY(0);
+            opacity: 1;
+            transition-delay: 0.2s;
+        }
+
+        .lesson-article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Article Typography */
+        .lesson-article h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .lesson-article .lesson-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .lesson-article h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .lesson-article h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .lesson-article h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .lesson-article p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+        }
+
+        .lesson-article ul, .lesson-article ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .lesson-article li {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .lesson-article code {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(239, 68, 68, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--accent);
+        }
+
+        .lesson-article pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .lesson-article pre code {
+            background: none;
+            padding: 0;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-left: 4px solid #3b82f6;
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-box.tip {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05));
+            border-color: rgba(34, 197, 94, 0.2);
+            border-left-color: #22c55e;
+        }
+
+        .info-box.warning {
+            background: linear-gradient(135deg, rgba(234, 179, 8, 0.1), rgba(234, 179, 8, 0.05));
+            border-color: rgba(234, 179, 8, 0.2);
+            border-left-color: #eab308;
+        }
+
+        .info-box.example {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05));
+            border-color: rgba(239, 68, 68, 0.2);
+            border-left-color: var(--accent);
+        }
+
+        .info-box-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Tables */
+        .lesson-article table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .lesson-article th, .lesson-article td {
+            padding: 12px 16px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+
+        .lesson-article th {
+            background: var(--bg-tertiary);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .lesson-article tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Interactive Elements */
+        .interactive-demo {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .demo-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .lessons-hero {
+                padding: 100px 0 40px;
+                min-height: auto;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .lessons-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lesson-sidebar {
+                display: none;
+            }
+
+            .lesson-main {
+                padding: 2rem 1rem;
+            }
+
+            .lesson-article h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module" src="../js/auth.js"></script>
+    <script type="module">
+        import { signInWithGoogle, handleSignOut } from '../js/auth.js';
+
+        // Get contest number from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const contestNum = urlParams.get('contest') || '1';
+
+        // Contest data
+        const contestData = {
+            '1': {
+                title: 'Fundamentals',
+                description: 'Computer Number Systems, Recursive Functions, and Program Tracing',
+                lessons: [
+                    { id: 'number-systems', icon: '🔢', title: 'Computer Number Systems', description: 'Master binary, octal, decimal, and hexadecimal conversions', topics: ['Binary', 'Octal', 'Hexadecimal', 'Conversions'] },
+                    { id: 'recursive-functions', icon: '🔄', title: 'Recursive Functions', description: 'Understand recursion patterns and trace complex function calls', topics: ['Base Cases', 'Recursive Calls', 'Stack Tracing'] },
+                    { id: 'program-tracing', icon: '🔍', title: 'What Does This Program Do?', description: 'Learn systematic approaches to trace code execution', topics: ['Variables', 'Loops', 'Conditionals', 'Output'] }
+                ]
+            },
+            '2': {
+                title: 'Notation & LISP',
+                description: 'Prefix/Postfix/Infix Notation, Bit-String Flicking, and LISP',
+                lessons: [
+                    { id: 'notation', icon: '📐', title: 'Expression Notation', description: 'Convert and evaluate expressions in prefix, infix, and postfix', topics: ['Infix', 'Prefix', 'Postfix', 'Stacks'] },
+                    { id: 'bit-string', icon: '💾', title: 'Bit-String Flicking', description: 'Master bitwise operations and binary string manipulation', topics: ['AND', 'OR', 'XOR', 'Shifts'] },
+                    { id: 'lisp', icon: '🎯', title: 'LISP Programming', description: 'Learn functional programming with list processing', topics: ['CAR', 'CDR', 'CONS', 'Lists'] }
+                ]
+            },
+            '3': {
+                title: 'Logic & Structures',
+                description: 'Boolean Algebra, Data Structures, FSAs and Regular Expressions',
+                lessons: [
+                    { id: 'boolean-algebra', icon: '⚡', title: 'Boolean Algebra', description: 'Simplify expressions and apply logic laws', topics: ['AND', 'OR', 'NOT', 'De Morgan'] },
+                    { id: 'data-structures', icon: '📊', title: 'Data Structures', description: 'Understand stacks, queues, trees, and their operations', topics: ['Stacks', 'Queues', 'Trees', 'Traversal'] },
+                    { id: 'fsa-regex', icon: '🔀', title: 'FSAs & Regular Expressions', description: 'Build and analyze finite state machines', topics: ['States', 'Transitions', 'Regex', 'Patterns'] }
+                ]
+            },
+            '4': {
+                title: 'Advanced Topics',
+                description: 'Graph Theory, Digital Electronics, and Assembly Language',
+                lessons: [
+                    { id: 'graph-theory', icon: '🕸️', title: 'Graph Theory', description: 'Navigate vertices, edges, and graph algorithms', topics: ['Paths', 'Trees', 'Cycles', 'Algorithms'] },
+                    { id: 'digital-electronics', icon: '🔌', title: 'Digital Electronics', description: 'Design circuits with logic gates', topics: ['Gates', 'Circuits', 'K-Maps', 'Truth Tables'] },
+                    { id: 'assembly', icon: '⚙️', title: 'Assembly Language', description: 'Program at the machine level', topics: ['Registers', 'Instructions', 'Memory', 'Addressing'] }
+                ]
+            }
+        };
+
+        const contest = contestData[contestNum];
+        
+        // Update hero
+        document.getElementById('contest-badge').textContent = 'Contest ' + contestNum;
+        document.getElementById('title-line-2').textContent = contest.title;
+        document.getElementById('hero-description').textContent = contest.description;
+
+        // Render lesson cards
+        const container = document.getElementById('lessons-container');
+        container.innerHTML = contest.lessons.map(lesson => `
+            <div class="lesson-card" data-lesson="${lesson.id}">
+                <div class="lesson-card-icon">${lesson.icon}</div>
+                <h3>${lesson.title}</h3>
+                <p class="lesson-card-description">${lesson.description}</p>
+                <div class="lesson-topics">
+                    ${lesson.topics.map(t => `<span class="topic-tag">${t}</span>`).join('')}
+                </div>
+                <div class="lesson-card-arrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+            </div>
+        `).join('');
+
+        // Lesson content (abbreviated for key lessons)
+        const lessonContent = {
+            'number-systems': {
+                title: 'Computer Number Systems',
+                subtitle: 'Master the art of converting between binary, octal, decimal, and hexadecimal',
+                sections: [
+                    { id: 'intro', title: 'Introduction' },
+                    { id: 'binary', title: 'Binary (Base 2)' },
+                    { id: 'hex', title: 'Hexadecimal (Base 16)' },
+                    { id: 'conversions', title: 'Conversions' },
+                    { id: 'practice', title: 'Practice' }
+                ],
+                content: `
+                    <h2 id="intro">Introduction to Number Systems</h2>
+                    <p>Computers use different number systems to represent data. Understanding these systems is fundamental to computer science and essential for ACSL competitions.</p>
+                    
+                    <div class="info-box">
+                        <div class="info-box-title">💡 Key Insight</div>
+                        <p>The base of a number system determines how many unique digits are used. Decimal uses 10 digits (0-9), binary uses 2 (0-1), and hexadecimal uses 16 (0-9, A-F).</p>
+                    </div>
+
+                    <table>
+                        <tr><th>System</th><th>Base</th><th>Digits Used</th><th>Example</th></tr>
+                        <tr><td>Binary</td><td>2</td><td>0, 1</td><td>1010₂ = 10₁₀</td></tr>
+                        <tr><td>Octal</td><td>8</td><td>0-7</td><td>12₈ = 10₁₀</td></tr>
+                        <tr><td>Decimal</td><td>10</td><td>0-9</td><td>10₁₀</td></tr>
+                        <tr><td>Hexadecimal</td><td>16</td><td>0-9, A-F</td><td>A₁₆ = 10₁₀</td></tr>
+                    </table>
+
+                    <h2 id="binary">Binary (Base 2)</h2>
+                    <p>Binary is the language computers speak. Each digit (called a <strong>bit</strong>) can only be 0 or 1, representing off/on states in electronic circuits.</p>
+
+                    <h3>Powers of 2</h3>
+                    <p>Memorize these - they're essential:</p>
+                    <pre><code>2⁰ = 1      2⁴ = 16     2⁸ = 256
+2¹ = 2      2⁵ = 32     2⁹ = 512
+2² = 4      2⁶ = 64     2¹⁰ = 1024
+2³ = 8      2⁷ = 128</code></pre>
+
+                    <div class="info-box example">
+                        <div class="info-box-title">📝 Example: Binary to Decimal</div>
+                        <p>Convert 1011₂ to decimal:</p>
+                        <pre><code>1011₂ = 1×2³ + 0×2² + 1×2¹ + 1×2⁰
+      = 8 + 0 + 2 + 1
+      = 11₁₀</code></pre>
+                    </div>
+
+                    <h2 id="hex">Hexadecimal (Base 16)</h2>
+                    <p>Hexadecimal is a compact way to represent binary. Each hex digit represents exactly 4 binary digits.</p>
+
+                    <table>
+                        <tr><th>Hex</th><th>Decimal</th><th>Binary</th></tr>
+                        <tr><td>0</td><td>0</td><td>0000</td></tr>
+                        <tr><td>A</td><td>10</td><td>1010</td></tr>
+                        <tr><td>B</td><td>11</td><td>1011</td></tr>
+                        <tr><td>F</td><td>15</td><td>1111</td></tr>
+                    </table>
+
+                    <h2 id="conversions">Quick Conversion Methods</h2>
+                    
+                    <h3>Decimal → Binary</h3>
+                    <p>Divide by 2 repeatedly, collect remainders from bottom to top:</p>
+                    <pre><code>25 ÷ 2 = 12 r 1  ↑
+12 ÷ 2 = 6  r 0  │
+6  ÷ 2 = 3  r 0  │ Read upward
+3  ÷ 2 = 1  r 1  │
+1  ÷ 2 = 0  r 1  ↓
+Result: 11001₂</code></pre>
+
+                    <h3>Binary ↔ Hexadecimal</h3>
+                    <p>Group binary digits in sets of 4 from the right:</p>
+                    <pre><code>1101 0110₂ = D6₁₆
+  D    6</code></pre>
+
+                    <div class="info-box tip">
+                        <div class="info-box-title">✅ Pro Tip</div>
+                        <p>For octal, group binary digits in sets of 3 instead of 4!</p>
+                    </div>
+
+                    <h2 id="practice">Practice Problems</h2>
+                    <p>Try these conversions:</p>
+                    <ol>
+                        <li>Convert 42₁₀ to binary</li>
+                        <li>Convert 10110₂ to decimal</li>
+                        <li>Convert 2F₁₆ to decimal</li>
+                        <li>Convert 77₈ to binary</li>
+                    </ol>
+                `
+            },
+            'recursive-functions': {
+                title: 'Recursive Functions',
+                subtitle: 'Master the art of functions that call themselves',
+                sections: [
+                    { id: 'intro', title: 'What is Recursion?' },
+                    { id: 'anatomy', title: 'Anatomy of Recursion' },
+                    { id: 'tracing', title: 'Tracing Calls' },
+                    { id: 'patterns', title: 'Common Patterns' }
+                ],
+                content: `
+                    <h2 id="intro">What is Recursion?</h2>
+                    <p>Recursion is when a function calls itself to solve a smaller version of the same problem. It's a powerful technique that can make complex problems elegant and simple.</p>
+
+                    <div class="info-box">
+                        <div class="info-box-title">🔑 The Two Requirements</div>
+                        <p><strong>Base case:</strong> When to stop recursing<br>
+                        <strong>Recursive case:</strong> How to break down the problem</p>
+                    </div>
+
+                    <h2 id="anatomy">Anatomy of a Recursive Function</h2>
+                    <pre><code>def factorial(n):
+    if n <= 1:              # Base case
+        return 1
+    return n * factorial(n-1)  # Recursive case</code></pre>
+
+                    <h2 id="tracing">Tracing Recursive Calls</h2>
+                    <p>Let's trace factorial(4):</p>
+                    <pre><code>factorial(4)
+  └─ 4 * factorial(3)
+        └─ 3 * factorial(2)
+              └─ 2 * factorial(1)
+                    └─ returns 1
+              └─ returns 2 * 1 = 2
+        └─ returns 3 * 2 = 6
+  └─ returns 4 * 6 = 24</code></pre>
+
+                    <h2 id="patterns">Common Patterns</h2>
+                    <h3>Fibonacci</h3>
+                    <pre><code>def fib(n):
+    if n <= 1: return n
+    return fib(n-1) + fib(n-2)</code></pre>
+
+                    <div class="info-box warning">
+                        <div class="info-box-title">⚠️ Watch Out</div>
+                        <p>Fibonacci has two recursive calls! This creates a tree of calls, not a chain.</p>
+                    </div>
+                `
+            }
+        };
+
+        // Set defaults for lessons without full content
+        const defaultContent = {
+            title: 'Lesson Content',
+            subtitle: 'This lesson content is coming soon!',
+            sections: [{ id: 'main', title: 'Overview' }],
+            content: '<h2 id="main">Coming Soon</h2><p>Full lesson content is being developed. Check back soon!</p>'
+        };
+
+        // DOM elements
+        const lessonView = document.getElementById('lessonView');
+        const lessonViewTitle = document.getElementById('lessonViewTitle');
+        const lessonViewSubtitle = document.getElementById('lessonViewSubtitle');
+        const lessonSidebar = document.getElementById('lessonSidebar');
+        const lessonArticle = document.getElementById('lessonArticle');
+        const progressFill = document.querySelector('.progress-fill');
+        const closeLesson = document.getElementById('closeLesson');
+        const heroSection = document.querySelector('.hero');
+        const mainContent = document.querySelector('.main-content');
+
+        // Open lesson view
+        function openLesson(lessonId) {
+            const lesson = lessonContent[lessonId] || defaultContent;
+            
+            // Set title and subtitle
+            lessonViewTitle.textContent = lesson.title;
+            lessonViewSubtitle.textContent = lesson.subtitle;
+            
+            // Build sidebar
+            lessonSidebar.innerHTML = lesson.sections.map(s => 
+                `<a href="#${s.id}" class="sidebar-link">${s.title}</a>`
+            ).join('');
+            
+            // Set content
+            lessonArticle.innerHTML = lesson.content;
+            
+            // Show lesson view
+            lessonView.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Reset scroll
+            lessonArticle.scrollTop = 0;
+            progressFill.style.width = '0%';
+            
+            // Setup sidebar active states
+            setupScrollSpy();
+        }
+
+        // Close lesson view
+        function closeLesson_fn() {
+            lessonView.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Setup scroll spy for sidebar
+        function setupScrollSpy() {
+            const article = lessonArticle;
+            const links = lessonSidebar.querySelectorAll('.sidebar-link');
+            
+            article.addEventListener('scroll', () => {
+                // Update progress bar
+                const scrollPct = (article.scrollTop / (article.scrollHeight - article.clientHeight)) * 100;
+                progressFill.style.width = Math.min(scrollPct, 100) + '%';
+                
+                // Update active link
+                const headers = article.querySelectorAll('h2[id]');
+                let activeId = '';
+                
+                headers.forEach(h => {
+                    if (h.offsetTop <= article.scrollTop + 100) {
+                        activeId = h.id;
+                    }
+                });
+                
+                links.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === '#' + activeId);
+                });
+            });
+            
+            // Click to scroll
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const id = link.getAttribute('href').slice(1);
+                    const target = article.querySelector('#' + id);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        }
+
+        // Event listeners
+        closeLesson.addEventListener('click', closeLesson_fn);
+        
+        // Close on escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLesson_fn();
+        });
+
+        // Click on lesson card
+        document.addEventListener('click', (e) => {
+            const card = e.target.closest('.lesson-card');
+            if (card) {
+                openLesson(card.dataset.lesson);
+            }
+        });
+
+        // Animate cards on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = (i * 0.1) + 's';
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.lesson-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Initialize first link as active
+        setTimeout(() => {
+            const firstLink = lessonSidebar.querySelector('.sidebar-link');
+            if (firstLink) firstLink.classList.add('active');
+        }, 100);
+    </script>
+</body>
+</html>

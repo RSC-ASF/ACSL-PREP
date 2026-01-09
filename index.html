@@ -52,7 +52,28 @@
 
         <div class="page-content">
             <div class="container">
-                <div class="contest-cards">
+                <!-- Carousel Navigation -->
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" id="prevBtn" aria-label="Previous contest">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="carousel-dots" id="carouselDots">
+                        <button class="carousel-dot active" data-index="0" aria-label="Contest 1"></button>
+                        <button class="carousel-dot" data-index="1" aria-label="Contest 2"></button>
+                        <button class="carousel-dot" data-index="2" aria-label="Contest 3"></button>
+                        <button class="carousel-dot" data-index="3" aria-label="Contest 4"></button>
+                    </div>
+                    <button class="carousel-btn next" id="nextBtn" aria-label="Next contest">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="carouselTrack">
                     <!-- Contest 1 -->
                     <div class="contest-card-full" data-contest="1">
                         <div class="contest-card-header">
@@ -242,6 +263,7 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -263,13 +285,110 @@
     </footer>
 
     <style>
+        /* Carousel Styles */
+        .carousel-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .carousel-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-full);
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel-btn:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .carousel-btn:active {
+            transform: scale(0.95);
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: var(--radius-full);
+            background: var(--border-color);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .carousel-dot::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: var(--radius-full);
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .carousel-dot:hover {
+            background: var(--text-secondary);
+        }
+
+        .carousel-dot.active {
+            background: var(--accent);
+            transform: scale(1.2);
+        }
+
+        .carousel-dot.active::before {
+            border-color: rgba(var(--accent-rgb), 0.3);
+        }
+
+        .carousel-wrapper {
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+
         .contest-card-full {
+            flex: 0 0 100%;
+            min-width: 100%;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: var(--radius-lg);
-            margin-bottom: var(--spacing-xl);
             overflow: hidden;
             transition: all var(--transition-normal);
+            animation: cardSlideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes cardSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .contest-card-full:hover {
@@ -438,14 +557,89 @@
                             const card = document.querySelector(`[data-contest="${i}"]`);
                             if (card) {
                                 const counts = card.querySelectorAll('.problem-count');
-                                if (counts[0]) counts[0].textContent = `${shortCompleted} / 10 completed`;
-                                if (counts[1]) counts[1].textContent = `${progCompleted} / 5 completed`;
+                                if (counts[1]) counts[1].textContent = `${shortCompleted} / 10 completed`;
+                                if (counts[2]) counts[2].textContent = `${progCompleted} / 5 completed`;
                             }
                         }
                     }
                 }
             }
         });
+
+        // Carousel functionality
+        const track = document.getElementById('carouselTrack');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+        const totalSlides = 4;
+
+        function updateCarousel(index, instant = false) {
+            if (instant) {
+                track.style.transition = 'none';
+            } else {
+                track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            }
+            track.style.transform = `translateX(-${index * 100}%)`;
+            
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            
+            currentIndex = index;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            const newIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
+            updateCarousel(newIndex);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const newIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
+            updateCarousel(newIndex);
+        });
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                updateCarousel(parseInt(dot.dataset.index));
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                const newIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
+                updateCarousel(newIndex);
+            } else if (e.key === 'ArrowRight') {
+                const newIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
+                updateCarousel(newIndex);
+            }
+        });
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        track.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    // Swipe left - next
+                    const newIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
+                    updateCarousel(newIndex);
+                } else {
+                    // Swipe right - prev
+                    const newIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
+                    updateCarousel(newIndex);
+                }
+            }
+        }, { passive: true });
     </script>
 </body>
 
