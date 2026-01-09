@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - ACSL Prep</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-icon">◆</span>
+                ACSL<span class="accent">Prep</span>
+            </a>
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="contests.html" class="nav-link">Contests</a>
+                <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+                <div id="auth-nav" class="auth-nav hidden">
+                    <button id="sign-in-btn" class="btn btn-primary">Sign In</button>
+                </div>
+                <div id="user-nav" class="user-nav">
+                    <a href="profile.html" class="nav-link profile-link active">
+                        <img id="user-avatar" src="" alt="Profile" class="user-avatar">
+                        <span id="user-name"></span>
+                    </a>
+                    <button id="sign-out-btn" class="btn btn-secondary">Sign Out</button>
+                </div>
+            </div>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="page-content" style="padding-top: calc(80px + var(--spacing-2xl));">
+            <div class="container">
+                <!-- Not signed in message -->
+                <div id="not-signed-in" class="card hidden" style="text-align: center; padding: var(--spacing-3xl);">
+                    <h2>Please Sign In</h2>
+                    <p style="color: var(--text-secondary); margin: var(--spacing-lg) 0;">
+                        You need to sign in to view your profile
+                    </p>
+                    <button id="profile-sign-in-btn" class="btn btn-primary btn-large">
+                        Sign In with Google
+                    </button>
+                </div>
+
+                <!-- Profile Content (shown when signed in) -->
+                <div id="profile-content" class="hidden">
+                    <!-- Profile Header -->
+                    <div class="profile-header">
+                        <img id="profile-avatar" src="" alt="Profile" class="profile-avatar">
+                        <div class="profile-info">
+                            <h1 id="profile-name">Loading...</h1>
+                            <p id="profile-email">loading@example.com</p>
+                            <p id="member-since" style="font-size: 0.75rem; margin-top: var(--spacing-xs);">
+                                Member since -
+                            </p>
+                        </div>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <span class="stat-number" id="total-completed">0</span>
+                                <span class="stat-label">Completed</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" id="global-rank">-</span>
+                                <span class="stat-label">Rank</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Progress Overview -->
+                    <div class="card" style="margin-bottom: var(--spacing-xl);">
+                        <div class="card-header">
+                            <h3>Progress Overview</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <span class="stat-number accent" id="short-completed">0</span>
+                                    <span class="stat-label">Short Problems</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="stat-number accent" id="prog-completed">0</span>
+                                    <span class="stat-label">Programming Problems</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="stat-number accent" id="contests-started">0</span>
+                                    <span class="stat-label">Contests Started</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="stat-number accent" id="completion-rate">0%</span>
+                                    <span class="stat-label">Completion Rate</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contest Progress -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Contest Progress</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="contest-progress-list" id="contest-progress-list">
+                                <!-- Contest progress items -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">◆</span> ACSL<span class="accent">Prep</span>
+                </div>
+                <p class="footer-text">Helping students master computer science competitions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .contest-progress-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .contest-progress-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+        }
+
+        .contest-progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .contest-progress-header h4 {
+            font-size: 1rem;
+        }
+
+        .contest-progress-header span {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .progress-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .progress-detail {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+        }
+
+        .progress-detail span:first-child {
+            color: var(--text-secondary);
+        }
+
+        .progress-detail span:last-child {
+            font-weight: 500;
+        }
+    </style>
+
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module" src="../js/auth.js"></script>
+    <script type="module">
+        import { signInWithGoogle, handleSignOut } from '../js/auth.js';
+        import { auth, db, doc, getDoc, collection, query, orderBy, getDocs } from '../js/firebase-config.js';
+        import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+
+        // Auth buttons
+        document.getElementById('sign-in-btn')?.addEventListener('click', signInWithGoogle);
+        document.getElementById('sign-out-btn')?.addEventListener('click', handleSignOut);
+        document.getElementById('profile-sign-in-btn')?.addEventListener('click', signInWithGoogle);
+
+        // Navigation toggle
+        document.getElementById('nav-toggle')?.addEventListener('click', () => {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Calculate global rank
+        async function getGlobalRank(userId) {
+            try {
+                const usersRef = collection(db, 'users');
+                const q = query(usersRef, orderBy('stats.totalProblemsCompleted', 'desc'));
+                const snapshot = await getDocs(q);
+
+                let rank = 1;
+                for (const doc of snapshot.docs) {
+                    if (doc.id === userId) {
+                        return rank;
+                    }
+                    rank++;
+                }
+                return '-';
+            } catch (error) {
+                console.error('Error getting rank:', error);
+                return '-';
+            }
+        }
+
+        // Load profile data
+        async function loadProfile(user) {
+            try {
+                const userDoc = await getDoc(doc(db, 'users', user.uid));
+
+                if (!userDoc.exists()) {
+                    console.error('User document not found');
+                    return;
+                }
+
+                const userData = userDoc.data();
+                const progress = userData.progress || {};
+                const stats = userData.stats || {};
+
+                // Update profile header
+                document.getElementById('profile-avatar').src = userData.photoURL || user.photoURL || 'https://via.placeholder.com/100';
+                document.getElementById('profile-name').textContent = userData.displayName || user.displayName || 'Anonymous';
+                document.getElementById('profile-email').textContent = userData.email || user.email || '';
+
+                // Member since
+                if (userData.createdAt) {
+                    const date = userData.createdAt.toDate();
+                    document.getElementById('member-since').textContent = `Member since ${date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`;
+                }
+
+                // Stats
+                const totalCompleted = stats.totalProblemsCompleted || 0;
+                const shortCompleted = stats.shortProblemsCompleted || 0;
+                const progCompleted = stats.programmingProblemsCompleted || 0;
+
+                document.getElementById('total-completed').textContent = totalCompleted;
+                document.getElementById('short-completed').textContent = shortCompleted;
+                document.getElementById('prog-completed').textContent = progCompleted;
+
+                // Calculate contests started
+                let contestsStarted = 0;
+                for (let i = 1; i <= 4; i++) {
+                    const cp = progress[`contest${i}`];
+                    if (cp && ((cp.short && cp.short.length > 0) || (cp.programming && cp.programming.length > 0))) {
+                        contestsStarted++;
+                    }
+                }
+                document.getElementById('contests-started').textContent = contestsStarted;
+
+                // Completion rate (out of 60 total problems: 4 contests × 15 problems each)
+                const totalProblems = 60;
+                const completionRate = Math.round((totalCompleted / totalProblems) * 100);
+                document.getElementById('completion-rate').textContent = `${completionRate}%`;
+
+                // Global rank
+                const rank = await getGlobalRank(user.uid);
+                document.getElementById('global-rank').textContent = `#${rank}`;
+
+                // Contest progress
+                const contestNames = {
+                    1: 'Number Systems, Recursion, WDTPD',
+                    2: 'Prefix/Postfix, Bit-Strings, LISP',
+                    3: 'Boolean Algebra, Data Structures, FSAs',
+                    4: 'Graph Theory, Digital Electronics, Assembly'
+                };
+
+                const progressList = document.getElementById('contest-progress-list');
+                progressList.innerHTML = '';
+
+                for (let i = 1; i <= 4; i++) {
+                    const cp = progress[`contest${i}`] || { short: [], programming: [] };
+                    const shortCount = cp.short?.length || 0;
+                    const progCount = cp.programming?.length || 0;
+                    const total = shortCount + progCount;
+                    const maxTotal = 15; // 10 short + 5 programming
+                    const percent = Math.round((total / maxTotal) * 100);
+
+                    progressList.innerHTML += `
+                        <div class="contest-progress-item">
+                            <div class="contest-progress-header">
+                                <h4>Contest ${i}</h4>
+                                <span>${total} / ${maxTotal} problems (${percent}%)</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: ${percent}%"></div>
+                            </div>
+                            <div class="progress-details">
+                                <div class="progress-detail">
+                                    <span>Short Problems</span>
+                                    <span>${shortCount} / 10</span>
+                                </div>
+                                <div class="progress-detail">
+                                    <span>Programming</span>
+                                    <span>${progCount} / 5</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+            } catch (error) {
+                console.error('Error loading profile:', error);
+            }
+        }
+
+        // Auth state listener
+        onAuthStateChanged(auth, (user) => {
+            const notSignedIn = document.getElementById('not-signed-in');
+            const profileContent = document.getElementById('profile-content');
+            const authNav = document.getElementById('auth-nav');
+            const userNav = document.getElementById('user-nav');
+
+            if (user) {
+                notSignedIn.classList.add('hidden');
+                profileContent.classList.remove('hidden');
+                authNav.classList.add('hidden');
+                userNav.classList.remove('hidden');
+
+                // Update nav avatar
+                document.getElementById('user-avatar').src = user.photoURL || 'https://via.placeholder.com/32';
+                document.getElementById('user-name').textContent = user.displayName?.split(' ')[0] || 'User';
+
+                loadProfile(user);
+            } else {
+                notSignedIn.classList.remove('hidden');
+                profileContent.classList.add('hidden');
+                authNav.classList.remove('hidden');
+                userNav.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>

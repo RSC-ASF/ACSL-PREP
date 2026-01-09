@@ -1,0 +1,42 @@
+{
+    "id": 1,
+    "title": "Binary to Decimal Conversion",
+    "difficulty": "Easy",
+    "statement": "# Binary to Decimal Conversion\n\nWrite a program that converts a binary number (base 2) to its decimal (base 10) equivalent.\n\n## Problem Description\n\nGiven a binary string consisting of only '0' and '1' characters, convert it to its decimal representation.\n\nFor example, the binary number `1011` represents:\n- 1 × 2³ + 0 × 2² + 1 × 2¹ + 1 × 2⁰\n- = 8 + 0 + 2 + 1\n- = 11 in decimal\n\n## Input Format\n\nA single line containing a binary string (1 to 20 characters).\n\n## Output Format\n\nA single integer representing the decimal equivalent.\n\n## Constraints\n\n- The binary string will contain only '0' and '1' characters\n- The length of the string is between 1 and 20\n- The result will fit in a 64-bit signed integer",
+    "examples": [
+        {
+            "input": "1011",
+            "output": "11"
+        },
+        {
+            "input": "11111111",
+            "output": "255"
+        },
+        {
+            "input": "1",
+            "output": "1"
+        }
+    ],
+    "testCases": [
+        {
+            "input": "1011",
+            "output": "11"
+        },
+        {
+            "input": "11111111",
+            "output": "255"
+        },
+        {
+            "input": "1",
+            "output": "1"
+        },
+        {
+            "input": "0",
+            "output": "0"
+        },
+        {
+            "input": "10000000000",
+            "output": "1024"
+        }
+    ]
+}

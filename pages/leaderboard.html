@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - ACSL Prep</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-icon">◆</span>
+                ACSL<span class="accent">Prep</span>
+            </a>
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="contests.html" class="nav-link">Contests</a>
+                <a href="leaderboard.html" class="nav-link active">Leaderboard</a>
+                <div id="auth-nav" class="auth-nav">
+                    <button id="sign-in-btn" class="btn btn-primary">Sign In</button>
+                </div>
+                <div id="user-nav" class="user-nav hidden">
+                    <a href="profile.html" class="nav-link profile-link">
+                        <img id="user-avatar" src="" alt="Profile" class="user-avatar">
+                        <span id="user-name"></span>
+                    </a>
+                    <button id="sign-out-btn" class="btn btn-secondary">Sign Out</button>
+                </div>
+            </div>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="page-header">
+            <div class="container">
+                <h1>Global <span class="accent">Leaderboard</span></h1>
+                <p>See how you compare to other ACSL Prep users</p>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="container">
+                <!-- Stats Cards -->
+                <div class="stats-grid" style="margin-bottom: var(--spacing-2xl);">
+                    <div class="stat-card">
+                        <span class="stat-number" id="total-users">0</span>
+                        <span class="stat-label">Total Users</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="total-solved">0</span>
+                        <span class="stat-label">Problems Solved</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="your-rank">-</span>
+                        <span class="stat-label">Your Rank</span>
+                    </div>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="tabs">
+                    <button class="tab active" data-filter="all">All Time</button>
+                    <button class="tab" data-filter="contest1">Contest 1</button>
+                    <button class="tab" data-filter="contest2">Contest 2</button>
+                    <button class="tab" data-filter="contest3">Contest 3</button>
+                    <button class="tab" data-filter="contest4">Contest 4</button>
+                </div>
+
+                <!-- Leaderboard Table -->
+                <div class="card">
+                    <div class="card-body" style="padding: 0;">
+                        <table class="leaderboard-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 60px;">Rank</th>
+                                    <th>User</th>
+                                    <th style="width: 120px;">Problems</th>
+                                    <th style="width: 120px;">Short</th>
+                                    <th style="width: 120px;">Programming</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leaderboard-body">
+                                <tr>
+                                    <td colspan="5" class="text-center" style="padding: var(--spacing-2xl);">
+                                        Loading leaderboard...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">◆</span> ACSL<span class="accent">Prep</span>
+                </div>
+                <p class="footer-text">Helping students master computer science competitions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module" src="../js/auth.js"></script>
+    <script type="module">
+        import { signInWithGoogle, handleSignOut } from '../js/auth.js';
+        import { auth, db, collection, query, orderBy, limit, getDocs } from '../js/firebase-config.js';
+        import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+
+        let currentUser = null;
+        let allUsers = [];
+        let currentFilter = 'all';
+
+        // Auth buttons
+        document.getElementById('sign-in-btn')?.addEventListener('click', signInWithGoogle);
+        document.getElementById('sign-out-btn')?.addEventListener('click', handleSignOut);
+
+        // Navigation toggle
+        document.getElementById('nav-toggle')?.addEventListener('click', () => {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Tab filtering
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentFilter = tab.dataset.filter;
+                renderLeaderboard();
+            });
+        });
+
+        // Calculate user score based on filter
+        function calculateScore(userData, filter) {
+            if (!userData.progress) return 0;
+
+            if (filter === 'all') {
+                return userData.stats?.totalProblemsCompleted || 0;
+            } else {
+                const contestProgress = userData.progress[filter];
+                if (!contestProgress) return 0;
+                return (contestProgress.short?.length || 0) + (contestProgress.programming?.length || 0);
+            }
+        }
+
+        // Calculate short problems count
+        function getShortCount(userData, filter) {
+            if (!userData.progress) return 0;
+
+            if (filter === 'all') {
+                return userData.stats?.shortProblemsCompleted || 0;
+            } else {
+                return userData.progress[filter]?.short?.length || 0;
+            }
+        }
+
+        // Calculate programming problems count
+        function getProgrammingCount(userData, filter) {
+            if (!userData.progress) return 0;
+
+            if (filter === 'all') {
+                return userData.stats?.programmingProblemsCompleted || 0;
+            } else {
+                return userData.progress[filter]?.programming?.length || 0;
+            }
+        }
+
+        // Render leaderboard
+        function renderLeaderboard() {
+            const tbody = document.getElementById('leaderboard-body');
+
+            // Sort users by score
+            const sortedUsers = [...allUsers].map(user => ({
+                ...user,
+                score: calculateScore(user, currentFilter),
+                shortCount: getShortCount(user, currentFilter),
+                progCount: getProgrammingCount(user, currentFilter)
+            })).sort((a, b) => b.score - a.score);
+
+            if (sortedUsers.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="5" class="text-center" style="padding: var(--spacing-2xl);">
+                            No users yet. Be the first to join!
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            // Update stats
+            document.getElementById('total-users').textContent = sortedUsers.length;
+            document.getElementById('total-solved').textContent = sortedUsers.reduce((sum, u) => sum + u.score, 0);
+
+            // Find current user's rank
+            if (currentUser) {
+                const userIndex = sortedUsers.findIndex(u => u.uid === currentUser.uid);
+                document.getElementById('your-rank').textContent = userIndex >= 0 ? `#${userIndex + 1}` : '-';
+            }
+
+            // Render rows
+            tbody.innerHTML = sortedUsers.map((user, index) => {
+                const rank = index + 1;
+                let rankClass = 'rank-default';
+                if (rank === 1) rankClass = 'rank-1';
+                else if (rank === 2) rankClass = 'rank-2';
+                else if (rank === 3) rankClass = 'rank-3';
+
+                const isCurrentUser = currentUser && user.uid === currentUser.uid;
+
+                return `
+                    <tr style="${isCurrentUser ? 'background: rgba(239, 68, 68, 0.1);' : ''}">
+                        <td>
+                            <span class="rank-badge ${rankClass}">${rank}</span>
+                        </td>
+                        <td>
+                            <div class="user-cell">
+                                <img src="${user.photoURL || 'https://via.placeholder.com/36'}" alt="${user.displayName}">
+                                <div>
+                                    <strong>${user.displayName || 'Anonymous'}${isCurrentUser ? ' (You)' : ''}</strong>
+                                </div>
+                            </div>
+                        </td>
+                        <td><strong>${user.score}</strong></td>
+                        <td>${user.shortCount}</td>
+                        <td>${user.progCount}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Load leaderboard data
+        async function loadLeaderboard() {
+            try {
+                const usersRef = collection(db, 'users');
+                const q = query(usersRef, orderBy('stats.totalProblemsCompleted', 'desc'), limit(100));
+                const snapshot = await getDocs(q);
+
+                allUsers = [];
+                snapshot.forEach(doc => {
+                    allUsers.push({ uid: doc.id, ...doc.data() });
+                });
+
+                renderLeaderboard();
+            } catch (error) {
+                console.error('Error loading leaderboard:', error);
+                document.getElementById('leaderboard-body').innerHTML = `
+                    <tr>
+                        <td colspan="5" class="text-center" style="padding: var(--spacing-2xl);">
+                            Error loading leaderboard. Please try again later.
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+
+        // Auth state listener
+        onAuthStateChanged(auth, (user) => {
+            currentUser = user;
+            loadLeaderboard();
+        });
+
+        // Initial load
+        loadLeaderboard();
+    </script>
+</body>
+
+</html>

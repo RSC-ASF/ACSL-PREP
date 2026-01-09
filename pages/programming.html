@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Problems - ACSL Prep</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- CodeMirror for code editing -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/dracula.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-icon">◆</span>
+                ACSL<span class="accent">Prep</span>
+            </a>
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="contests.html" class="nav-link">Contests</a>
+                <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+                <div id="auth-nav" class="auth-nav">
+                    <button id="sign-in-btn" class="btn btn-primary">Sign In</button>
+                </div>
+                <div id="user-nav" class="user-nav hidden">
+                    <a href="profile.html" class="nav-link profile-link">
+                        <img id="user-avatar" src="" alt="Profile" class="user-avatar">
+                        <span id="user-name"></span>
+                    </a>
+                    <button id="sign-out-btn" class="btn btn-secondary">Sign Out</button>
+                </div>
+            </div>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Problem Navigation Bar -->
+    <div class="problem-nav">
+        <div class="problem-nav-info">
+            <a href="contests.html" class="btn btn-secondary btn-small">← Back</a>
+            <span id="contest-title">Contest 1 - Programming</span>
+        </div>
+        <div class="problem-nav-dots" id="problem-dots">
+            <!-- Dots generated dynamically -->
+        </div>
+        <div class="problem-nav-controls">
+            <button id="prev-btn" class="btn btn-secondary btn-small" disabled>Previous</button>
+            <span id="problem-counter">1 / 5</span>
+            <button id="next-btn" class="btn btn-secondary btn-small">Next</button>
+        </div>
+    </div>
+
+    <div class="page-container" style="padding-top: 120px;">
+        <div class="page-content">
+            <div class="container">
+                <div class="programming-layout">
+                    <!-- Problem Statement Panel -->
+                    <div class="problem-panel problem-statement-panel">
+                        <div class="problem-header">
+                            <h3>Problem <span id="problem-number">1</span></h3>
+                            <span id="problem-status" class="problem-status">Not Attempted</span>
+                        </div>
+                        <div class="problem-content" id="problem-statement">
+                            <div class="loading-placeholder">
+                                <p>Loading problem statement...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Code Editor Panel -->
+                    <div class="problem-panel code-panel">
+                        <div class="editor-toolbar">
+                            <div class="toolbar-left">
+                                <select id="language-select" class="language-select">
+                                    <option value="python">Python</option>
+                                    <option value="java">Java</option>
+                                    <option value="cpp">C++</option>
+                                </select>
+                            </div>
+                            <div class="toolbar-right">
+                                <button id="reset-btn" class="btn btn-secondary btn-small">Reset</button>
+                                <button id="run-btn" class="btn btn-primary btn-small">▶ Run Code</button>
+                            </div>
+                        </div>
+                        <div class="editor-container">
+                            <textarea id="code-editor"></textarea>
+                        </div>
+                        <div class="output-panel">
+                            <div class="output-header">
+                                <span>Output</span>
+                                <span id="test-results"></span>
+                            </div>
+                            <div class="output-content" id="output-content">
+                                Click "Run Code" to test your solution
+                            </div>
+                        </div>
+                        <div class="submit-panel">
+                            <button id="submit-btn" class="btn btn-primary" style="width: 100%;">
+                                Submit Solution
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .programming-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            height: calc(100vh - 180px);
+            min-height: 600px;
+        }
+
+        @media (max-width: 1024px) {
+            .programming-layout {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+        }
+
+        .problem-statement-panel .problem-content {
+            padding: var(--spacing-xl);
+            overflow-y: auto;
+        }
+
+        .problem-statement-panel h1 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+
+        .problem-statement-panel h2 {
+            font-size: 1.125rem;
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-sm);
+            color: var(--accent);
+        }
+
+        .problem-statement-panel p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.7;
+        }
+
+        .problem-statement-panel pre {
+            background: var(--bg-tertiary);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            margin-bottom: var(--spacing-md);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.875rem;
+        }
+
+        .problem-statement-panel code {
+            font-family: 'Fira Code', monospace;
+            background: var(--bg-tertiary);
+            padding: 2px 6px;
+            border-radius: var(--radius-sm);
+            font-size: 0.875em;
+        }
+
+        .code-panel {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .editor-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .toolbar-left,
+        .toolbar-right {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .language-select {
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-size: 0.875rem;
+        }
+
+        .editor-container {
+            flex: 1;
+            min-height: 300px;
+            overflow: hidden;
+        }
+
+        .CodeMirror {
+            height: 100% !important;
+            font-family: 'Fira Code', monospace !important;
+            font-size: 14px !important;
+        }
+
+        .output-panel {
+            border-top: 1px solid var(--border-color);
+            max-height: 150px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .output-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--bg-tertiary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        #test-results {
+            font-weight: 500;
+        }
+
+        #test-results.pass {
+            color: var(--success);
+        }
+
+        #test-results.fail {
+            color: var(--error);
+        }
+
+        .output-content {
+            flex: 1;
+            padding: var(--spacing-md);
+            background: var(--bg-primary);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            color: var(--text-secondary);
+        }
+
+        .submit-panel {
+            padding: var(--spacing-md);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .example-box {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .example-box h4 {
+            font-size: 0.875rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-secondary);
+        }
+
+        .loading-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            color: var(--text-muted);
+        }
+    </style>
+
+    <!-- CodeMirror -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/clike/clike.min.js"></script>
+    <!-- Marked for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module" src="../js/auth.js"></script>
+    <script type="module">
+        import { signInWithGoogle, handleSignOut, showToast, getCurrentUser } from '../js/auth.js';
+        import { auth, db, doc, getDoc, updateDoc } from '../js/firebase-config.js';
+        import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        import { arrayUnion } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+        // Get contest number from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const contestNum = urlParams.get('contest') || '1';
+        const totalProblems = 5;
+        let currentProblem = 1;
+        let completedProblems = [];
+        let currentUser = null;
+        let editor = null;
+        let problems = {};
+
+        // Starter code templates
+        const starterCode = {
+            python: `# Write your Python solution here
+def solve():
+    # Your code here
+    pass
+
+# Read input
+# n = int(input())
+# Process and print output
+solve()
+`,
+            java: `import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // Your code here
+        
+        sc.close();
+    }
+}
+`,
+            cpp: `#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+    // Your code here
+    
+    return 0;
+}
+`
+        };
+
+        // Language modes for CodeMirror
+        const languageModes = {
+            python: 'python',
+            java: 'text/x-java',
+            cpp: 'text/x-c++src'
+        };
+
+        // Initialize CodeMirror
+        function initEditor() {
+            const textarea = document.getElementById('code-editor');
+            editor = CodeMirror.fromTextArea(textarea, {
+                mode: languageModes.python,
+                theme: 'dracula',
+                lineNumbers: true,
+                indentUnit: 4,
+                tabSize: 4,
+                indentWithTabs: false,
+                autoCloseBrackets: true,
+                matchBrackets: true,
+                lineWrapping: true
+            });
+            editor.setValue(starterCode.python);
+        }
+
+        // Update page title
+        document.getElementById('contest-title').textContent = `Contest ${contestNum} - Programming`;
+        document.title = `Contest ${contestNum} Programming - ACSL Prep`;
+
+        // Auth buttons
+        document.getElementById('sign-in-btn')?.addEventListener('click', signInWithGoogle);
+        document.getElementById('sign-out-btn')?.addEventListener('click', handleSignOut);
+
+        // Navigation toggle
+        document.getElementById('nav-toggle')?.addEventListener('click', () => {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Language selector
+        document.getElementById('language-select').addEventListener('change', (e) => {
+            const lang = e.target.value;
+            editor.setOption('mode', languageModes[lang]);
+            editor.setValue(starterCode[lang]);
+        });
+
+        // Reset button
+        document.getElementById('reset-btn').addEventListener('click', () => {
+            const lang = document.getElementById('language-select').value;
+            editor.setValue(starterCode[lang]);
+        });
+
+        // Generate problem dots
+        function generateDots() {
+            const dotsContainer = document.getElementById('problem-dots');
+            dotsContainer.innerHTML = '';
+            for (let i = 1; i <= totalProblems; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'nav-dot';
+                if (i === currentProblem) dot.classList.add('active');
+                if (completedProblems.includes(i)) dot.classList.add('completed');
+                dot.addEventListener('click', () => loadProblem(i));
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        // Load problem from JSON file
+        async function loadProblem(num) {
+            currentProblem = num;
+
+            // Update UI
+            document.getElementById('problem-number').textContent = num;
+            document.getElementById('problem-counter').textContent = `${num} / ${totalProblems}`;
+            document.getElementById('prev-btn').disabled = num === 1;
+            document.getElementById('next-btn').disabled = num === totalProblems;
+
+            // Update dots
+            document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i + 1 === num);
+            });
+
+            // Load problem statement
+            const statementEl = document.getElementById('problem-statement');
+            try {
+                const response = await fetch(`../problems/contest${contestNum}/programming/${num}.json`);
+                if (response.ok) {
+                    const problemData = await response.json();
+                    problems[num] = problemData;
+
+                    // Render markdown content
+                    statementEl.innerHTML = marked.parse(problemData.statement);
+
+                    // Add examples section
+                    if (problemData.examples && problemData.examples.length > 0) {
+                        let examplesHtml = '<h2>Examples</h2>';
+                        problemData.examples.forEach((ex, i) => {
+                            examplesHtml += `
+                                <div class="example-box">
+                                    <h4>Example ${i + 1}</h4>
+                                    <p><strong>Input:</strong></p>
+                                    <pre>${ex.input}</pre>
+                                    <p><strong>Output:</strong></p>
+                                    <pre>${ex.output}</pre>
+                                </div>
+                            `;
+                        });
+                        statementEl.innerHTML += examplesHtml;
+                    }
+                } else {
+                    statementEl.innerHTML = `
+                        <div class="loading-placeholder">
+                            <div>
+                                <h3>Problem ${num}</h3>
+                                <p style="color: var(--text-muted);">Problem not yet added.</p>
+                                <p style="color: var(--text-muted); font-size: 0.75rem;">
+                                    Add problem JSON to: problems/contest${contestNum}/programming/${num}.json
+                                </p>
+                            </div>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error loading problem:', error);
+                statementEl.innerHTML = `
+                    <div class="loading-placeholder">
+                        <p>Error loading problem statement</p>
+                    </div>
+                `;
+            }
+
+            // Reset editor to current language starter
+            const lang = document.getElementById('language-select').value;
+            editor.setValue(starterCode[lang]);
+
+            // Clear output
+            document.getElementById('output-content').textContent = 'Click "Run Code" to test your solution';
+            document.getElementById('test-results').textContent = '';
+            document.getElementById('test-results').className = '';
+
+            // Update status
+            const isCompleted = completedProblems.includes(num);
+            const statusEl = document.getElementById('problem-status');
+            statusEl.textContent = isCompleted ? 'Completed' : 'Not Attempted';
+            statusEl.className = 'problem-status' + (isCompleted ? ' completed' : '');
+        }
+
+        // Run code (using Piston API for execution)
+        document.getElementById('run-btn').addEventListener('click', async () => {
+            const code = editor.getValue();
+            const lang = document.getElementById('language-select').value;
+            const outputEl = document.getElementById('output-content');
+            const resultsEl = document.getElementById('test-results');
+
+            outputEl.textContent = 'Running...';
+            resultsEl.textContent = '';
+            resultsEl.className = '';
+
+            // Map language to Piston API language names
+            const pistonLangs = {
+                python: { language: 'python', version: '3.10.0' },
+                java: { language: 'java', version: '15.0.2' },
+                cpp: { language: 'cpp', version: '10.2.0' }
+            };
+
+            const problem = problems[currentProblem];
+            const examples = problem?.examples || [{ input: '', output: '' }];
+
+            let allPassed = true;
+            let output = '';
+
+            for (let i = 0; i < examples.length; i++) {
+                const example = examples[i];
+
+                try {
+                    const response = await fetch('https://emkc.org/api/v2/piston/execute', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            language: pistonLangs[lang].language,
+                            version: pistonLangs[lang].version,
+                            files: [{ content: code }],
+                            stdin: example.input
+                        })
+                    });
+
+                    const result = await response.json();
+
+                    if (result.run) {
+                        const actualOutput = (result.run.stdout || '').trim();
+                        const expectedOutput = (example.output || '').trim();
+                        const passed = actualOutput === expectedOutput;
+
+                        if (!passed) allPassed = false;
+
+                        output += `--- Test ${i + 1} ${passed ? '✓ PASS' : '✗ FAIL'} ---\n`;
+                        output += `Input:\n${example.input}\n`;
+                        output += `Expected:\n${expectedOutput}\n`;
+                        output += `Got:\n${actualOutput}\n`;
+                        if (result.run.stderr) {
+                            output += `Errors:\n${result.run.stderr}\n`;
+                        }
+                        output += '\n';
+                    } else if (result.message) {
+                        output += `Error: ${result.message}\n`;
+                        allPassed = false;
+                    }
+                } catch (error) {
+                    output += `Test ${i + 1}: Error executing code\n`;
+                    allPassed = false;
+                }
+            }
+
+            outputEl.textContent = output;
+            resultsEl.textContent = allPassed ? 'All tests passed!' : 'Some tests failed';
+            resultsEl.className = allPassed ? 'pass' : 'fail';
+        });
+
+        // Submit solution
+        document.getElementById('submit-btn').addEventListener('click', async () => {
+            if (!currentUser) {
+                showToast('Please sign in to submit solutions', 'error');
+                return;
+            }
+
+            // Run tests first
+            document.getElementById('run-btn').click();
+
+            // Wait for tests to complete
+            await new Promise(resolve => setTimeout(resolve, 2000));
+
+            const resultsEl = document.getElementById('test-results');
+            if (resultsEl.classList.contains('pass')) {
+                if (!completedProblems.includes(currentProblem)) {
+                    completedProblems.push(currentProblem);
+
+                    // Update Firestore
+                    try {
+                        const userRef = doc(db, 'users', currentUser.uid);
+                        const userData = (await getDoc(userRef)).data();
+                        await updateDoc(userRef, {
+                            [`progress.contest${contestNum}.programming`]: arrayUnion(currentProblem),
+                            'stats.totalProblemsCompleted': userData.stats.totalProblemsCompleted + 1,
+                            'stats.programmingProblemsCompleted': userData.stats.programmingProblemsCompleted + 1
+                        });
+
+                        showToast('Solution accepted! Progress saved.', 'success');
+                        generateDots();
+
+                        // Update status
+                        const statusEl = document.getElementById('problem-status');
+                        statusEl.textContent = 'Completed';
+                        statusEl.classList.add('completed');
+                    } catch (error) {
+                        console.error('Error saving progress:', error);
+                        showToast('Error saving progress', 'error');
+                    }
+                } else {
+                    showToast('Already completed!', 'info');
+                }
+            } else {
+                showToast('Please fix failing tests before submitting', 'error');
+            }
+        });
+
+        // Navigation
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            if (currentProblem > 1) loadProblem(currentProblem - 1);
+        });
+
+        document.getElementById('next-btn').addEventListener('click', () => {
+            if (currentProblem < totalProblems) loadProblem(currentProblem + 1);
+        });
+
+        // Auth state listener
+        onAuthStateChanged(auth, async (user) => {
+            currentUser = user;
+            if (user) {
+                const userDoc = await getDoc(doc(db, 'users', user.uid));
+                if (userDoc.exists()) {
+                    const progress = userDoc.data().progress;
+                    completedProblems = progress[`contest${contestNum}`]?.programming || [];
+                    generateDots();
+                    loadProblem(currentProblem);
+                }
+            } else {
+                completedProblems = [];
+                generateDots();
+                loadProblem(currentProblem);
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            initEditor();
+            generateDots();
+            loadProblem(1);
+        });
+
+        initEditor();
+        generateDots();
+        loadProblem(1);
+    </script>
+</body>
+
+</html>
