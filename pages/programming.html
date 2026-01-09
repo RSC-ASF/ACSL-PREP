@@ -299,9 +299,10 @@
         import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
         import { arrayUnion } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
-        // Get contest number from URL
+        // Get contest number and division from URL
         const urlParams = new URLSearchParams(window.location.search);
         const contestNum = urlParams.get('contest') || '1';
+        const division = urlParams.get('division') || 'senior';
         const totalProblems = 5;
         let currentProblem = 1;
         let completedProblems = [];
@@ -370,7 +371,7 @@ int main() {
         }
 
         // Update page title
-        document.getElementById('contest-title').textContent = `Contest ${contestNum} - Programming`;
+        document.getElementById('contest-title').textContent = `Contest ${contestNum} - ${division.charAt(0).toUpperCase() + division.slice(1)} - Programming`;
         document.title = `Contest ${contestNum} Programming - ACSL Prep`;
 
         // Auth buttons

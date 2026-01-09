@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,20 +8,25 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+
 <body class="lessons-page">
     <nav class="navbar">
         <div class="nav-container">
-            <a href="../index.html" class="nav-logo"><span class="logo-icon">◆</span>ACSL<span class="accent">Prep</span></a>
+            <a href="../index.html" class="nav-logo"><span class="logo-icon">◆</span>ACSL<span
+                    class="accent">Prep</span></a>
             <div class="nav-menu">
                 <a href="../index.html" class="nav-link">Home</a>
                 <a href="leaderboard.html" class="nav-link">Leaderboard</a>
-                <div id="auth-nav" class="auth-nav"><button id="sign-in-btn" class="btn btn-primary">Sign In</button></div>
+                <div id="auth-nav" class="auth-nav"><button id="sign-in-btn" class="btn btn-primary">Sign In</button>
+                </div>
                 <div id="user-nav" class="user-nav hidden">
-                    <a href="profile.html" class="nav-link profile-link"><img id="user-avatar" src="" alt="Profile" class="user-avatar"><span id="user-name"></span></a>
+                    <a href="profile.html" class="nav-link profile-link"><img id="user-avatar" src="" alt="Profile"
+                            class="user-avatar"><span id="user-name"></span></a>
                     <button id="sign-out-btn" class="btn btn-secondary">Sign Out</button>
                 </div>
             </div>
@@ -37,7 +43,10 @@
             </a>
             <div class="header-row">
                 <div class="header-info">
-                    <span class="contest-badge" id="contest-badge">Contest 1</span>
+                    <div class="badge-row">
+                        <span class="contest-badge" id="contest-badge">Contest 1</span>
+                        <span class="division-badge" id="division-badge">Senior</span>
+                    </div>
                     <h1 id="page-title">Lessons</h1>
                     <p class="header-description" id="header-description">Select a topic to start learning</p>
                 </div>
@@ -84,7 +93,9 @@
     </footer>
 
     <style>
-        .lessons-page { overflow-x: hidden; }
+        .lessons-page {
+            overflow-x: hidden;
+        }
 
         /* Minimal Header */
         .lessons-header {
@@ -102,8 +113,14 @@
             margin-bottom: 1.5rem;
             transition: all 0.2s ease;
         }
-        .back-link:hover { color: var(--accent); }
-        .back-link .material-icons { font-size: 20px; }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        .back-link .material-icons {
+            font-size: 20px;
+        }
 
         .header-row {
             display: flex;
@@ -122,7 +139,38 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+        }
+
+        .badge-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             margin-bottom: 0.5rem;
+        }
+
+        .division-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 16px;
+            color: #3b82f6;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .division-badge.junior {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: rgba(34, 197, 94, 0.3);
+            color: #22c55e;
+        }
+
+        .division-badge.intermediate {
+            background: rgba(234, 179, 8, 0.1);
+            border-color: rgba(234, 179, 8, 0.3);
+            color: #eab308;
         }
 
         .header-info h1 {
@@ -158,22 +206,24 @@
             position: relative;
             overflow: hidden;
         }
+
         .lesson-card:hover {
             border-color: var(--accent);
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         }
 
         .lesson-card-icon {
             width: 48px;
             height: 48px;
             border-radius: 12px;
-            background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(239,68,68,0.05));
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.05));
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 1rem;
         }
+
         .lesson-card-icon .material-icons {
             font-size: 24px;
             color: var(--accent);
@@ -216,6 +266,7 @@
             transition: all 0.25s ease;
             color: var(--accent);
         }
+
         .lesson-card:hover .lesson-card-arrow {
             opacity: 1;
             transform: translateX(0);
@@ -231,6 +282,7 @@
             pointer-events: none;
             transition: opacity 0.3s ease;
         }
+
         .lesson-view.active {
             opacity: 1;
             pointer-events: all;
@@ -263,11 +315,15 @@
             border-radius: 8px;
             transition: all 0.2s ease;
         }
+
         .lesson-close:hover {
             background: var(--bg-tertiary);
             color: var(--text-primary);
         }
-        .lesson-close .material-icons { font-size: 20px; }
+
+        .lesson-close .material-icons {
+            font-size: 20px;
+        }
 
         .lesson-progress-bar {
             position: absolute;
@@ -310,8 +366,16 @@
             margin-bottom: 4px;
             transition: all 0.2s ease;
         }
-        .sidebar-link:hover { background: var(--bg-tertiary); color: var(--text-primary); }
-        .sidebar-link.active { background: rgba(239,68,68,0.1); color: var(--accent); }
+
+        .sidebar-link:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        .sidebar-link.active {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--accent);
+        }
 
         .lesson-main {
             flex: 1;
@@ -326,13 +390,45 @@
             line-height: 1.7;
         }
 
-        .lesson-article h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .lesson-article h2 { font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); }
-        .lesson-article h3 { font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.75rem; }
-        .lesson-article p { margin-bottom: 1rem; color: var(--text-secondary); }
-        .lesson-article strong { color: var(--text-primary); }
-        .lesson-article ul, .lesson-article ol { margin-bottom: 1rem; padding-left: 1.5rem; color: var(--text-secondary); }
-        .lesson-article li { margin-bottom: 0.5rem; }
+        .lesson-article h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .lesson-article h2 {
+            font-size: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .lesson-article h3 {
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .lesson-article p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .lesson-article strong {
+            color: var(--text-primary);
+        }
+
+        .lesson-article ul,
+        .lesson-article ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .lesson-article li {
+            margin-bottom: 0.5rem;
+        }
 
         .lesson-article code {
             background: var(--bg-tertiary);
@@ -351,6 +447,7 @@
             overflow-x: auto;
             margin: 1.25rem 0;
         }
+
         .lesson-article pre code {
             background: none;
             padding: 0;
@@ -365,26 +462,50 @@
             margin: 1.25rem 0;
             font-size: 0.9rem;
         }
-        .lesson-article th, .lesson-article td {
+
+        .lesson-article th,
+        .lesson-article td {
             padding: 10px 12px;
             text-align: left;
             border-bottom: 1px solid var(--border-color);
         }
-        .lesson-article th { font-weight: 600; color: var(--text-primary); }
-        .lesson-article td { color: var(--text-secondary); }
+
+        .lesson-article th {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .lesson-article td {
+            color: var(--text-secondary);
+        }
 
         /* Info Boxes */
         .info-box {
-            background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.05));
-            border: 1px solid rgba(59,130,246,0.2);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
+            border: 1px solid rgba(59, 130, 246, 0.2);
             border-left: 4px solid #3b82f6;
             border-radius: 8px;
             padding: 1rem 1.25rem;
             margin: 1.25rem 0;
         }
-        .info-box.tip { background: linear-gradient(135deg, rgba(34,197,94,0.1), rgba(34,197,94,0.05)); border-color: rgba(34,197,94,0.2); border-left-color: #22c55e; }
-        .info-box.warning { background: linear-gradient(135deg, rgba(234,179,8,0.1), rgba(234,179,8,0.05)); border-color: rgba(234,179,8,0.2); border-left-color: #eab308; }
-        .info-box.example { background: linear-gradient(135deg, rgba(239,68,68,0.1), rgba(239,68,68,0.05)); border-color: rgba(239,68,68,0.2); border-left-color: var(--accent); }
+
+        .info-box.tip {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05));
+            border-color: rgba(34, 197, 94, 0.2);
+            border-left-color: #22c55e;
+        }
+
+        .info-box.warning {
+            background: linear-gradient(135deg, rgba(234, 179, 8, 0.1), rgba(234, 179, 8, 0.05));
+            border-color: rgba(234, 179, 8, 0.2);
+            border-left-color: #eab308;
+        }
+
+        .info-box.example {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05));
+            border-color: rgba(239, 68, 68, 0.2);
+            border-left-color: var(--accent);
+        }
 
         .info-box-title {
             font-weight: 600;
@@ -394,15 +515,35 @@
             gap: 0.5rem;
             color: var(--text-primary);
         }
-        .info-box-title .material-icons { font-size: 18px; }
-        .info-box p { margin-bottom: 0; }
+
+        .info-box-title .material-icons {
+            font-size: 18px;
+        }
+
+        .info-box p {
+            margin-bottom: 0;
+        }
 
         @media (max-width: 768px) {
-            .lessons-header { padding: 80px 0 24px; }
-            .lessons-grid { grid-template-columns: 1fr; }
-            .lesson-sidebar { display: none; }
-            .lesson-main { padding: 1.5rem 1rem; }
-            .lesson-article h1 { font-size: 1.5rem; }
+            .lessons-header {
+                padding: 80px 0 24px;
+            }
+
+            .lessons-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lesson-sidebar {
+                display: none;
+            }
+
+            .lesson-main {
+                padding: 1.5rem 1rem;
+            }
+
+            .lesson-article h1 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 
@@ -413,8 +554,10 @@
 
         const urlParams = new URLSearchParams(window.location.search);
         const contestNum = urlParams.get('contest') || '1';
+        const division = urlParams.get('division') || 'senior';
 
-        const contestData = {
+        // Senior/Intermediate share the same topics
+        const seniorContestData = {
             '1': {
                 title: 'Fundamentals',
                 description: 'Computer Number Systems, Recursive Functions, and Program Tracing',
@@ -453,11 +596,58 @@
             }
         };
 
+        // Junior has WDTPD variants instead of LISP, FSAs, Assembly
+        const juniorContestData = {
+            '1': {
+                title: 'Fundamentals',
+                description: 'Computer Number Systems, Recursive Functions, and Program Tracing with Branching',
+                lessons: [
+                    { id: 'number-systems', icon: 'calculate', title: 'Computer Number Systems', description: 'Master binary, octal, decimal, and hexadecimal conversions', topics: ['Binary', 'Octal', 'Hexadecimal', 'Conversions'] },
+                    { id: 'recursive-functions', icon: 'replay', title: 'Recursive Functions', description: 'Understand recursion patterns and trace complex function calls', topics: ['Base Cases', 'Recursive Calls', 'Stack Tracing'] },
+                    { id: 'wdtpd-branching', icon: 'call_split', title: 'WDTPD: Branching', description: 'Trace programs with if/else conditionals and decision logic', topics: ['If-Else', 'Nested Conditionals', 'Boolean Logic', 'Decision Trees'] }
+                ]
+            },
+            '2': {
+                title: 'Notation & Looping',
+                description: 'Prefix/Postfix/Infix Notation, Bit-String Flicking, and Program Tracing with Loops',
+                lessons: [
+                    { id: 'notation', icon: 'functions', title: 'Expression Notation', description: 'Convert and evaluate expressions in prefix, infix, and postfix', topics: ['Infix', 'Prefix', 'Postfix', 'Stacks'] },
+                    { id: 'bit-string', icon: 'memory', title: 'Bit-String Flicking', description: 'Master bitwise operations and binary string manipulation', topics: ['AND', 'OR', 'XOR', 'Shifts'] },
+                    { id: 'wdtpd-looping', icon: 'loop', title: 'WDTPD: Looping', description: 'Trace programs with for loops, while loops, and iterations', topics: ['For Loops', 'While Loops', 'Loop Variables', 'Accumulation'] }
+                ]
+            },
+            '3': {
+                title: 'Logic & Arrays',
+                description: 'Boolean Algebra, Data Structures, and Program Tracing with Arrays',
+                lessons: [
+                    { id: 'boolean-algebra', icon: 'bolt', title: 'Boolean Algebra', description: 'Simplify expressions and apply logic laws', topics: ['AND', 'OR', 'NOT', 'De Morgan'] },
+                    { id: 'data-structures', icon: 'account_tree', title: 'Data Structures', description: 'Understand stacks, queues, trees, and their operations', topics: ['Stacks', 'Queues', 'Trees', 'Traversal'] },
+                    { id: 'wdtpd-arrays', icon: 'grid_view', title: 'WDTPD: Arrays', description: 'Trace programs that manipulate arrays and 2D grids', topics: ['Indexing', 'Iteration', '2D Arrays', 'Array Operations'] }
+                ]
+            },
+            '4': {
+                title: 'Graphs & Strings',
+                description: 'Graph Theory, Digital Electronics, and Program Tracing with Strings',
+                lessons: [
+                    { id: 'graph-theory', icon: 'hub', title: 'Graph Theory', description: 'Navigate vertices, edges, and graph algorithms', topics: ['Paths', 'Trees', 'Cycles', 'Algorithms'] },
+                    { id: 'digital-electronics', icon: 'electrical_services', title: 'Digital Electronics', description: 'Design circuits with logic gates', topics: ['Gates', 'Circuits', 'K-Maps', 'Truth Tables'] },
+                    { id: 'wdtpd-strings', icon: 'text_fields', title: 'WDTPD: Strings', description: 'Trace programs that manipulate and process strings', topics: ['Substrings', 'Concatenation', 'Character Operations', 'String Methods'] }
+                ]
+            }
+        };
+
+        // Select contest data based on division
+        const contestData = division === 'junior' ? juniorContestData : seniorContestData;
         const contest = contestData[contestNum];
-        
+
+        // Update header with division badge
         document.getElementById('contest-badge').textContent = 'Contest ' + contestNum;
         document.getElementById('page-title').textContent = contest.title;
         document.getElementById('header-description').textContent = contest.description;
+
+        const divisionBadge = document.getElementById('division-badge');
+        divisionBadge.textContent = division.charAt(0).toUpperCase() + division.slice(1);
+        divisionBadge.className = 'division-badge ' + division;
 
         const container = document.getElementById('lessons-container');
         container.innerHTML = contest.lessons.map(lesson => `
@@ -571,6 +761,232 @@ Result: 11001₂</code></pre>
                         <p>Fibonacci has TWO recursive calls - this creates a tree, not a chain!</p>
                     </div>
                 `
+            },
+            'wdtpd-branching': {
+                title: 'WDTPD: Branching',
+                subtitle: 'Trace programs with if/else conditionals and decision logic',
+                sections: [
+                    { id: 'intro', title: 'Introduction' },
+                    { id: 'if-else', title: 'If-Else Statements' },
+                    { id: 'nested', title: 'Nested Conditionals' },
+                    { id: 'tips', title: 'Tracing Tips' },
+                    { id: 'practice', title: 'Practice' }
+                ],
+                content: \`
+                    <h2 id="intro">What Does This Program Do?</h2>
+                    <p>WDTPD problems ask you to trace through code and determine what it outputs. Branching focuses on if/else statements.</p>
+                    <div class="info-box">
+                        <div class="info-box-title"><span class="material-icons">lightbulb</span> Key Strategy</div>
+                        <p>Track each variable's value as you go. Write down the condition being tested and whether it's true or false.</p>
+                    </div>
+                    <h2 id="if-else">If-Else Statements</h2>
+                    <p>The basic building block of branching:</p>
+                    <pre><code>x = 10
+if x > 5:
+    print("big")      # This executes
+else:
+    print("small")    # This is skipped
+# Output: big</code></pre>
+                    <h2 id="nested">Nested Conditionals</h2>
+                    <p>Multiple levels of if statements:</p>
+                    <pre><code>score = 85
+if score >= 90:
+    grade = 'A'
+elif score >= 80:
+    grade = 'B'       # score is 85, this executes
+elif score >= 70:
+    grade = 'C'
+else:
+    grade = 'F'
+# grade = 'B'</code></pre>
+                    <div class="info-box example">
+                        <div class="info-box-title"><span class="material-icons">edit</span> Example Problem</div>
+                        <p>What does this print?</p>
+                        <pre><code>a, b = 3, 7
+if a > b:
+    print(a + b)
+elif a == b:
+    print(a * b)
+else:
+    print(b - a)
+# Answer: 4 (because 7 - 3 = 4)</code></pre>
+                    </div>
+                    <h2 id="tips">Tracing Tips</h2>
+                    <ol>
+                        <li>Create a variable table - update as you go</li>
+                        <li>Evaluate conditions left-to-right</li>
+                        <li>Once a branch is taken, skip all else/elif blocks</li>
+                        <li>Watch for = vs == (assignment vs comparison)</li>
+                    </ol>
+                    <h2 id="practice">Practice Problems</h2>
+                    <ol><li>Trace: if x % 2 == 0 when x = 7</li><li>What is printed when n = 15 and you check if n > 10 and n < 20?</li></ol>
+                \`
+            },
+            'wdtpd-looping': {
+                title: 'WDTPD: Looping',
+                subtitle: 'Trace programs with for loops, while loops, and iterations',
+                sections: [
+                    { id: 'intro', title: 'Introduction' },
+                    { id: 'for-loops', title: 'For Loops' },
+                    { id: 'while-loops', title: 'While Loops' },
+                    { id: 'accumulation', title: 'Accumulation' },
+                    { id: 'practice', title: 'Practice' }
+                ],
+                content: \`
+                    <h2 id="intro">Tracing Loops</h2>
+                    <p>Loop problems require you to track variables through multiple iterations. The key is to build a trace table.</p>
+                    <div class="info-box">
+                        <div class="info-box-title"><span class="material-icons">table_chart</span> Trace Table Method</div>
+                        <p>Create columns for each variable and a row for each loop iteration.</p>
+                    </div>
+                    <h2 id="for-loops">For Loops</h2>
+                    <pre><code>total = 0
+for i in range(1, 5):
+    total += i
+print(total)
+
+# Trace:
+# i=1: total=0+1=1
+# i=2: total=1+2=3
+# i=3: total=3+3=6
+# i=4: total=6+4=10
+# Output: 10</code></pre>
+                    <h2 id="while-loops">While Loops</h2>
+                    <pre><code>n = 5
+count = 0
+while n > 1:
+    n = n // 2
+    count += 1
+print(count)
+
+# Trace:
+# n=5, count=0 → n=2, count=1
+# n=2, count=1 → n=1, count=2
+# n=1: loop ends
+# Output: 2</code></pre>
+                    <div class="info-box warning">
+                        <div class="info-box-title"><span class="material-icons">warning</span> Watch Out</div>
+                        <p>range(1, 5) gives [1, 2, 3, 4] - the end value is NOT included!</p>
+                    </div>
+                    <h2 id="accumulation">Accumulation Patterns</h2>
+                    <p>Common patterns: sum, product, counting, finding max/min</p>
+                    <pre><code># Product of 1 to 5
+product = 1
+for i in range(1, 6):
+    product *= i
+# product = 120 (factorial)</code></pre>
+                    <h2 id="practice">Practice</h2>
+                    <ol><li>What does range(0, 10, 2) produce?</li><li>How many times does "while x < 100: x = x * 2" run if x starts at 3?</li></ol>
+                \`
+            },
+            'wdtpd-arrays': {
+                title: 'WDTPD: Arrays',
+                subtitle: 'Trace programs that manipulate arrays and 2D grids',
+                sections: [
+                    { id: 'intro', title: 'Introduction' },
+                    { id: 'indexing', title: 'Array Indexing' },
+                    { id: 'iteration', title: 'Iterating Arrays' },
+                    { id: '2d-arrays', title: '2D Arrays' },
+                    { id: 'practice', title: 'Practice' }
+                ],
+                content: \`
+                    <h2 id="intro">Array Tracing</h2>
+                    <p>Arrays (lists) store multiple values. Tracing requires tracking the array state and index positions.</p>
+                    <div class="info-box">
+                        <div class="info-box-title"><span class="material-icons">pin</span> Remember</div>
+                        <p>Array indices start at 0! arr[0] is the first element.</p>
+                    </div>
+                    <h2 id="indexing">Array Indexing</h2>
+                    <pre><code>arr = [10, 20, 30, 40, 50]
+print(arr[0])    # 10
+print(arr[2])    # 30
+print(arr[-1])   # 50 (last element)
+print(arr[1:4])  # [20, 30, 40]</code></pre>
+                    <h2 id="iteration">Iterating Arrays</h2>
+                    <pre><code>nums = [3, 1, 4, 1, 5]
+total = 0
+for num in nums:
+                        total += num
+print(total)  # 14
+
+# Or by index:
+for i in range(len(nums)):
+    nums[i] = nums[i] * 2
+# nums = [6, 2, 8, 2, 10]</code></pre>
+                    <h2 id="2d-arrays">2D Arrays (Grids)</h2>
+                    <pre><code>grid = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+print(grid[0][0])  # 1 (row 0, col 0)
+print(grid[1][2])  # 6 (row 1, col 2)
+print(grid[2][1])  # 8 (row 2, col 1)</code></pre>
+                    <div class="info-box example">
+                        <div class="info-box-title"><span class="material-icons">edit</span> Example: Sum a Row</div>
+                        <pre><code>row_sum = 0
+for col in range(3):
+    row_sum += grid[1][col]
+# row_sum = 4 + 5 + 6 = 15</code></pre>
+                    </div>
+                    <h2 id="practice">Practice</h2>
+                    <ol><li>What is arr[len(arr)-1] if arr = [5, 10, 15]?</li><li>After arr[1] = arr[0] + arr[2], what is arr if it started as [2, 0, 8]?</li></ol>
+                \`
+            },
+            'wdtpd-strings': {
+                title: 'WDTPD: Strings',
+                subtitle: 'Trace programs that manipulate and process strings',
+                sections: [
+                    { id: 'intro', title: 'Introduction' },
+                    { id: 'indexing', title: 'String Indexing' },
+                    { id: 'methods', title: 'String Methods' },
+                    { id: 'building', title: 'Building Strings' },
+                    { id: 'practice', title: 'Practice' }
+                ],
+                content: \`
+                    <h2 id="intro">String Tracing</h2>
+                    <p>Strings are sequences of characters. Like arrays, they use zero-based indexing.</p>
+                    <div class="info-box">
+                        <div class="info-box-title"><span class="material-icons">info</span> Key Fact</div>
+                        <p>Strings are immutable - you can't change individual characters, only create new strings.</p>
+                    </div>
+                    <h2 id="indexing">String Indexing & Slicing</h2>
+                    <pre><code>s = "ACSL"
+print(s[0])     # 'A'
+print(s[1:3])   # 'CS'
+print(s[-1])    # 'L'
+print(s[::-1])  # 'LSCA' (reversed)</code></pre>
+                    <h2 id="methods">Common String Methods</h2>
+                    <table>
+                        <tr><th>Method</th><th>Example</th><th>Result</th></tr>
+                        <tr><td>len()</td><td>len("hello")</td><td>5</td></tr>
+                        <tr><td>upper()</td><td>"hi".upper()</td><td>"HI"</td></tr>
+                        <tr><td>lower()</td><td>"Hi".lower()</td><td>"hi"</td></tr>
+                        <tr><td>find()</td><td>"hello".find("l")</td><td>2</td></tr>
+                        <tr><td>replace()</td><td>"cat".replace("c","b")</td><td>"bat"</td></tr>
+                    </table>
+                    <h2 id="building">Building Strings</h2>
+                    <pre><code>result = ""
+for c in "ABC":
+    result = c + result
+print(result)  # "CBA"
+
+# Concatenation
+s = "Hello" + " " + "World"
+print(s)  # "Hello World"</code></pre>
+                    <div class="info-box example">
+                        <div class="info-box-title"><span class="material-icons">edit</span> Example Problem</div>
+                        <p>What does this print?</p>
+                        <pre><code>word = "COMPUTER"
+output = ""
+for i in range(0, len(word), 2):
+    output += word[i]
+print(output)
+# Answer: "CMUE" (chars at 0,2,4,6)</code></pre>
+                    </div>
+                    <h2 id="practice">Practice</h2>
+                    <ol><li>What is "python"[2:5]?</li><li>What does "abc" * 3 produce?</li></ol>
+                \`
             }
         };
 
@@ -592,10 +1008,10 @@ Result: 11001₂</code></pre>
             const lesson = lessonContent[lessonId] || defaultContent;
             
             lessonSidebar.innerHTML = lesson.sections.map(s => 
-                `<a href="#${s.id}" class="sidebar-link">${s.title}</a>`
+                `< a href="#${s.id}" class= "sidebar-link" > ${ s.title }</a> `
             ).join('');
             
-            lessonArticle.innerHTML = `<h1>${lesson.title}</h1><p style="color:var(--text-secondary);margin-bottom:2rem;">${lesson.subtitle}</p>` + lesson.content;
+            lessonArticle.innerHTML = `< h1 > ${ lesson.title }</h1 > <p style="color:var(--text-secondary);margin-bottom:2rem;">${lesson.subtitle}</p>` + lesson.content;
             
             lessonView.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -652,4 +1068,5 @@ Result: 11001₂</code></pre>
         document.getElementById('sign-out-btn')?.addEventListener('click', handleSignOut);
     </script>
 </body>
+
 </html>

@@ -276,12 +276,13 @@
 
         const urlParams = new URLSearchParams(window.location.search);
         const contestNum = urlParams.get('contest') || '1';
+        const division = urlParams.get('division') || 'senior';
         let problems = [];
         let currentProblem = 0;
         let completedProblems = [];
         let currentUser = null;
 
-        document.getElementById('contest-title').textContent = `Contest ${contestNum} - Short Problems`;
+        document.getElementById('contest-title').textContent = `Contest ${contestNum} - ${division.charAt(0).toUpperCase() + division.slice(1)} - Short Problems`;
         document.title = `Contest ${contestNum} Short Problems - ACSL Prep`;
         document.getElementById('sign-in-btn')?.addEventListener('click', signInWithGoogle);
         document.getElementById('sign-out-btn')?.addEventListener('click', handleSignOut);

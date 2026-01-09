@@ -47,7 +47,25 @@
         <div class="page-header">
             <div class="container">
                 <h1>Contest <span class="accent">Preparation</span></h1>
-                <p>Choose a contest to start your preparation journey</p>
+                <p>Choose your division and contest to start your preparation journey</p>
+
+                <!-- Division Selector -->
+                <div class="division-selector">
+                    <button class="division-btn active" data-division="senior">
+                        <span class="material-icons">workspace_premium</span>
+                        Senior
+                    </button>
+                    <button class="division-btn" data-division="intermediate">
+                        <span class="material-icons">school</span>
+                        Intermediate
+                    </button>
+                    <button class="division-btn" data-division="junior">
+                        <span class="material-icons">child_care</span>
+                        Junior
+                    </button>
+                </div>
+                <p class="division-note" id="division-note">Senior & Intermediate share the same topics. Senior problems
+                    are more challenging.</p>
             </div>
         </div>
 
@@ -77,197 +95,7 @@
 
                 <div class="carousel-wrapper">
                     <div class="carousel-track" id="carouselTrack">
-                        <!-- Contest 1 -->
-                        <div class="contest-card-full" data-contest="1">
-                            <div class="contest-card-header">
-                                <div class="contest-number">01</div>
-                                <div class="contest-info">
-                                    <h2>Contest 1</h2>
-                                    <p class="contest-topics">Computer Number Systems • Recursive Functions • What Does
-                                        This
-                                        Program Do?</p>
-                                </div>
-                                <div class="contest-progress" id="contest1-progress">
-                                    <div class="progress-ring">
-                                        <span class="progress-percent">0%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="contest-card-body">
-                                <div class="problem-types">
-                                    <a href="pages/lessons.html?contest=1" class="problem-type-card">
-                                        <div class="type-icon"><span class="material-icons">menu_book</span></div>
-                                        <div class="type-info">
-                                            <h3>Lessons</h3>
-                                            <p>Learn the concepts and theory</p>
-                                            <span class="problem-count">3 topics</span>
-                                        </div>
-                                        <span class="type-arrow">→</span>
-                                    </a>
-                                    <a href="pages/short-problems.html?contest=1" class="problem-type-card">
-                                        <div class="type-icon"><span class="material-icons">edit_note</span></div>
-                                        <div class="type-info">
-                                            <h3>Short Problems</h3>
-                                            <p>Quick calculation and theory questions</p>
-                                            <span class="problem-count">0 / 10 completed</span>
-                                        </div>
-                                        <span class="type-arrow">→</span>
-                                    </a>
-                                    <a href="pages/programming.html?contest=1" class="problem-type-card">
-                                        <div class="type-icon"><span class="material-icons">code</span></div>
-                                        <div class="type-info">
-                                            <h3>Programming Problems</h3>
-                                            <p>Code solutions in Python, Java, or C++</p>
-                                            <span class="problem-count">0 / 5 completed</span>
-                                        </div>
-                                        <span class="type-arrow">→</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contest 2 -->
-                        <div class="contest-card-full" data-contest="2">
-                            <div class="contest-card-header">
-                                <div class="contest-number">02</div>
-                                <div class="contest-info">
-                                    <h2>Contest 2</h2>
-                                    <p class="contest-topics">Prefix/Postfix/Infix Notation • Bit-String Flicking • LISP
-                                    </p>
-                                </div>
-                                <div class="contest-progress" id="contest2-progress">
-                                    <div class="progress-ring">
-                                        <span class="progress-percent">0%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="contest-card-body">
-                                <div class="problem-types">
-                                    <a href="pages/lessons.html?contest=2" class="problem-type-card">
-                                        <div class="type-icon"><span class="material-icons">menu_book</span></div>
-                                        <div class="type-info">
-                                            <h3>Lessons</h3>
-                                            <p>Learn the concepts and theory</p>
-                                            <span class="problem-count">3 topics</span>
-                                        </div>
-                                        <span class="type-arrow">→</span>
-                                    </a>
-                                    <a href="pages/short-problems.html?contest=2" class="problem-type-card">
-                                        <div class="type-icon"><span class="material-icons">edit_note</span></div>
-                                        <div class="type-info">
-                                            <h3>Short Problems</h3>
-                                            <p>Quick calculation and theory questions</p>
-                                            <span class="problem-count">0 / 10 completed</span>
-                                        </div>
-                                        <span class="type-arrow">→</span>
-                                    </a>
-                                    <a href="pages/programming.html?contest=2" class="problem-type-card">
-                                        <div class="type-icon"><span class="material-icons">code</span></div>
-                                        <div class="type-info">
-                                            <h3>Programming Problems</h3>
-                                            <p>Code solutions in Python, Java, or C++</p>
-                                            <span class="problem-count">0 / 5 completed</span>
-                                        </div>
-                                        <span class="type-arrow">→</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contest 3 -->
-                        <div class="contest-card-full" data-contest="3">
-                            <div class="contest-card-header">
-                                <div class="contest-number">03</div>
-                                <div class="contest-info">
-                                    <h2>Contest 3</h2>
-                                    <p class="contest-topics">Boolean Algebra • Data Structures • FSAs and Regular
-                                        Expressions</p>
-                                </div>
-                                <div class="contest-progress" id="contest3-progress">
-                                    <div class="progress-ring">
-                                        <span class="progress-percent">0%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="contest-card-body">
-                                <div class="problem-types">
-                                    <a href="pages/lessons.html?contest=3" class="problem-type-card">
-                                        <div class="type-icon"><span class="material-icons">menu_book</span></div>
-                                        <div class="type-info">
-                                            <h3>Lessons</h3>
-                                            <p>Learn the concepts and theory</p>
-                                            <span class="problem-count">3 topics</span>
-                                        </div>
-                                        <span class="type-arrow">→</span>
-                                    </a>
-                                    <a href="pages/short-problems.html?contest=3" class="problem-type-card">
-                                        <div class="type-icon"><span class="material-icons">edit_note</span></div>
-                                        <div class="type-info">
-                                            <h3>Short Problems</h3>
-                                            <p>Quick calculation and theory questions</p>
-                                            <span class="problem-count">0 / 10 completed</span>
-                                        </div>
-                                        <span class="type-arrow">→</span>
-                                    </a>
-                                    <a href="pages/programming.html?contest=3" class="problem-type-card">
-                                        <div class="type-icon"><span class="material-icons">code</span></div>
-                                        <div class="type-info">
-                                            <h3>Programming Problems</h3>
-                                            <p>Code solutions in Python, Java, or C++</p>
-                                            <span class="problem-count">0 / 5 completed</span>
-                                        </div>
-                                        <span class="type-arrow">→</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contest 4 -->
-                        <div class="contest-card-full" data-contest="4">
-                            <div class="contest-card-header">
-                                <div class="contest-number">04</div>
-                                <div class="contest-info">
-                                    <h2>Contest 4</h2>
-                                    <p class="contest-topics">Graph Theory • Digital Electronics • Assembly Language</p>
-                                </div>
-                                <div class="contest-progress" id="contest4-progress">
-                                    <div class="progress-ring">
-                                        <span class="progress-percent">0%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="contest-card-body">
-                                <div class="problem-types">
-                                    <a href="pages/lessons.html?contest=4" class="problem-type-card">
-                                        <div class="type-icon"><span class="material-icons">menu_book</span></div>
-                                        <div class="type-info">
-                                            <h3>Lessons</h3>
-                                            <p>Learn the concepts and theory</p>
-                                            <span class="problem-count">3 topics</span>
-                                        </div>
-                                        <span class="type-arrow">→</span>
-                                    </a>
-                                    <a href="pages/short-problems.html?contest=4" class="problem-type-card">
-                                        <div class="type-icon"><span class="material-icons">edit_note</span></div>
-                                        <div class="type-info">
-                                            <h3>Short Problems</h3>
-                                            <p>Quick calculation and theory questions</p>
-                                            <span class="problem-count">0 / 10 completed</span>
-                                        </div>
-                                        <span class="type-arrow">→</span>
-                                    </a>
-                                    <a href="pages/programming.html?contest=4" class="problem-type-card">
-                                        <div class="type-icon"><span class="material-icons">code</span></div>
-                                        <div class="type-info">
-                                            <h3>Programming Problems</h3>
-                                            <p>Code solutions in Python, Java, or C++</p>
-                                            <span class="problem-count">0 / 5 completed</span>
-                                        </div>
-                                        <span class="type-arrow">→</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Contest cards rendered dynamically by JavaScript -->
                     </div>
                 </div>
             </div>
@@ -290,6 +118,52 @@
     </footer>
 
     <style>
+        /* Division Selector */
+        .division-selector {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-lg);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .division-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .division-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        .division-btn.active {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .division-btn .material-icons {
+            font-size: 18px;
+        }
+
+        .division-note {
+            margin-top: var(--spacing-md);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
         /* Carousel Styles */
         .carousel-controls {
             display: flex;
@@ -546,6 +420,121 @@
         // Auth buttons
         document.getElementById('sign-in-btn')?.addEventListener('click', signInWithGoogle);
         document.getElementById('sign-out-btn')?.addEventListener('click', handleSignOut);
+
+        // Division and Contest Data
+        let currentDivision = 'senior';
+
+        const divisionData = {
+            senior: {
+                note: 'Senior & Intermediate share the same topics. Senior problems are more challenging.',
+                contests: [
+                    { num: 1, topics: 'Computer Number Systems • Recursive Functions • What Does This Program Do?' },
+                    { num: 2, topics: 'Prefix/Infix/Postfix Notation • Bit-String Flicking • LISP' },
+                    { num: 3, topics: 'Boolean Algebra • Data Structures • FSAs and Regular Expressions' },
+                    { num: 4, topics: 'Graph Theory • Digital Electronics • Assembly Language' }
+                ]
+            },
+            intermediate: {
+                note: 'Senior & Intermediate share the same topics. Intermediate problems are less challenging.',
+                contests: [
+                    { num: 1, topics: 'Computer Number Systems • Recursive Functions • What Does This Program Do?' },
+                    { num: 2, topics: 'Prefix/Infix/Postfix Notation • Bit-String Flicking • LISP' },
+                    { num: 3, topics: 'Boolean Algebra • Data Structures • FSAs and Regular Expressions' },
+                    { num: 4, topics: 'Graph Theory • Digital Electronics • Assembly Language' }
+                ]
+            },
+            junior: {
+                note: 'Junior division focuses on program tracing with different data structures each contest.',
+                contests: [
+                    { num: 1, topics: 'Computer Number Systems • Recursive Functions • WDTPD: Branching' },
+                    { num: 2, topics: 'Prefix/Infix/Postfix Notation • Bit-String Flicking • WDTPD: Looping' },
+                    { num: 3, topics: 'Boolean Algebra • Data Structures • WDTPD: Arrays' },
+                    { num: 4, topics: 'Graph Theory • Digital Electronics • WDTPD: Strings' }
+                ]
+            }
+        };
+
+        function renderContests() {
+            const track = document.getElementById('carouselTrack');
+            const data = divisionData[currentDivision];
+            document.getElementById('division-note').textContent = data.note;
+
+            track.innerHTML = data.contests.map(c => `
+                <div class="contest-card-full" data-contest="${c.num}">
+                    <div class="contest-card-header">
+                        <div class="contest-number">0${c.num}</div>
+                        <div class="contest-info">
+                            <h2>Contest ${c.num}</h2>
+                            <p class="contest-topics">${c.topics}</p>
+                        </div>
+                        <div class="contest-progress" id="contest${c.num}-progress">
+                            <div class="progress-ring">
+                                <span class="progress-percent">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contest-card-body">
+                        <div class="problem-types">
+                            <a href="pages/lessons.html?contest=${c.num}&division=${currentDivision}" class="problem-type-card">
+                                <div class="type-icon"><span class="material-icons">menu_book</span></div>
+                                <div class="type-info">
+                                    <h3>Lessons</h3>
+                                    <p>Learn the concepts and theory</p>
+                                    <span class="problem-count">3 topics</span>
+                                </div>
+                                <span class="type-arrow">→</span>
+                            </a>
+                            <a href="pages/short-problems.html?contest=${c.num}&division=${currentDivision}" class="problem-type-card">
+                                <div class="type-icon"><span class="material-icons">edit_note</span></div>
+                                <div class="type-info">
+                                    <h3>Short Problems</h3>
+                                    <p>6 problems: 2 per topic</p>
+                                    <span class="problem-count">0 / 6 completed</span>
+                                </div>
+                                <span class="type-arrow">→</span>
+                            </a>
+                            <a href="pages/programming.html?contest=${c.num}&division=${currentDivision}" class="problem-type-card">
+                                <div class="type-icon"><span class="material-icons">code</span></div>
+                                <div class="type-info">
+                                    <h3>Programming Problems</h3>
+                                    <p>Code solutions in Python, Java, or C++</p>
+                                    <span class="problem-count">0 / 5 completed</span>
+                                </div>
+                                <span class="type-arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Reset carousel position
+            track.style.transform = 'translateX(0)';
+            currentIndex = 0;
+            document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === 0));
+        }
+
+        // Division selector
+        document.querySelectorAll('.division-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.division-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentDivision = btn.dataset.division;
+                localStorage.setItem('acsl-division', currentDivision);
+                renderContests();
+            });
+        });
+
+        // Load saved division
+        const savedDivision = localStorage.getItem('acsl-division');
+        if (savedDivision && divisionData[savedDivision]) {
+            currentDivision = savedDivision;
+            document.querySelectorAll('.division-btn').forEach(b => {
+                b.classList.toggle('active', b.dataset.division === savedDivision);
+            });
+        }
+
+        // Initial render
+        renderContests();
 
         // Load user progress
         onAuthStateChanged(auth, async (user) => {
