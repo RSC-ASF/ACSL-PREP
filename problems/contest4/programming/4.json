@@ -4,12 +4,27 @@
     "difficulty": "Easy",
     "statement": "# Matrix Addition\n\nAdd two matrices of the same dimensions.\n\n## Problem Description\n\nGiven two N×M matrices, compute their sum.\n\n## Input Format\n\nFirst line: two integers N and M\nNext N lines: M integers (first matrix)\nNext N lines: M integers (second matrix)\n\n## Output Format\n\nN lines, each with M space-separated integers (result matrix).\n\n## Constraints\n\n- 1 ≤ N, M ≤ 100\n- -1000 ≤ elements ≤ 1000",
     "examples": [
-        { "input": "2 2\n1 2\n3 4\n5 6\n7 8", "output": "6 8\n10 12" },
-        { "input": "1 3\n1 2 3\n4 5 6", "output": "5 7 9" }
+        {
+            "input": "2 2\n1 2\n3 4\n5 6\n7 8",
+            "output": "6 8\n10 12"
+        },
+        {
+            "input": "1 3\n1 2 3\n4 5 6",
+            "output": "5 7 9"
+        }
     ],
     "testCases": [
-        { "input": "2 2\n1 2\n3 4\n5 6\n7 8", "output": "6 8\n10 12" },
-        { "input": "1 3\n1 2 3\n4 5 6", "output": "5 7 9" },
-        { "input": "2 3\n0 0 0\n0 0 0\n1 2 3\n4 5 6", "output": "1 2 3\n4 5 6" }
+        {
+            "input": "2 2\n1 2\n3 4\n5 6\n7 8",
+            "output": "6 8\n10 12"
+        },
+        {
+            "input": "1 3\n1 2 3\n4 5 6",
+            "output": "5 7 9"
+        },
+        {
+            "input": "2 3\n0 0 0\n0 0 0\n1 2 3\n4 5 6",
+            "output": "1 2 3\n4 5 6"
+        }
     ]
 }

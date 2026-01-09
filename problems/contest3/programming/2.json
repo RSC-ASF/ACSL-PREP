@@ -4,15 +4,39 @@
     "difficulty": "Hard",
     "statement": "# Prefix to Infix Conversion\n\nConvert a prefix expression to fully parenthesized infix.\n\n## Problem Description\n\nGiven a valid prefix expression with single-letter operands and operators (+, -, *, /), convert it to fully parenthesized infix notation.\n\n## Input Format\n\nA single line with space-separated tokens.\n\n## Output Format\n\nThe fully parenthesized infix expression.\n\n## Constraints\n\n- Valid prefix expression\n- Operands are single uppercase letters",
     "examples": [
-        { "input": "+ A B", "output": "(A+B)" },
-        { "input": "* + A B C", "output": "((A+B)*C)" },
-        { "input": "- * A B + C D", "output": "((A*B)-(C+D))" }
+        {
+            "input": "+ A B",
+            "output": "(A+B)"
+        },
+        {
+            "input": "* + A B C",
+            "output": "((A+B)*C)"
+        },
+        {
+            "input": "- * A B + C D",
+            "output": "((A*B)-(C+D))"
+        }
     ],
     "testCases": [
-        { "input": "+ A B", "output": "(A+B)" },
-        { "input": "* + A B C", "output": "((A+B)*C)" },
-        { "input": "- * A B + C D", "output": "((A*B)-(C+D))" },
-        { "input": "/ A B", "output": "(A/B)" },
-        { "input": "+ * A B * C D", "output": "((A*B)+(C*D))" }
+        {
+            "input": "+ A B",
+            "output": "(A+B)"
+        },
+        {
+            "input": "* + A B C",
+            "output": "((A+B)*C)"
+        },
+        {
+            "input": "- * A B + C D",
+            "output": "((A*B)-(C+D))"
+        },
+        {
+            "input": "/ A B",
+            "output": "(A/B)"
+        },
+        {
+            "input": "+ * A B * C D",
+            "output": "((A*B)+(C*D))"
+        }
     ]
 }

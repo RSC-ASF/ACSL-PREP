@@ -4,12 +4,27 @@
     "difficulty": "Medium",
     "statement": "# Queue Operations\n\nSimulate queue operations and output the results.\n\n## Problem Description\n\nPerform a sequence of queue operations:\n- ENQUEUE X: Add integer X to the back\n- DEQUEUE: Remove front element\n- FRONT: Print front element (or EMPTY if queue is empty)\n\n## Input Format\n\nFirst line: integer N (number of operations)\nNext N lines: operations\n\n## Output Format\n\nOutput of each FRONT operation, one per line.\n\n## Constraints\n\n- 1 ≤ N ≤ 1000",
     "examples": [
-        { "input": "5\nENQUEUE 1\nENQUEUE 2\nFRONT\nDEQUEUE\nFRONT", "output": "1\n2" },
-        { "input": "3\nFRONT\nENQUEUE 5\nFRONT", "output": "EMPTY\n5" }
+        {
+            "input": "5\nENQUEUE 1\nENQUEUE 2\nFRONT\nDEQUEUE\nFRONT",
+            "output": "1\n2"
+        },
+        {
+            "input": "3\nFRONT\nENQUEUE 5\nFRONT",
+            "output": "EMPTY\n5"
+        }
     ],
     "testCases": [
-        { "input": "5\nENQUEUE 1\nENQUEUE 2\nFRONT\nDEQUEUE\nFRONT", "output": "1\n2" },
-        { "input": "3\nFRONT\nENQUEUE 5\nFRONT", "output": "EMPTY\n5" },
-        { "input": "4\nENQUEUE 10\nDEQUEUE\nFRONT\nENQUEUE 20", "output": "EMPTY" }
+        {
+            "input": "5\nENQUEUE 1\nENQUEUE 2\nFRONT\nDEQUEUE\nFRONT",
+            "output": "1\n2"
+        },
+        {
+            "input": "3\nFRONT\nENQUEUE 5\nFRONT",
+            "output": "EMPTY\n5"
+        },
+        {
+            "input": "4\nENQUEUE 10\nDEQUEUE\nFRONT\nENQUEUE 20",
+            "output": "EMPTY"
+        }
     ]
 }

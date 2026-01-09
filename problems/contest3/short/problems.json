@@ -1,225 +1,259 @@
 [
-  {
-    "question": "How many bits are in a nibble?",
-    "answer": "4",
-    "topic": "Computer Fundamentals",
-    "difficulty": "Easy",
-    "explanation": "A nibble is 4 bits, half of a byte (8 bits)."
-  },
-  {
-    "question": "What is <code>AB</code> (hex) × <code>2</code> (hex) in hexadecimal?",
-    "answer": "156",
-    "topic": "Number Systems",
-    "difficulty": "Hard",
-    "explanation": "AB = 171, × 2 = 342 = 156 in hex"
-  },
-  {
-    "question": "Convert <code>777</code> (octal) to decimal.",
-    "answer": "511",
-    "topic": "Number Systems",
-    "difficulty": "Medium",
-    "explanation": "7×64 + 7×8 + 7×1 = 448 + 56 + 7 = 511"
-  },
-  {
-    "question": "What is the largest 8-bit unsigned integer?",
-    "answer": "255",
-    "topic": "Number Systems",
-    "difficulty": "Easy",
-    "explanation": "2^8 - 1 = 256 - 1 = 255"
-  },
-  {
-    "question": "What is <code>10</code> (hex) in decimal?",
-    "answer": "16",
-    "topic": "Number Systems",
-    "difficulty": "Easy",
-    "explanation": "10 in hex = 1×16 + 0 = 16"
-  },
-  {
-    "question": "Compute <code>11.1</code> (binary) in decimal.",
-    "answer": "3.5",
-    "topic": "Number Systems",
-    "difficulty": "Hard",
-    "explanation": "11.1 = 2 + 1 + 0.5 = 3.5"
-  },
-  {
-    "question": "What is the range of a signed 8-bit integer?",
-    "answer": "-128 to 127",
-    "alternateAnswers": ["-128 to +127", "-128,127"],
-    "topic": "Number Systems",
-    "difficulty": "Medium",
-    "explanation": "-2^7 to 2^7 - 1 = -128 to 127"
-  },
-  {
-    "question": "Simplify: <code>(A AND B) OR (A AND NOT B)</code>",
-    "answer": "A",
-    "topic": "Boolean Algebra",
-    "difficulty": "Medium",
-    "explanation": "Factor out A: A AND (B OR NOT B) = A AND 1 = A"
-  },
-  {
-    "question": "What gate outputs 1 only when all inputs are 0?",
-    "answer": "NOR",
-    "topic": "Boolean Algebra",
-    "difficulty": "Medium",
-    "explanation": "NOR = NOT OR. All 0s → OR gives 0 → NOT gives 1."
-  },
-  {
-    "question": "Write the Boolean expression: output is 1 when inputs A and B are both 1.",
-    "answer": "A AND B",
-    "alternateAnswers": ["A * B", "AB"],
-    "topic": "Boolean Algebra",
-    "difficulty": "Easy",
-    "explanation": "AND gate: output 1 only when both inputs are 1."
-  },
-  {
-    "question": "How many rows are in a truth table with 4 input variables?",
-    "answer": "16",
-    "topic": "Boolean Algebra",
-    "difficulty": "Easy",
-    "explanation": "2^4 = 16 rows for all combinations."
-  },
-  {
-    "question": "Simplify: <code>NOT(A OR NOT A)</code>",
-    "answer": "0",
-    "alternateAnswers": ["False", "FALSE"],
-    "topic": "Boolean Algebra",
-    "difficulty": "Easy",
-    "explanation": "A OR NOT A = 1, NOT 1 = 0"
-  },
-  {
-    "question": "What universal gate can implement any Boolean function?",
-    "answer": "NAND",
-    "alternateAnswers": ["NOR"],
-    "topic": "Boolean Algebra",
-    "difficulty": "Medium",
-    "explanation": "NAND and NOR are both universal gates."
-  },
-  {
-    "question": "What is the output?<pre>lst = [[1,2],[3,4]]\nprint(lst[1][0])</pre>",
-    "answer": "3",
-    "topic": "What Does This Program Do",
-    "difficulty": "Easy",
-    "explanation": "lst[1] = [3,4], [3,4][0] = 3"
-  },
-  {
-    "question": "What is printed?<pre>def g(a, b=2):\n    return a * b\nprint(g(3))</pre>",
-    "answer": "6",
-    "topic": "What Does This Program Do",
-    "difficulty": "Easy",
-    "explanation": "b defaults to 2, so 3 * 2 = 6"
-  },
-  {
-    "question": "What is the output?<pre>x = [1, 2, 3]\ny = x\ny.append(4)\nprint(len(x))</pre>",
-    "answer": "4",
-    "topic": "What Does This Program Do",
-    "difficulty": "Medium",
-    "explanation": "y is a reference to x, so appending to y also modifies x. len(x) = 4."
-  },
-  {
-    "question": "What is printed?<pre>print(\"abc\" * 2)</pre>",
-    "answer": "abcabc",
-    "topic": "What Does This Program Do",
-    "difficulty": "Easy",
-    "explanation": "String repetition: \"abc\" * 2 = \"abcabc\""
-  },
-  {
-    "question": "What is the output?<pre>for i in range(5, 0, -2):\n    print(i, end=\" \")</pre>",
-    "answer": "5 3 1",
-    "alternateAnswers": ["5 3 1 "],
-    "topic": "What Does This Program Do",
-    "difficulty": "Medium",
-    "explanation": "Range from 5 down to (but not including) 0, step -2: 5, 3, 1"
-  },
-  {
-    "question": "What does this return?<pre>def h(s):\n    return s == s[::-1]\nprint(h(\"racecar\"))</pre>",
-    "answer": "True",
-    "alternateAnswers": ["true", "TRUE"],
-    "topic": "What Does This Program Do",
-    "difficulty": "Medium",
-    "explanation": "Checks if string is a palindrome. 'racecar' reversed is 'racecar'. True."
-  },
-  {
-    "question": "What is the output?<pre>a = {1, 2, 3}\nb = {2, 3, 4}\nprint(len(a & b))</pre>",
-    "answer": "2",
-    "topic": "What Does This Program Do",
-    "difficulty": "Medium",
-    "explanation": "& is set intersection. {2, 3} has length 2."
-  },
-  {
-    "question": "Evaluate postfix: <code>3 4 * 5 6 * +</code>",
-    "answer": "42",
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Medium",
-    "explanation": "3*4 = 12, 5*6 = 30, 12+30 = 42"
-  },
-  {
-    "question": "Convert postfix <code>A B + C *</code> to infix.",
-    "answer": "(A + B) * C",
-    "alternateAnswers": ["(A+B)*C"],
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Medium",
-    "explanation": "A B + → (A+B), then (A+B) C * → (A+B)*C"
-  },
-  {
-    "question": "Evaluate prefix: <code>+ - 5 3 * 2 4</code>",
-    "answer": "10",
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Medium",
-    "explanation": "- 5 3 = 2, * 2 4 = 8, + 2 8 = 10"
-  },
-  {
-    "question": "What data structure is used to evaluate postfix expressions?",
-    "answer": "Stack",
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Easy",
-    "explanation": "Stacks are used to evaluate postfix by pushing operands and popping for operators."
-  },
-  {
-    "question": "Convert infix <code>(A + B) * (C - D)</code> to postfix.",
-    "answer": "A B + C D - *",
-    "alternateAnswers": ["AB+CD-*"],
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Hard",
-    "explanation": "A+B → AB+, C-D → CD-, multiply → AB+CD-*"
-  },
-  {
-    "question": "What is the height of a tree with only a root node?",
-    "answer": "0",
-    "alternateAnswers": ["1"],
-    "topic": "Data Structures",
-    "difficulty": "Easy",
-    "explanation": "Height is edges to deepest leaf. Root only = 0 edges (or 1 level depending on definition)."
-  },
-  {
-    "question": "What is a complete binary tree?",
-    "answer": "All levels full except possibly the last, filled left to right",
-    "alternateAnswers": ["Complete", "All levels filled left to right"],
-    "topic": "Data Structures",
-    "difficulty": "Medium",
-    "explanation": "A complete binary tree has all levels full except the last, which is filled left to right."
-  },
-  {
-    "question": "In a hash table, what is a collision?",
-    "answer": "Two keys hash to the same index",
-    "alternateAnswers": ["Two different keys map to same slot", "When different keys have same hash"],
-    "topic": "Data Structures",
-    "difficulty": "Medium",
-    "explanation": "A collision occurs when two different keys produce the same hash value/index."
-  },
-  {
-    "question": "What is the best case time complexity of quicksort?",
-    "answer": "O(n log n)",
-    "alternateAnswers": ["O(nlogn)", "n log n"],
-    "topic": "Data Structures",
-    "difficulty": "Medium",
-    "explanation": "Quicksort best/average case is O(n log n) when pivots split evenly."
-  },
-  {
-    "question": "What is the space complexity of merge sort?",
-    "answer": "O(n)",
-    "alternateAnswers": ["O(N)", "Linear"],
-    "topic": "Data Structures",
-    "difficulty": "Hard",
-    "explanation": "Merge sort requires O(n) extra space for the temporary arrays during merging."
-  }
+    {
+        "question": "How many bits are in a nibble?",
+        "answer": "4",
+        "topic": "Computer Fundamentals",
+        "difficulty": "Easy",
+        "explanation": "A nibble is 4 bits, half of a byte (8 bits)."
+    },
+    {
+        "question": "What is <code>AB</code> (hex) × <code>2</code> (hex) in hexadecimal?",
+        "answer": "156",
+        "topic": "Number Systems",
+        "difficulty": "Hard",
+        "explanation": "AB = 171, × 2 = 342 = 156 in hex"
+    },
+    {
+        "question": "Convert <code>777</code> (octal) to decimal.",
+        "answer": "511",
+        "topic": "Number Systems",
+        "difficulty": "Medium",
+        "explanation": "7×64 + 7×8 + 7×1 = 448 + 56 + 7 = 511"
+    },
+    {
+        "question": "What is the largest 8-bit unsigned integer?",
+        "answer": "255",
+        "topic": "Number Systems",
+        "difficulty": "Easy",
+        "explanation": "2^8 - 1 = 256 - 1 = 255"
+    },
+    {
+        "question": "What is <code>10</code> (hex) in decimal?",
+        "answer": "16",
+        "topic": "Number Systems",
+        "difficulty": "Easy",
+        "explanation": "10 in hex = 1×16 + 0 = 16"
+    },
+    {
+        "question": "Compute <code>11.1</code> (binary) in decimal.",
+        "answer": "3.5",
+        "topic": "Number Systems",
+        "difficulty": "Hard",
+        "explanation": "11.1 = 2 + 1 + 0.5 = 3.5"
+    },
+    {
+        "question": "What is the range of a signed 8-bit integer?",
+        "answer": "-128 to 127",
+        "alternateAnswers": [
+            "-128 to +127",
+            "-128,127"
+        ],
+        "topic": "Number Systems",
+        "difficulty": "Medium",
+        "explanation": "-2^7 to 2^7 - 1 = -128 to 127"
+    },
+    {
+        "question": "Simplify: <code>(A AND B) OR (A AND NOT B)</code>",
+        "answer": "A",
+        "topic": "Boolean Algebra",
+        "difficulty": "Medium",
+        "explanation": "Factor out A: A AND (B OR NOT B) = A AND 1 = A"
+    },
+    {
+        "question": "What gate outputs 1 only when all inputs are 0?",
+        "answer": "NOR",
+        "topic": "Boolean Algebra",
+        "difficulty": "Medium",
+        "explanation": "NOR = NOT OR. All 0s → OR gives 0 → NOT gives 1."
+    },
+    {
+        "question": "Write the Boolean expression: output is 1 when inputs A and B are both 1.",
+        "answer": "A AND B",
+        "alternateAnswers": [
+            "A * B",
+            "AB"
+        ],
+        "topic": "Boolean Algebra",
+        "difficulty": "Easy",
+        "explanation": "AND gate: output 1 only when both inputs are 1."
+    },
+    {
+        "question": "How many rows are in a truth table with 4 input variables?",
+        "answer": "16",
+        "topic": "Boolean Algebra",
+        "difficulty": "Easy",
+        "explanation": "2^4 = 16 rows for all combinations."
+    },
+    {
+        "question": "Simplify: <code>NOT(A OR NOT A)</code>",
+        "answer": "0",
+        "alternateAnswers": [
+            "False",
+            "FALSE"
+        ],
+        "topic": "Boolean Algebra",
+        "difficulty": "Easy",
+        "explanation": "A OR NOT A = 1, NOT 1 = 0"
+    },
+    {
+        "question": "What universal gate can implement any Boolean function?",
+        "answer": "NAND",
+        "alternateAnswers": [
+            "NOR"
+        ],
+        "topic": "Boolean Algebra",
+        "difficulty": "Medium",
+        "explanation": "NAND and NOR are both universal gates."
+    },
+    {
+        "question": "What is the output?<pre>lst = [[1,2],[3,4]]\nprint(lst[1][0])</pre>",
+        "answer": "3",
+        "topic": "What Does This Program Do",
+        "difficulty": "Easy",
+        "explanation": "lst[1] = [3,4], [3,4][0] = 3"
+    },
+    {
+        "question": "What is printed?<pre>def g(a, b=2):\n    return a * b\nprint(g(3))</pre>",
+        "answer": "6",
+        "topic": "What Does This Program Do",
+        "difficulty": "Easy",
+        "explanation": "b defaults to 2, so 3 * 2 = 6"
+    },
+    {
+        "question": "What is the output?<pre>x = [1, 2, 3]\ny = x\ny.append(4)\nprint(len(x))</pre>",
+        "answer": "4",
+        "topic": "What Does This Program Do",
+        "difficulty": "Medium",
+        "explanation": "y is a reference to x, so appending to y also modifies x. len(x) = 4."
+    },
+    {
+        "question": "What is printed?<pre>print(\"abc\" * 2)</pre>",
+        "answer": "abcabc",
+        "topic": "What Does This Program Do",
+        "difficulty": "Easy",
+        "explanation": "String repetition: \"abc\" * 2 = \"abcabc\""
+    },
+    {
+        "question": "What is the output?<pre>for i in range(5, 0, -2):\n    print(i, end=\" \")</pre>",
+        "answer": "5 3 1",
+        "alternateAnswers": [
+            "5 3 1 "
+        ],
+        "topic": "What Does This Program Do",
+        "difficulty": "Medium",
+        "explanation": "Range from 5 down to (but not including) 0, step -2: 5, 3, 1"
+    },
+    {
+        "question": "What does this return?<pre>def h(s):\n    return s == s[::-1]\nprint(h(\"racecar\"))</pre>",
+        "answer": "True",
+        "alternateAnswers": [
+            "true",
+            "TRUE"
+        ],
+        "topic": "What Does This Program Do",
+        "difficulty": "Medium",
+        "explanation": "Checks if string is a palindrome. 'racecar' reversed is 'racecar'. True."
+    },
+    {
+        "question": "What is the output?<pre>a = {1, 2, 3}\nb = {2, 3, 4}\nprint(len(a & b))</pre>",
+        "answer": "2",
+        "topic": "What Does This Program Do",
+        "difficulty": "Medium",
+        "explanation": "& is set intersection. {2, 3} has length 2."
+    },
+    {
+        "question": "Evaluate postfix: <code>3 4 * 5 6 * +</code>",
+        "answer": "42",
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Medium",
+        "explanation": "3*4 = 12, 5*6 = 30, 12+30 = 42"
+    },
+    {
+        "question": "Convert postfix <code>A B + C *</code> to infix.",
+        "answer": "(A + B) * C",
+        "alternateAnswers": [
+            "(A+B)*C"
+        ],
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Medium",
+        "explanation": "A B + → (A+B), then (A+B) C * → (A+B)*C"
+    },
+    {
+        "question": "Evaluate prefix: <code>+ - 5 3 * 2 4</code>",
+        "answer": "10",
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Medium",
+        "explanation": "- 5 3 = 2, * 2 4 = 8, + 2 8 = 10"
+    },
+    {
+        "question": "What data structure is used to evaluate postfix expressions?",
+        "answer": "Stack",
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Easy",
+        "explanation": "Stacks are used to evaluate postfix by pushing operands and popping for operators."
+    },
+    {
+        "question": "Convert infix <code>(A + B) * (C - D)</code> to postfix.",
+        "answer": "A B + C D - *",
+        "alternateAnswers": [
+            "AB+CD-*"
+        ],
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Hard",
+        "explanation": "A+B → AB+, C-D → CD-, multiply → AB+CD-*"
+    },
+    {
+        "question": "What is the height of a tree with only a root node?",
+        "answer": "0",
+        "alternateAnswers": [
+            "1"
+        ],
+        "topic": "Data Structures",
+        "difficulty": "Easy",
+        "explanation": "Height is edges to deepest leaf. Root only = 0 edges (or 1 level depending on definition)."
+    },
+    {
+        "question": "What is a complete binary tree?",
+        "answer": "All levels full except possibly the last, filled left to right",
+        "alternateAnswers": [
+            "Complete",
+            "All levels filled left to right"
+        ],
+        "topic": "Data Structures",
+        "difficulty": "Medium",
+        "explanation": "A complete binary tree has all levels full except the last, which is filled left to right."
+    },
+    {
+        "question": "In a hash table, what is a collision?",
+        "answer": "Two keys hash to the same index",
+        "alternateAnswers": [
+            "Two different keys map to same slot",
+            "When different keys have same hash"
+        ],
+        "topic": "Data Structures",
+        "difficulty": "Medium",
+        "explanation": "A collision occurs when two different keys produce the same hash value/index."
+    },
+    {
+        "question": "What is the best case time complexity of quicksort?",
+        "answer": "O(n log n)",
+        "alternateAnswers": [
+            "O(nlogn)",
+            "n log n"
+        ],
+        "topic": "Data Structures",
+        "difficulty": "Medium",
+        "explanation": "Quicksort best/average case is O(n log n) when pivots split evenly."
+    },
+    {
+        "question": "What is the space complexity of merge sort?",
+        "answer": "O(n)",
+        "alternateAnswers": [
+            "O(N)",
+            "Linear"
+        ],
+        "topic": "Data Structures",
+        "difficulty": "Hard",
+        "explanation": "Merge sort requires O(n) extra space for the temporary arrays during merging."
+    }
 ]

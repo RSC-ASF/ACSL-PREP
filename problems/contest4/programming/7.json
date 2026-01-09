@@ -4,15 +4,39 @@
     "difficulty": "Medium",
     "statement": "# Prime Factorization\n\nFind all prime factors of a number.\n\n## Problem Description\n\nGiven a positive integer N > 1, print all its prime factors in ascending order.\n\n## Input Format\n\nA single positive integer N.\n\n## Output Format\n\nSpace-separated prime factors in ascending order (with repetition).\n\n## Constraints\n\n- 2 ≤ N ≤ 10^9",
     "examples": [
-        { "input": "12", "output": "2 2 3" },
-        { "input": "100", "output": "2 2 5 5" },
-        { "input": "13", "output": "13" }
+        {
+            "input": "12",
+            "output": "2 2 3"
+        },
+        {
+            "input": "100",
+            "output": "2 2 5 5"
+        },
+        {
+            "input": "13",
+            "output": "13"
+        }
     ],
     "testCases": [
-        { "input": "12", "output": "2 2 3" },
-        { "input": "100", "output": "2 2 5 5" },
-        { "input": "13", "output": "13" },
-        { "input": "2", "output": "2" },
-        { "input": "1000000007", "output": "1000000007" }
+        {
+            "input": "12",
+            "output": "2 2 3"
+        },
+        {
+            "input": "100",
+            "output": "2 2 5 5"
+        },
+        {
+            "input": "13",
+            "output": "13"
+        },
+        {
+            "input": "2",
+            "output": "2"
+        },
+        {
+            "input": "1000000007",
+            "output": "1000000007"
+        }
     ]
 }

@@ -4,13 +4,31 @@
     "difficulty": "Medium",
     "statement": "# Pattern Matching\n\nFind all occurrences of a pattern in a text.\n\n## Problem Description\n\nGiven a text string and a pattern, find all starting indices (0-based) where the pattern occurs.\n\n## Input Format\n\nFirst line: the text string\nSecond line: the pattern string\n\n## Output Format\n\nSpace-separated starting indices, or `NOT FOUND` if pattern doesn't exist.\n\n## Constraints\n\n- 1 ≤ pattern length ≤ text length ≤ 10^5",
     "examples": [
-        { "input": "AABAACAADAABAAABAA\nAABA", "output": "0 9 13" },
-        { "input": "ABCD\nXY", "output": "NOT FOUND" }
+        {
+            "input": "AABAACAADAABAAABAA\nAABA",
+            "output": "0 9 13"
+        },
+        {
+            "input": "ABCD\nXY",
+            "output": "NOT FOUND"
+        }
     ],
     "testCases": [
-        { "input": "AABAACAADAABAAABAA\nAABA", "output": "0 9 13" },
-        { "input": "ABCD\nXY", "output": "NOT FOUND" },
-        { "input": "AAAA\nAA", "output": "0 1 2" },
-        { "input": "HELLO\nLO", "output": "3" }
+        {
+            "input": "AABAACAADAABAAABAA\nAABA",
+            "output": "0 9 13"
+        },
+        {
+            "input": "ABCD\nXY",
+            "output": "NOT FOUND"
+        },
+        {
+            "input": "AAAA\nAA",
+            "output": "0 1 2"
+        },
+        {
+            "input": "HELLO\nLO",
+            "output": "3"
+        }
     ]
 }

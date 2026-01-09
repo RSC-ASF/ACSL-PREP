@@ -4,16 +4,43 @@
     "difficulty": "Medium",
     "statement": "# Balanced Parentheses\n\nCheck if a string has balanced parentheses.\n\n## Problem Description\n\nGiven a string containing only '(', ')', '{', '}', '[', ']', determine if the parentheses are balanced.\n\n## Input Format\n\nA single line containing the string.\n\n## Output Format\n\nPrint `YES` if balanced, `NO` otherwise.\n\n## Constraints\n\n- 0 ≤ length ≤ 10^4",
     "examples": [
-        { "input": "()[]{}", "output": "YES" },
-        { "input": "([)]", "output": "NO" },
-        { "input": "{[]}", "output": "YES" }
+        {
+            "input": "()[]{}",
+            "output": "YES"
+        },
+        {
+            "input": "([)]",
+            "output": "NO"
+        },
+        {
+            "input": "{[]}",
+            "output": "YES"
+        }
     ],
     "testCases": [
-        { "input": "()[]{}", "output": "YES" },
-        { "input": "([)]", "output": "NO" },
-        { "input": "{[]}", "output": "YES" },
-        { "input": "", "output": "YES" },
-        { "input": "((()))", "output": "YES" },
-        { "input": "((()", "output": "NO" }
+        {
+            "input": "()[]{}",
+            "output": "YES"
+        },
+        {
+            "input": "([)]",
+            "output": "NO"
+        },
+        {
+            "input": "{[]}",
+            "output": "YES"
+        },
+        {
+            "input": "",
+            "output": "YES"
+        },
+        {
+            "input": "((()))",
+            "output": "YES"
+        },
+        {
+            "input": "((()",
+            "output": "NO"
+        }
     ]
 }

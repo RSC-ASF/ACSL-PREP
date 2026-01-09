@@ -4,13 +4,31 @@
     "difficulty": "Easy",
     "statement": "# Remove Duplicates\n\nRemove duplicate elements from an array while preserving order.\n\n## Problem Description\n\nGiven an array, print the unique elements in the order they first appear.\n\n## Input Format\n\nFirst line: integer N\nSecond line: N space-separated integers\n\n## Output Format\n\nSpace-separated unique elements in order of first occurrence.\n\n## Constraints\n\n- 1 ≤ N ≤ 10^5\n- -10^6 ≤ elements ≤ 10^6",
     "examples": [
-        { "input": "7\n1 2 2 3 1 4 3", "output": "1 2 3 4" },
-        { "input": "5\n5 5 5 5 5", "output": "5" }
+        {
+            "input": "7\n1 2 2 3 1 4 3",
+            "output": "1 2 3 4"
+        },
+        {
+            "input": "5\n5 5 5 5 5",
+            "output": "5"
+        }
     ],
     "testCases": [
-        { "input": "7\n1 2 2 3 1 4 3", "output": "1 2 3 4" },
-        { "input": "5\n5 5 5 5 5", "output": "5" },
-        { "input": "4\n1 2 3 4", "output": "1 2 3 4" },
-        { "input": "6\n-1 -1 0 0 1 1", "output": "-1 0 1" }
+        {
+            "input": "7\n1 2 2 3 1 4 3",
+            "output": "1 2 3 4"
+        },
+        {
+            "input": "5\n5 5 5 5 5",
+            "output": "5"
+        },
+        {
+            "input": "4\n1 2 3 4",
+            "output": "1 2 3 4"
+        },
+        {
+            "input": "6\n-1 -1 0 0 1 1",
+            "output": "-1 0 1"
+        }
     ]
 }

@@ -1,225 +1,261 @@
 [
-  {
-    "question": "What is the GCD of 48 and 18?",
-    "answer": "6",
-    "topic": "Math Concepts",
-    "difficulty": "Easy",
-    "explanation": "Using Euclidean algorithm: 48 = 2×18 + 12, 18 = 1×12 + 6, 12 = 2×6 + 0. GCD = 6"
-  },
-  {
-    "question": "What is <code>1010 XOR 1100</code> in binary?",
-    "answer": "0110",
-    "alternateAnswers": ["110"],
-    "topic": "Number Systems",
-    "difficulty": "Medium",
-    "explanation": "XOR bit by bit: 1⊕1=0, 0⊕1=1, 1⊕0=1, 0⊕0=0 → 0110"
-  },
-  {
-    "question": "Convert <code>-7</code> to 8-bit two's complement binary.",
-    "answer": "11111001",
-    "topic": "Number Systems",
-    "difficulty": "Hard",
-    "explanation": "7 = 00000111, invert: 11111000, add 1: 11111001"
-  },
-  {
-    "question": "What is <code>C0</code> (hex) right-shifted by 2 bits?",
-    "answer": "30",
-    "topic": "Number Systems",
-    "difficulty": "Hard",
-    "explanation": "C0 = 11000000, shift right 2: 00110000 = 30 hex"
-  },
-  {
-    "question": "What is 2^10?",
-    "answer": "1024",
-    "topic": "Number Systems",
-    "difficulty": "Easy",
-    "explanation": "2^10 = 1024, a common power of 2."
-  },
-  {
-    "question": "What is <code>FF + 1</code> in 8-bit hexadecimal (with overflow)?",
-    "answer": "00",
-    "alternateAnswers": ["0", "100"],
-    "topic": "Number Systems",
-    "difficulty": "Medium",
-    "explanation": "FF + 1 = 100, but in 8 bits, overflows to 00."
-  },
-  {
-    "question": "How many bytes is a 32-bit integer?",
-    "answer": "4",
-    "topic": "Computer Fundamentals",
-    "difficulty": "Easy",
-    "explanation": "32 bits ÷ 8 bits per byte = 4 bytes"
-  },
-  {
-    "question": "What is <code>(A NAND B) NAND (A NAND B)</code> equivalent to?",
-    "answer": "A AND B",
-    "alternateAnswers": ["A*B", "AB"],
-    "topic": "Boolean Algebra",
-    "difficulty": "Hard",
-    "explanation": "X NAND X = NOT X. So (A NAND B) NAND (A NAND B) = NOT(A NAND B) = A AND B"
-  },
-  {
-    "question": "How many AND, OR, NOT gates minimum to build XOR?",
-    "answer": "5",
-    "alternateAnswers": ["4"],
-    "topic": "Boolean Algebra",
-    "difficulty": "Hard",
-    "explanation": "XOR = (A AND NOT B) OR (NOT A AND B) uses 2 AND + 1 OR + 2 NOT = 5 gates (or 4 with optimization)"
-  },
-  {
-    "question": "If <code>A = 0</code>, what is <code>A OR X</code>?",
-    "answer": "X",
-    "topic": "Boolean Algebra",
-    "difficulty": "Easy",
-    "explanation": "0 OR X = X (Identity Law)"
-  },
-  {
-    "question": "Simplify: <code>A XOR A</code>",
-    "answer": "0",
-    "alternateAnswers": ["False", "FALSE"],
-    "topic": "Boolean Algebra",
-    "difficulty": "Easy",
-    "explanation": "Any value XOR itself equals 0."
-  },
-  {
-    "question": "Simplify: <code>A XOR 0</code>",
-    "answer": "A",
-    "topic": "Boolean Algebra",
-    "difficulty": "Easy",
-    "explanation": "Any value XOR 0 equals itself."
-  },
-  {
-    "question": "What is <code>NOT(A XOR B)</code> called?",
-    "answer": "XNOR",
-    "alternateAnswers": ["Equivalence", "NXOR"],
-    "topic": "Boolean Algebra",
-    "difficulty": "Medium",
-    "explanation": "XNOR is the negation of XOR, outputs 1 when inputs are the same."
-  },
-  {
-    "question": "What is the output?<pre>def fib(n):\n    if n <= 1: return n\n    return fib(n-1) + fib(n-2)\nprint(fib(6))</pre>",
-    "answer": "8",
-    "topic": "What Does This Program Do",
-    "difficulty": "Medium",
-    "explanation": "Fibonacci: 0,1,1,2,3,5,8. fib(6) = 8"
-  },
-  {
-    "question": "What is printed?<pre>x = lambda a: a**2\nprint(x(5))</pre>",
-    "answer": "25",
-    "topic": "What Does This Program Do",
-    "difficulty": "Easy",
-    "explanation": "Lambda squares input: 5^2 = 25"
-  },
-  {
-    "question": "What is the output?<pre>print(list(filter(lambda x: x%2==0, [1,2,3,4,5])))</pre>",
-    "answer": "[2, 4]",
-    "alternateAnswers": ["2, 4"],
-    "topic": "What Does This Program Do",
-    "difficulty": "Medium",
-    "explanation": "Filter keeps even numbers: [2, 4]"
-  },
-  {
-    "question": "What is printed?<pre>s = \"12345\"\nprint(sum(int(c) for c in s))</pre>",
-    "answer": "15",
-    "topic": "What Does This Program Do",
-    "difficulty": "Easy",
-    "explanation": "1+2+3+4+5 = 15"
-  },
-  {
-    "question": "What is the output?<pre>a = [1,2,3]\nb = a[:]\nb[0] = 99\nprint(a[0])</pre>",
-    "answer": "1",
-    "topic": "What Does This Program Do",
-    "difficulty": "Medium",
-    "explanation": "b = a[:] creates a copy. Modifying b doesn't affect a. a[0] = 1"
-  },
-  {
-    "question": "What is printed?<pre>print(bin(10)[2:])</pre>",
-    "answer": "1010",
-    "topic": "What Does This Program Do",
-    "difficulty": "Medium",
-    "explanation": "bin(10) = '0b1010', [2:] removes '0b' prefix."
-  },
-  {
-    "question": "What is the output?<pre>print(\"hello world\".split()[1])</pre>",
-    "answer": "world",
-    "topic": "What Does This Program Do",
-    "difficulty": "Easy",
-    "explanation": "Split by whitespace: ['hello', 'world'], index 1 = 'world'"
-  },
-  {
-    "question": "Evaluate: <code>2 3 ^ 4 * 5 -</code> (postfix, ^ is power)",
-    "answer": "27",
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Hard",
-    "explanation": "2^3 = 8, 8*4 = 32, 32-5 = 27"
-  },
-  {
-    "question": "Convert <code>A / B + C * D</code> to postfix.",
-    "answer": "A B / C D * +",
-    "alternateAnswers": ["AB/CD*+"],
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Medium",
-    "explanation": "A/B → AB/, C*D → CD*, then add: AB/CD*+"
-  },
-  {
-    "question": "What is the infix of prefix <code>* + A B - C D</code>?",
-    "answer": "(A + B) * (C - D)",
-    "alternateAnswers": ["(A+B)*(C-D)"],
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Hard",
-    "explanation": "+ A B → (A+B), - C D → (C-D), * combines them."
-  },
-  {
-    "question": "Evaluate postfix: <code>2 3 + 4 5 + *</code>",
-    "answer": "45",
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Medium",
-    "explanation": "2+3 = 5, 4+5 = 9, 5*9 = 45"
-  },
-  {
-    "question": "What is an operator's arity if it takes 2 operands?",
-    "answer": "Binary",
-    "alternateAnswers": ["2", "Two"],
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Easy",
-    "explanation": "Unary = 1 operand, Binary = 2 operands, Ternary = 3 operands"
-  },
-  {
-    "question": "What is the worst case time complexity of quicksort?",
-    "answer": "O(n^2)",
-    "alternateAnswers": ["O(n²)", "n^2", "n squared"],
-    "topic": "Data Structures",
-    "difficulty": "Medium",
-    "explanation": "Worst case (already sorted, bad pivot) is O(n²)."
-  },
-  {
-    "question": "What sorting algorithm has O(n) best case?",
-    "answer": "Insertion sort",
-    "alternateAnswers": ["Bubble sort", "insertion", "bubble"],
-    "topic": "Data Structures",
-    "difficulty": "Medium",
-    "explanation": "Insertion sort on already-sorted data is O(n)."
-  },
-  {
-    "question": "What is the depth of the root node in a tree?",
-    "answer": "0",
-    "topic": "Data Structures",
-    "difficulty": "Easy",
-    "explanation": "The root has depth 0 (or 1 in some definitions)."
-  },
-  {
-    "question": "In a max-heap with values [100, 50, 80, 30, 40], what is the parent of 40?",
-    "answer": "50",
-    "topic": "Data Structures",
-    "difficulty": "Hard",
-    "explanation": "In array representation, parent of index 4 (40) is at index (4-1)/2 = 1, which is 50."
-  },
-  {
-    "question": "What is the amortized time complexity of appending to a dynamic array?",
-    "answer": "O(1)",
-    "alternateAnswers": ["O(1) amortized", "Constant"],
-    "topic": "Data Structures",
-    "difficulty": "Hard",
-    "explanation": "Although occasional resizing is O(n), amortized over many operations it's O(1)."
-  }
+    {
+        "question": "What is the GCD of 48 and 18?",
+        "answer": "6",
+        "topic": "Math Concepts",
+        "difficulty": "Easy",
+        "explanation": "Using Euclidean algorithm: 48 = 2×18 + 12, 18 = 1×12 + 6, 12 = 2×6 + 0. GCD = 6"
+    },
+    {
+        "question": "What is <code>1010 XOR 1100</code> in binary?",
+        "answer": "0110",
+        "alternateAnswers": [
+            "110"
+        ],
+        "topic": "Number Systems",
+        "difficulty": "Medium",
+        "explanation": "XOR bit by bit: 1⊕1=0, 0⊕1=1, 1⊕0=1, 0⊕0=0 → 0110"
+    },
+    {
+        "question": "Convert <code>-7</code> to 8-bit two's complement binary.",
+        "answer": "11111001",
+        "topic": "Number Systems",
+        "difficulty": "Hard",
+        "explanation": "7 = 00000111, invert: 11111000, add 1: 11111001"
+    },
+    {
+        "question": "What is <code>C0</code> (hex) right-shifted by 2 bits?",
+        "answer": "30",
+        "topic": "Number Systems",
+        "difficulty": "Hard",
+        "explanation": "C0 = 11000000, shift right 2: 00110000 = 30 hex"
+    },
+    {
+        "question": "What is 2^10?",
+        "answer": "1024",
+        "topic": "Number Systems",
+        "difficulty": "Easy",
+        "explanation": "2^10 = 1024, a common power of 2."
+    },
+    {
+        "question": "What is <code>FF + 1</code> in 8-bit hexadecimal (with overflow)?",
+        "answer": "00",
+        "alternateAnswers": [
+            "0",
+            "100"
+        ],
+        "topic": "Number Systems",
+        "difficulty": "Medium",
+        "explanation": "FF + 1 = 100, but in 8 bits, overflows to 00."
+    },
+    {
+        "question": "How many bytes is a 32-bit integer?",
+        "answer": "4",
+        "topic": "Computer Fundamentals",
+        "difficulty": "Easy",
+        "explanation": "32 bits ÷ 8 bits per byte = 4 bytes"
+    },
+    {
+        "question": "What is <code>(A NAND B) NAND (A NAND B)</code> equivalent to?",
+        "answer": "A AND B",
+        "alternateAnswers": [
+            "A*B",
+            "AB"
+        ],
+        "topic": "Boolean Algebra",
+        "difficulty": "Hard",
+        "explanation": "X NAND X = NOT X. So (A NAND B) NAND (A NAND B) = NOT(A NAND B) = A AND B"
+    },
+    {
+        "question": "How many AND, OR, NOT gates minimum to build XOR?",
+        "answer": "5",
+        "alternateAnswers": [
+            "4"
+        ],
+        "topic": "Boolean Algebra",
+        "difficulty": "Hard",
+        "explanation": "XOR = (A AND NOT B) OR (NOT A AND B) uses 2 AND + 1 OR + 2 NOT = 5 gates (or 4 with optimization)"
+    },
+    {
+        "question": "If <code>A = 0</code>, what is <code>A OR X</code>?",
+        "answer": "X",
+        "topic": "Boolean Algebra",
+        "difficulty": "Easy",
+        "explanation": "0 OR X = X (Identity Law)"
+    },
+    {
+        "question": "Simplify: <code>A XOR A</code>",
+        "answer": "0",
+        "alternateAnswers": [
+            "False",
+            "FALSE"
+        ],
+        "topic": "Boolean Algebra",
+        "difficulty": "Easy",
+        "explanation": "Any value XOR itself equals 0."
+    },
+    {
+        "question": "Simplify: <code>A XOR 0</code>",
+        "answer": "A",
+        "topic": "Boolean Algebra",
+        "difficulty": "Easy",
+        "explanation": "Any value XOR 0 equals itself."
+    },
+    {
+        "question": "What is <code>NOT(A XOR B)</code> called?",
+        "answer": "XNOR",
+        "alternateAnswers": [
+            "Equivalence",
+            "NXOR"
+        ],
+        "topic": "Boolean Algebra",
+        "difficulty": "Medium",
+        "explanation": "XNOR is the negation of XOR, outputs 1 when inputs are the same."
+    },
+    {
+        "question": "What is the output?<pre>def fib(n):\n    if n <= 1: return n\n    return fib(n-1) + fib(n-2)\nprint(fib(6))</pre>",
+        "answer": "8",
+        "topic": "What Does This Program Do",
+        "difficulty": "Medium",
+        "explanation": "Fibonacci: 0,1,1,2,3,5,8. fib(6) = 8"
+    },
+    {
+        "question": "What is printed?<pre>x = lambda a: a**2\nprint(x(5))</pre>",
+        "answer": "25",
+        "topic": "What Does This Program Do",
+        "difficulty": "Easy",
+        "explanation": "Lambda squares input: 5^2 = 25"
+    },
+    {
+        "question": "What is the output?<pre>print(list(filter(lambda x: x%2==0, [1,2,3,4,5])))</pre>",
+        "answer": "[2, 4]",
+        "alternateAnswers": [
+            "2, 4"
+        ],
+        "topic": "What Does This Program Do",
+        "difficulty": "Medium",
+        "explanation": "Filter keeps even numbers: [2, 4]"
+    },
+    {
+        "question": "What is printed?<pre>s = \"12345\"\nprint(sum(int(c) for c in s))</pre>",
+        "answer": "15",
+        "topic": "What Does This Program Do",
+        "difficulty": "Easy",
+        "explanation": "1+2+3+4+5 = 15"
+    },
+    {
+        "question": "What is the output?<pre>a = [1,2,3]\nb = a[:]\nb[0] = 99\nprint(a[0])</pre>",
+        "answer": "1",
+        "topic": "What Does This Program Do",
+        "difficulty": "Medium",
+        "explanation": "b = a[:] creates a copy. Modifying b doesn't affect a. a[0] = 1"
+    },
+    {
+        "question": "What is printed?<pre>print(bin(10)[2:])</pre>",
+        "answer": "1010",
+        "topic": "What Does This Program Do",
+        "difficulty": "Medium",
+        "explanation": "bin(10) = '0b1010', [2:] removes '0b' prefix."
+    },
+    {
+        "question": "What is the output?<pre>print(\"hello world\".split()[1])</pre>",
+        "answer": "world",
+        "topic": "What Does This Program Do",
+        "difficulty": "Easy",
+        "explanation": "Split by whitespace: ['hello', 'world'], index 1 = 'world'"
+    },
+    {
+        "question": "Evaluate: <code>2 3 ^ 4 * 5 -</code> (postfix, ^ is power)",
+        "answer": "27",
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Hard",
+        "explanation": "2^3 = 8, 8*4 = 32, 32-5 = 27"
+    },
+    {
+        "question": "Convert <code>A / B + C * D</code> to postfix.",
+        "answer": "A B / C D * +",
+        "alternateAnswers": [
+            "AB/CD*+"
+        ],
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Medium",
+        "explanation": "A/B → AB/, C*D → CD*, then add: AB/CD*+"
+    },
+    {
+        "question": "What is the infix of prefix <code>* + A B - C D</code>?",
+        "answer": "(A + B) * (C - D)",
+        "alternateAnswers": [
+            "(A+B)*(C-D)"
+        ],
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Hard",
+        "explanation": "+ A B → (A+B), - C D → (C-D), * combines them."
+    },
+    {
+        "question": "Evaluate postfix: <code>2 3 + 4 5 + *</code>",
+        "answer": "45",
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Medium",
+        "explanation": "2+3 = 5, 4+5 = 9, 5*9 = 45"
+    },
+    {
+        "question": "What is an operator's arity if it takes 2 operands?",
+        "answer": "Binary",
+        "alternateAnswers": [
+            "2",
+            "Two"
+        ],
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Easy",
+        "explanation": "Unary = 1 operand, Binary = 2 operands, Ternary = 3 operands"
+    },
+    {
+        "question": "What is the worst case time complexity of quicksort?",
+        "answer": "O(n^2)",
+        "alternateAnswers": [
+            "O(n²)",
+            "n^2",
+            "n squared"
+        ],
+        "topic": "Data Structures",
+        "difficulty": "Medium",
+        "explanation": "Worst case (already sorted, bad pivot) is O(n²)."
+    },
+    {
+        "question": "What sorting algorithm has O(n) best case?",
+        "answer": "Insertion sort",
+        "alternateAnswers": [
+            "Bubble sort",
+            "insertion",
+            "bubble"
+        ],
+        "topic": "Data Structures",
+        "difficulty": "Medium",
+        "explanation": "Insertion sort on already-sorted data is O(n)."
+    },
+    {
+        "question": "What is the depth of the root node in a tree?",
+        "answer": "0",
+        "topic": "Data Structures",
+        "difficulty": "Easy",
+        "explanation": "The root has depth 0 (or 1 in some definitions)."
+    },
+    {
+        "question": "In a max-heap with values [100, 50, 80, 30, 40], what is the parent of 40?",
+        "answer": "50",
+        "topic": "Data Structures",
+        "difficulty": "Hard",
+        "explanation": "In array representation, parent of index 4 (40) is at index (4-1)/2 = 1, which is 50."
+    },
+    {
+        "question": "What is the amortized time complexity of appending to a dynamic array?",
+        "answer": "O(1)",
+        "alternateAnswers": [
+            "O(1) amortized",
+            "Constant"
+        ],
+        "topic": "Data Structures",
+        "difficulty": "Hard",
+        "explanation": "Although occasional resizing is O(n), amortized over many operations it's O(1)."
+    }
 ]

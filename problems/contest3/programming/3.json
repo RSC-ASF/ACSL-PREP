@@ -4,13 +4,31 @@
     "difficulty": "Medium",
     "statement": "# Merge Two Sorted Arrays\n\nMerge two sorted arrays into one sorted array.\n\n## Problem Description\n\nGiven two sorted arrays, merge them into a single sorted array.\n\n## Input Format\n\nFirst line: integer N (size of first array)\nSecond line: N sorted integers\nThird line: integer M (size of second array)\nFourth line: M sorted integers\n\n## Output Format\n\nN+M space-separated integers in sorted order.\n\n## Constraints\n\n- 1 ≤ N, M ≤ 10^5",
     "examples": [
-        { "input": "3\n1 3 5\n3\n2 4 6", "output": "1 2 3 4 5 6" },
-        { "input": "2\n1 2\n2\n3 4", "output": "1 2 3 4" }
+        {
+            "input": "3\n1 3 5\n3\n2 4 6",
+            "output": "1 2 3 4 5 6"
+        },
+        {
+            "input": "2\n1 2\n2\n3 4",
+            "output": "1 2 3 4"
+        }
     ],
     "testCases": [
-        { "input": "3\n1 3 5\n3\n2 4 6", "output": "1 2 3 4 5 6" },
-        { "input": "2\n1 2\n2\n3 4", "output": "1 2 3 4" },
-        { "input": "1\n5\n1\n5", "output": "5 5" },
-        { "input": "3\n-3 -1 0\n2\n-2 1", "output": "-3 -2 -1 0 1" }
+        {
+            "input": "3\n1 3 5\n3\n2 4 6",
+            "output": "1 2 3 4 5 6"
+        },
+        {
+            "input": "2\n1 2\n2\n3 4",
+            "output": "1 2 3 4"
+        },
+        {
+            "input": "1\n5\n1\n5",
+            "output": "5 5"
+        },
+        {
+            "input": "3\n-3 -1 0\n2\n-2 1",
+            "output": "-3 -2 -1 0 1"
+        }
     ]
 }

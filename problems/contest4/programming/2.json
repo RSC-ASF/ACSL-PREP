@@ -4,15 +4,39 @@
     "difficulty": "Hard",
     "statement": "# Infix to Postfix Conversion\n\nConvert an infix expression to postfix notation.\n\n## Problem Description\n\nGiven a fully parenthesized infix expression with single-letter operands and operators (+, -, *, /), convert it to postfix.\n\n## Input Format\n\nA single line with a fully parenthesized infix expression (no spaces).\n\n## Output Format\n\nThe postfix expression (no spaces between tokens).\n\n## Constraints\n\n- Valid fully parenthesized expression\n- Operands are uppercase letters",
     "examples": [
-        { "input": "(A+B)", "output": "AB+" },
-        { "input": "((A+B)*C)", "output": "AB+C*" },
-        { "input": "((A*B)-(C+D))", "output": "AB*CD+-" }
+        {
+            "input": "(A+B)",
+            "output": "AB+"
+        },
+        {
+            "input": "((A+B)*C)",
+            "output": "AB+C*"
+        },
+        {
+            "input": "((A*B)-(C+D))",
+            "output": "AB*CD+-"
+        }
     ],
     "testCases": [
-        { "input": "(A+B)", "output": "AB+" },
-        { "input": "((A+B)*C)", "output": "AB+C*" },
-        { "input": "((A*B)-(C+D))", "output": "AB*CD+-" },
-        { "input": "(A/(B+C))", "output": "ABC+/" },
-        { "input": "(((A+B)*C)-D)", "output": "AB+C*D-" }
+        {
+            "input": "(A+B)",
+            "output": "AB+"
+        },
+        {
+            "input": "((A+B)*C)",
+            "output": "AB+C*"
+        },
+        {
+            "input": "((A*B)-(C+D))",
+            "output": "AB*CD+-"
+        },
+        {
+            "input": "(A/(B+C))",
+            "output": "ABC+/"
+        },
+        {
+            "input": "(((A+B)*C)-D)",
+            "output": "AB+C*D-"
+        }
     ]
 }

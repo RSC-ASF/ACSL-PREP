@@ -4,15 +4,39 @@
     "difficulty": "Easy",
     "statement": "# Count Vowels\n\nWrite a program to count the number of vowels in a string.\n\n## Problem Description\n\nGiven a string, count how many vowels (a, e, i, o, u) it contains. The count should be case-insensitive.\n\n## Input Format\n\nA single line containing a string.\n\n## Output Format\n\nA single integer representing the count of vowels.\n\n## Constraints\n\n- 1 ≤ length ≤ 10^5",
     "examples": [
-        { "input": "Hello World", "output": "3" },
-        { "input": "ACSL Competition", "output": "5" },
-        { "input": "xyz", "output": "0" }
+        {
+            "input": "Hello World",
+            "output": "3"
+        },
+        {
+            "input": "ACSL Competition",
+            "output": "5"
+        },
+        {
+            "input": "xyz",
+            "output": "0"
+        }
     ],
     "testCases": [
-        { "input": "Hello World", "output": "3" },
-        { "input": "ACSL Competition", "output": "5" },
-        { "input": "xyz", "output": "0" },
-        { "input": "aeiouAEIOU", "output": "10" },
-        { "input": "Programming", "output": "3" }
+        {
+            "input": "Hello World",
+            "output": "3"
+        },
+        {
+            "input": "ACSL Competition",
+            "output": "5"
+        },
+        {
+            "input": "xyz",
+            "output": "0"
+        },
+        {
+            "input": "aeiouAEIOU",
+            "output": "10"
+        },
+        {
+            "input": "Programming",
+            "output": "3"
+        }
     ]
 }

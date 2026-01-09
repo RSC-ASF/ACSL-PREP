@@ -4,13 +4,31 @@
     "difficulty": "Easy",
     "statement": "# Find Maximum\n\nWrite a program to find the maximum element in an array.\n\n## Problem Description\n\nGiven an array of N integers, find and print the maximum value.\n\n## Input Format\n\nFirst line: integer N\nSecond line: N space-separated integers\n\n## Output Format\n\nA single integer - the maximum value.\n\n## Constraints\n\n- 1 ≤ N ≤ 10^5\n- -10^9 ≤ each element ≤ 10^9",
     "examples": [
-        { "input": "5\n3 1 4 1 5", "output": "5" },
-        { "input": "3\n-5 -2 -8", "output": "-2" }
+        {
+            "input": "5\n3 1 4 1 5",
+            "output": "5"
+        },
+        {
+            "input": "3\n-5 -2 -8",
+            "output": "-2"
+        }
     ],
     "testCases": [
-        { "input": "5\n3 1 4 1 5", "output": "5" },
-        { "input": "3\n-5 -2 -8", "output": "-2" },
-        { "input": "1\n42", "output": "42" },
-        { "input": "4\n1000000000 999999999 1 0", "output": "1000000000" }
+        {
+            "input": "5\n3 1 4 1 5",
+            "output": "5"
+        },
+        {
+            "input": "3\n-5 -2 -8",
+            "output": "-2"
+        },
+        {
+            "input": "1\n42",
+            "output": "42"
+        },
+        {
+            "input": "4\n1000000000 999999999 1 0",
+            "output": "1000000000"
+        }
     ]
 }

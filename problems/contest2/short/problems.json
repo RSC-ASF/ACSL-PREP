@@ -1,224 +1,258 @@
 [
-  {
-    "question": "What is the base 10 value of <code>1111</code> in binary?",
-    "answer": "15",
-    "topic": "Number Systems",
-    "difficulty": "Easy",
-    "explanation": "1111 = 8 + 4 + 2 + 1 = 15"
-  },
-  {
-    "question": "Convert <code>100</code> (decimal) to hexadecimal.",
-    "answer": "64",
-    "topic": "Number Systems",
-    "difficulty": "Easy",
-    "explanation": "100 ÷ 16 = 6 R4, so 100 = 64 in hex"
-  },
-  {
-    "question": "What is <code>7F</code> (hex) in binary?",
-    "answer": "1111111",
-    "alternateAnswers": ["01111111"],
-    "topic": "Number Systems",
-    "difficulty": "Medium",
-    "explanation": "7 = 0111, F = 1111, so 7F = 01111111"
-  },
-  {
-    "question": "Compute <code>11011</code> - <code>01010</code> in binary.",
-    "answer": "10001",
-    "topic": "Number Systems",
-    "difficulty": "Medium",
-    "explanation": "27 - 10 = 17 = 10001 in binary"
-  },
-  {
-    "question": "What is the two's complement of <code>0101</code> (4 bits)?",
-    "answer": "1011",
-    "topic": "Number Systems",
-    "difficulty": "Hard",
-    "explanation": "Invert: 1010, add 1: 1011"
-  },
-  {
-    "question": "Convert <code>512</code> (decimal) to octal.",
-    "answer": "1000",
-    "topic": "Number Systems",
-    "difficulty": "Medium",
-    "explanation": "512 = 8³ = 1000 in octal"
-  },
-  {
-    "question": "What decimal number does <code>-0110</code> represent in two's complement (4 bits)?",
-    "answer": "-6",
-    "topic": "Number Systems",
-    "difficulty": "Hard",
-    "explanation": "0110 = 6, so -0110 represents -6"
-  },
-  {
-    "question": "Simplify: <code>(A OR B) AND (A OR NOT B)</code>",
-    "answer": "A",
-    "topic": "Boolean Algebra",
-    "difficulty": "Medium",
-    "explanation": "Factor out A: A OR (B AND NOT B) = A OR 0 = A"
-  },
-  {
-    "question": "What is <code>NOT(NOT A)</code>?",
-    "answer": "A",
-    "topic": "Boolean Algebra",
-    "difficulty": "Easy",
-    "explanation": "Double negation: NOT(NOT A) = A"
-  },
-  {
-    "question": "Evaluate: <code>(0 NAND 0)</code>",
-    "answer": "1",
-    "alternateAnswers": ["True", "TRUE"],
-    "topic": "Boolean Algebra",
-    "difficulty": "Medium",
-    "explanation": "NAND = NOT AND. 0 AND 0 = 0, NOT 0 = 1"
-  },
-  {
-    "question": "Complete the truth table: A=1, B=1, output for <code>A NOR B</code>?",
-    "answer": "0",
-    "alternateAnswers": ["False", "FALSE"],
-    "topic": "Boolean Algebra",
-    "difficulty": "Easy",
-    "explanation": "NOR = NOT OR. 1 OR 1 = 1, NOT 1 = 0"
-  },
-  {
-    "question": "Simplify: <code>A AND 0</code>",
-    "answer": "0",
-    "alternateAnswers": ["False", "FALSE"],
-    "topic": "Boolean Algebra",
-    "difficulty": "Easy",
-    "explanation": "Anything AND 0 equals 0 (Null Law)"
-  },
-  {
-    "question": "Simplify: <code>A OR 1</code>",
-    "answer": "1",
-    "alternateAnswers": ["True", "TRUE"],
-    "topic": "Boolean Algebra",
-    "difficulty": "Easy",
-    "explanation": "Anything OR 1 equals 1 (Null Law)"
-  },
-  {
-    "question": "Express <code>A IMPLIES B</code> using AND, OR, NOT.",
-    "answer": "NOT A OR B",
-    "alternateAnswers": ["(NOT A) OR B", "B OR NOT A"],
-    "topic": "Boolean Algebra",
-    "difficulty": "Hard",
-    "explanation": "A → B is equivalent to ¬A ∨ B"
-  },
-  {
-    "question": "What is the output?<pre>n = 7\nresult = 1\nwhile n > 0:\n    result = result * (n % 2)\n    n = n // 2\nprint(result)</pre>",
-    "answer": "1",
-    "topic": "What Does This Program Do",
-    "difficulty": "Hard",
-    "explanation": "7 = 111 in binary, all bits are 1. Multiplying: 1*1*1*1 = 1"
-  },
-  {
-    "question": "What is printed?<pre>arr = [3, 1, 4, 1, 5]\narr.sort()\nprint(arr[2])</pre>",
-    "answer": "3",
-    "topic": "What Does This Program Do",
-    "difficulty": "Easy",
-    "explanation": "Sorted: [1, 1, 3, 4, 5]. Index 2 is 3."
-  },
-  {
-    "question": "What does this return?<pre>def f(n):\n    if n == 0:\n        return 0\n    return n + f(n-1)\nprint(f(5))</pre>",
-    "answer": "15",
-    "topic": "What Does This Program Do",
-    "difficulty": "Medium",
-    "explanation": "Sum 5+4+3+2+1+0 = 15"
-  },
-  {
-    "question": "What is the output?<pre>s = \"hello\"\nprint(s[::-1])</pre>",
-    "answer": "olleh",
-    "topic": "What Does This Program Do",
-    "difficulty": "Easy",
-    "explanation": "[::-1] reverses the string"
-  },
-  {
-    "question": "What is printed?<pre>x = 1\nfor i in range(4):\n    x = x * 2\nprint(x)</pre>",
-    "answer": "16",
-    "topic": "What Does This Program Do",
-    "difficulty": "Easy",
-    "explanation": "x doubles 4 times: 1→2→4→8→16"
-  },
-  {
-    "question": "What is the output?<pre>d = {'a': 1, 'b': 2}\nd['c'] = d['a'] + d['b']\nprint(d['c'])</pre>",
-    "answer": "3",
-    "topic": "What Does This Program Do",
-    "difficulty": "Easy",
-    "explanation": "d['c'] = 1 + 2 = 3"
-  },
-  {
-    "question": "Evaluate postfix: <code>8 4 / 2 +</code>",
-    "answer": "4",
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Easy",
-    "explanation": "8/4 = 2, 2+2 = 4"
-  },
-  {
-    "question": "Convert infix <code>A * (B + C)</code> to postfix.",
-    "answer": "A B C + *",
-    "alternateAnswers": ["ABC+*"],
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Medium",
-    "explanation": "B+C first → BC+, then multiply by A → ABC+*"
-  },
-  {
-    "question": "Convert infix <code>A + B * C</code> to prefix.",
-    "answer": "+ A * B C",
-    "alternateAnswers": ["+A*BC"],
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Medium",
-    "explanation": "B*C has higher precedence: *BC, then +A*BC"
-  },
-  {
-    "question": "Evaluate prefix: <code>/ + 6 4 2</code>",
-    "answer": "5",
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Medium",
-    "explanation": "+ 6 4 = 10, / 10 2 = 5"
-  },
-  {
-    "question": "What notation is <code>3 4 + 5 *</code>?",
-    "answer": "Postfix",
-    "alternateAnswers": ["postfix", "RPN", "Reverse Polish Notation"],
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Easy",
-    "explanation": "Operators come after operands = postfix (Reverse Polish Notation)"
-  },
-  {
-    "question": "After push(5), push(3), pop(), push(7), what is on top of the stack?",
-    "answer": "7",
-    "topic": "Data Structures",
-    "difficulty": "Easy",
-    "explanation": "Push 5, push 3, pop (removes 3), push 7. Top is 7."
-  },
-  {
-    "question": "What traversal of a BST gives elements in sorted order?",
-    "answer": "Inorder",
-    "alternateAnswers": ["In-order", "in order"],
-    "topic": "Data Structures",
-    "difficulty": "Medium",
-    "explanation": "Inorder traversal (left-root-right) of a BST gives sorted order."
-  },
-  {
-    "question": "What is the minimum number of nodes in a binary tree of height 4?",
-    "answer": "5",
-    "topic": "Data Structures",
-    "difficulty": "Medium",
-    "explanation": "Minimum nodes = h + 1 = 4 + 1 = 5 (a single path)"
-  },
-  {
-    "question": "In a min-heap, where is the smallest element?",
-    "answer": "Root",
-    "alternateAnswers": ["At the root", "Top"],
-    "topic": "Data Structures",
-    "difficulty": "Easy",
-    "explanation": "In a min-heap, the smallest element is always at the root."
-  },
-  {
-    "question": "What is the time complexity of inserting at the end of a linked list with no tail pointer?",
-    "answer": "O(n)",
-    "alternateAnswers": ["O(N)", "Linear"],
-    "topic": "Data Structures",
-    "difficulty": "Medium",
-    "explanation": "Must traverse all n nodes to find the end."
-  }
+    {
+        "question": "What is the base 10 value of <code>1111</code> in binary?",
+        "answer": "15",
+        "topic": "Number Systems",
+        "difficulty": "Easy",
+        "explanation": "1111 = 8 + 4 + 2 + 1 = 15"
+    },
+    {
+        "question": "Convert <code>100</code> (decimal) to hexadecimal.",
+        "answer": "64",
+        "topic": "Number Systems",
+        "difficulty": "Easy",
+        "explanation": "100 ÷ 16 = 6 R4, so 100 = 64 in hex"
+    },
+    {
+        "question": "What is <code>7F</code> (hex) in binary?",
+        "answer": "1111111",
+        "alternateAnswers": [
+            "01111111"
+        ],
+        "topic": "Number Systems",
+        "difficulty": "Medium",
+        "explanation": "7 = 0111, F = 1111, so 7F = 01111111"
+    },
+    {
+        "question": "Compute <code>11011</code> - <code>01010</code> in binary.",
+        "answer": "10001",
+        "topic": "Number Systems",
+        "difficulty": "Medium",
+        "explanation": "27 - 10 = 17 = 10001 in binary"
+    },
+    {
+        "question": "What is the two's complement of <code>0101</code> (4 bits)?",
+        "answer": "1011",
+        "topic": "Number Systems",
+        "difficulty": "Hard",
+        "explanation": "Invert: 1010, add 1: 1011"
+    },
+    {
+        "question": "Convert <code>512</code> (decimal) to octal.",
+        "answer": "1000",
+        "topic": "Number Systems",
+        "difficulty": "Medium",
+        "explanation": "512 = 8³ = 1000 in octal"
+    },
+    {
+        "question": "What decimal number does <code>-0110</code> represent in two's complement (4 bits)?",
+        "answer": "-6",
+        "topic": "Number Systems",
+        "difficulty": "Hard",
+        "explanation": "0110 = 6, so -0110 represents -6"
+    },
+    {
+        "question": "Simplify: <code>(A OR B) AND (A OR NOT B)</code>",
+        "answer": "A",
+        "topic": "Boolean Algebra",
+        "difficulty": "Medium",
+        "explanation": "Factor out A: A OR (B AND NOT B) = A OR 0 = A"
+    },
+    {
+        "question": "What is <code>NOT(NOT A)</code>?",
+        "answer": "A",
+        "topic": "Boolean Algebra",
+        "difficulty": "Easy",
+        "explanation": "Double negation: NOT(NOT A) = A"
+    },
+    {
+        "question": "Evaluate: <code>(0 NAND 0)</code>",
+        "answer": "1",
+        "alternateAnswers": [
+            "True",
+            "TRUE"
+        ],
+        "topic": "Boolean Algebra",
+        "difficulty": "Medium",
+        "explanation": "NAND = NOT AND. 0 AND 0 = 0, NOT 0 = 1"
+    },
+    {
+        "question": "Complete the truth table: A=1, B=1, output for <code>A NOR B</code>?",
+        "answer": "0",
+        "alternateAnswers": [
+            "False",
+            "FALSE"
+        ],
+        "topic": "Boolean Algebra",
+        "difficulty": "Easy",
+        "explanation": "NOR = NOT OR. 1 OR 1 = 1, NOT 1 = 0"
+    },
+    {
+        "question": "Simplify: <code>A AND 0</code>",
+        "answer": "0",
+        "alternateAnswers": [
+            "False",
+            "FALSE"
+        ],
+        "topic": "Boolean Algebra",
+        "difficulty": "Easy",
+        "explanation": "Anything AND 0 equals 0 (Null Law)"
+    },
+    {
+        "question": "Simplify: <code>A OR 1</code>",
+        "answer": "1",
+        "alternateAnswers": [
+            "True",
+            "TRUE"
+        ],
+        "topic": "Boolean Algebra",
+        "difficulty": "Easy",
+        "explanation": "Anything OR 1 equals 1 (Null Law)"
+    },
+    {
+        "question": "Express <code>A IMPLIES B</code> using AND, OR, NOT.",
+        "answer": "NOT A OR B",
+        "alternateAnswers": [
+            "(NOT A) OR B",
+            "B OR NOT A"
+        ],
+        "topic": "Boolean Algebra",
+        "difficulty": "Hard",
+        "explanation": "A → B is equivalent to ¬A ∨ B"
+    },
+    {
+        "question": "What is the output?<pre>n = 7\nresult = 1\nwhile n > 0:\n    result = result * (n % 2)\n    n = n // 2\nprint(result)</pre>",
+        "answer": "1",
+        "topic": "What Does This Program Do",
+        "difficulty": "Hard",
+        "explanation": "7 = 111 in binary, all bits are 1. Multiplying: 1*1*1*1 = 1"
+    },
+    {
+        "question": "What is printed?<pre>arr = [3, 1, 4, 1, 5]\narr.sort()\nprint(arr[2])</pre>",
+        "answer": "3",
+        "topic": "What Does This Program Do",
+        "difficulty": "Easy",
+        "explanation": "Sorted: [1, 1, 3, 4, 5]. Index 2 is 3."
+    },
+    {
+        "question": "What does this return?<pre>def f(n):\n    if n == 0:\n        return 0\n    return n + f(n-1)\nprint(f(5))</pre>",
+        "answer": "15",
+        "topic": "What Does This Program Do",
+        "difficulty": "Medium",
+        "explanation": "Sum 5+4+3+2+1+0 = 15"
+    },
+    {
+        "question": "What is the output?<pre>s = \"hello\"\nprint(s[::-1])</pre>",
+        "answer": "olleh",
+        "topic": "What Does This Program Do",
+        "difficulty": "Easy",
+        "explanation": "[::-1] reverses the string"
+    },
+    {
+        "question": "What is printed?<pre>x = 1\nfor i in range(4):\n    x = x * 2\nprint(x)</pre>",
+        "answer": "16",
+        "topic": "What Does This Program Do",
+        "difficulty": "Easy",
+        "explanation": "x doubles 4 times: 1→2→4→8→16"
+    },
+    {
+        "question": "What is the output?<pre>d = {'a': 1, 'b': 2}\nd['c'] = d['a'] + d['b']\nprint(d['c'])</pre>",
+        "answer": "3",
+        "topic": "What Does This Program Do",
+        "difficulty": "Easy",
+        "explanation": "d['c'] = 1 + 2 = 3"
+    },
+    {
+        "question": "Evaluate postfix: <code>8 4 / 2 +</code>",
+        "answer": "4",
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Easy",
+        "explanation": "8/4 = 2, 2+2 = 4"
+    },
+    {
+        "question": "Convert infix <code>A * (B + C)</code> to postfix.",
+        "answer": "A B C + *",
+        "alternateAnswers": [
+            "ABC+*"
+        ],
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Medium",
+        "explanation": "B+C first → BC+, then multiply by A → ABC+*"
+    },
+    {
+        "question": "Convert infix <code>A + B * C</code> to prefix.",
+        "answer": "+ A * B C",
+        "alternateAnswers": [
+            "+A*BC"
+        ],
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Medium",
+        "explanation": "B*C has higher precedence: *BC, then +A*BC"
+    },
+    {
+        "question": "Evaluate prefix: <code>/ + 6 4 2</code>",
+        "answer": "5",
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Medium",
+        "explanation": "+ 6 4 = 10, / 10 2 = 5"
+    },
+    {
+        "question": "What notation is <code>3 4 + 5 *</code>?",
+        "answer": "Postfix",
+        "alternateAnswers": [
+            "postfix",
+            "RPN",
+            "Reverse Polish Notation"
+        ],
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Easy",
+        "explanation": "Operators come after operands = postfix (Reverse Polish Notation)"
+    },
+    {
+        "question": "After push(5), push(3), pop(), push(7), what is on top of the stack?",
+        "answer": "7",
+        "topic": "Data Structures",
+        "difficulty": "Easy",
+        "explanation": "Push 5, push 3, pop (removes 3), push 7. Top is 7."
+    },
+    {
+        "question": "What traversal of a BST gives elements in sorted order?",
+        "answer": "Inorder",
+        "alternateAnswers": [
+            "In-order",
+            "in order"
+        ],
+        "topic": "Data Structures",
+        "difficulty": "Medium",
+        "explanation": "Inorder traversal (left-root-right) of a BST gives sorted order."
+    },
+    {
+        "question": "What is the minimum number of nodes in a binary tree of height 4?",
+        "answer": "5",
+        "topic": "Data Structures",
+        "difficulty": "Medium",
+        "explanation": "Minimum nodes = h + 1 = 4 + 1 = 5 (a single path)"
+    },
+    {
+        "question": "In a min-heap, where is the smallest element?",
+        "answer": "Root",
+        "alternateAnswers": [
+            "At the root",
+            "Top"
+        ],
+        "topic": "Data Structures",
+        "difficulty": "Easy",
+        "explanation": "In a min-heap, the smallest element is always at the root."
+    },
+    {
+        "question": "What is the time complexity of inserting at the end of a linked list with no tail pointer?",
+        "answer": "O(n)",
+        "alternateAnswers": [
+            "O(N)",
+            "Linear"
+        ],
+        "topic": "Data Structures",
+        "difficulty": "Medium",
+        "explanation": "Must traverse all n nodes to find the end."
+    }
 ]

@@ -4,15 +4,39 @@
     "difficulty": "Easy",
     "statement": "# Sum of Digits\n\nWrite a program that calculates the sum of all digits in a given positive integer.\n\n## Problem Description\n\nGiven a positive integer N, find the sum of all its digits.\n\nFor example, for N = 12345:\n- Sum = 1 + 2 + 3 + 4 + 5 = 15\n\n## Input Format\n\nA single line containing a positive integer N.\n\n## Output Format\n\nA single integer representing the sum of digits.\n\n## Constraints\n\n- 1 ≤ N ≤ 10^18",
     "examples": [
-        { "input": "12345", "output": "15" },
-        { "input": "999", "output": "27" },
-        { "input": "7", "output": "7" }
+        {
+            "input": "12345",
+            "output": "15"
+        },
+        {
+            "input": "999",
+            "output": "27"
+        },
+        {
+            "input": "7",
+            "output": "7"
+        }
     ],
     "testCases": [
-        { "input": "12345", "output": "15" },
-        { "input": "999", "output": "27" },
-        { "input": "7", "output": "7" },
-        { "input": "1000000", "output": "1" },
-        { "input": "123456789", "output": "45" }
+        {
+            "input": "12345",
+            "output": "15"
+        },
+        {
+            "input": "999",
+            "output": "27"
+        },
+        {
+            "input": "7",
+            "output": "7"
+        },
+        {
+            "input": "1000000",
+            "output": "1"
+        },
+        {
+            "input": "123456789",
+            "output": "45"
+        }
     ]
 }

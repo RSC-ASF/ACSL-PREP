@@ -1,222 +1,251 @@
 [
-  {
-    "question": "Convert the binary number <code>10110</code> to decimal.",
-    "answer": "22",
-    "topic": "Number Systems",
-    "difficulty": "Easy",
-    "explanation": "10110 = 1×16 + 0×8 + 1×4 + 1×2 + 0×1 = 16 + 4 + 2 = 22"
-  },
-  {
-    "question": "Convert the decimal number <code>45</code> to binary.",
-    "answer": "101101",
-    "topic": "Number Systems",
-    "difficulty": "Easy",
-    "explanation": "45 ÷ 2 = 22 R1, 22 ÷ 2 = 11 R0, 11 ÷ 2 = 5 R1, 5 ÷ 2 = 2 R1, 2 ÷ 2 = 1 R0, 1 ÷ 2 = 0 R1. Reading remainders bottom-up: 101101"
-  },
-  {
-    "question": "Convert the hexadecimal number <code>2F</code> to decimal.",
-    "answer": "47",
-    "topic": "Number Systems",
-    "difficulty": "Easy",
-    "explanation": "2F = 2×16 + 15×1 = 32 + 15 = 47"
-  },
-  {
-    "question": "Convert the octal number <code>75</code> to decimal.",
-    "answer": "61",
-    "topic": "Number Systems",
-    "difficulty": "Easy",
-    "explanation": "75 in octal = 7×8 + 5×1 = 56 + 5 = 61"
-  },
-  {
-    "question": "Convert the decimal number <code>255</code> to hexadecimal.",
-    "answer": "FF",
-    "topic": "Number Systems",
-    "difficulty": "Easy",
-    "explanation": "255 ÷ 16 = 15 R15. 15 = F in hex. So 255 = FF"
-  },
-  {
-    "question": "What is <code>10110</code> + <code>01101</code> in binary?",
-    "answer": "100011",
-    "topic": "Number Systems",
-    "difficulty": "Medium",
-    "explanation": "Adding column by column with carries: 10110 + 01101 = 100011 (22 + 13 = 35)"
-  },
-  {
-    "question": "Convert <code>1A3</code> (base 16) to base 8.",
-    "answer": "643",
-    "topic": "Number Systems",
-    "difficulty": "Hard",
-    "explanation": "1A3₁₆ = 1×256 + 10×16 + 3 = 419₁₀. 419 ÷ 8 = 52 R3, 52 ÷ 8 = 6 R4, 6 ÷ 8 = 0 R6. Answer: 643₈"
-  },
-  {
-    "question": "Evaluate: <code>NOT (1 AND 0) OR 1</code>",
-    "answer": "1",
-    "alternateAnswers": ["True", "TRUE"],
-    "topic": "Boolean Algebra",
-    "difficulty": "Easy",
-    "explanation": "1 AND 0 = 0, NOT 0 = 1, 1 OR 1 = 1"
-  },
-  {
-    "question": "Simplify the Boolean expression: <code>A AND (A OR B)</code>",
-    "answer": "A",
-    "topic": "Boolean Algebra",
-    "difficulty": "Medium",
-    "explanation": "By the Absorption Law: A AND (A OR B) = A"
-  },
-  {
-    "question": "Evaluate <code>(1 XOR 0) AND (1 OR 0)</code>",
-    "answer": "1",
-    "alternateAnswers": ["True", "TRUE"],
-    "topic": "Boolean Algebra",
-    "difficulty": "Easy",
-    "explanation": "1 XOR 0 = 1, 1 OR 0 = 1, 1 AND 1 = 1"
-  },
-  {
-    "question": "What is the Boolean expression for: output is 1 only when both inputs are different?",
-    "answer": "XOR",
-    "alternateAnswers": ["A XOR B", "A ⊕ B"],
-    "topic": "Boolean Algebra",
-    "difficulty": "Easy",
-    "explanation": "XOR (exclusive or) outputs 1 when inputs are different, 0 when they are the same."
-  },
-  {
-    "question": "Simplify: <code>NOT(A AND B)</code> using De Morgan's Law",
-    "answer": "NOT A OR NOT B",
-    "alternateAnswers": ["(NOT A) OR (NOT B)", "A' + B'"],
-    "topic": "Boolean Algebra",
-    "difficulty": "Medium",
-    "explanation": "De Morgan's Law: NOT(A AND B) = (NOT A) OR (NOT B)"
-  },
-  {
-    "question": "If <code>A = 1</code>, <code>B = 0</code>, <code>C = 1</code>, evaluate: <code>(A AND B) OR (NOT B AND C)</code>",
-    "answer": "1",
-    "alternateAnswers": ["True", "TRUE"],
-    "topic": "Boolean Algebra",
-    "difficulty": "Medium",
-    "explanation": "(1 AND 0) OR (NOT 0 AND 1) = 0 OR (1 AND 1) = 0 OR 1 = 1"
-  },
-  {
-    "question": "What value of x makes this true: <code>x AND 1 = 0</code>",
-    "answer": "0",
-    "alternateAnswers": ["False", "FALSE"],
-    "topic": "Boolean Algebra",
-    "difficulty": "Easy",
-    "explanation": "Only 0 AND 1 = 0. If x were 1, then 1 AND 1 = 1."
-  },
-  {
-    "question": "How many different Boolean functions of 2 variables exist?",
-    "answer": "16",
-    "topic": "Boolean Algebra",
-    "difficulty": "Hard",
-    "explanation": "With 2 variables, there are 4 input combinations. Each can output 0 or 1, so 2^4 = 16 functions."
-  },
-  {
-    "question": "What does the following code output?<pre>x = 5\nfor i in range(3):\n    x = x + i\nprint(x)</pre>",
-    "answer": "8",
-    "topic": "What Does This Program Do",
-    "difficulty": "Easy",
-    "explanation": "x starts at 5. Loop: i=0: x=5+0=5, i=1: x=5+1=6, i=2: x=6+2=8"
-  },
-  {
-    "question": "What does this output?<pre>s = \"ACSL\"\nprint(s[1] + s[3])</pre>",
-    "answer": "CL",
-    "topic": "What Does This Program Do",
-    "difficulty": "Easy",
-    "explanation": "s[1] = 'C' (index 1), s[3] = 'L' (index 3). Concatenated: 'CL'"
-  },
-  {
-    "question": "What is the output?<pre>a = [1, 2, 3, 4, 5]\nprint(a[2:4])</pre>",
-    "answer": "[3, 4]",
-    "alternateAnswers": ["3, 4"],
-    "topic": "What Does This Program Do",
-    "difficulty": "Easy",
-    "explanation": "Slice [2:4] gets elements at index 2 and 3, which are 3 and 4."
-  },
-  {
-    "question": "What is printed?<pre>def foo(n):\n    if n <= 1:\n        return 1\n    return n * foo(n-1)\nprint(foo(4))</pre>",
-    "answer": "24",
-    "topic": "What Does This Program Do",
-    "difficulty": "Medium",
-    "explanation": "This is factorial. foo(4) = 4 × foo(3) = 4 × 3 × foo(2) = 4 × 3 × 2 × foo(1) = 4 × 3 × 2 × 1 = 24"
-  },
-  {
-    "question": "What is the output?<pre>x = 10\nwhile x > 0:\n    x = x - 3\nprint(x)</pre>",
-    "answer": "-2",
-    "topic": "What Does This Program Do",
-    "difficulty": "Medium",
-    "explanation": "x: 10 → 7 → 4 → 1 → -2. Loop stops when x = -2 (not > 0)."
-  },
-  {
-    "question": "In prefix notation, how do you write: <code>(3 + 4) * 5</code>",
-    "answer": "* + 3 4 5",
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Easy",
-    "explanation": "First + 3 4 (for 3+4), then * that result with 5: * + 3 4 5"
-  },
-  {
-    "question": "In postfix notation, how do you write: <code>2 + 3 * 4</code>",
-    "answer": "2 3 4 * +",
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Medium",
-    "explanation": "Due to precedence, 3*4 first: 3 4 *, then add 2: 2 3 4 * +"
-  },
-  {
-    "question": "Evaluate the postfix expression: <code>5 3 + 2 *</code>",
-    "answer": "16",
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Easy",
-    "explanation": "5 3 + = 8, then 8 2 * = 16"
-  },
-  {
-    "question": "Evaluate the prefix expression: <code>- * 4 5 + 2 3</code>",
-    "answer": "15",
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Medium",
-    "explanation": "* 4 5 = 20, + 2 3 = 5, - 20 5 = 15"
-  },
-  {
-    "question": "Convert to infix: <code>+ * 2 3 4</code>",
-    "answer": "(2 * 3) + 4",
-    "alternateAnswers": ["2 * 3 + 4", "2*3+4"],
-    "topic": "Prefix/Infix/Postfix",
-    "difficulty": "Medium",
-    "explanation": "* 2 3 → 2*3, then + (2*3) 4 → (2*3) + 4"
-  },
-  {
-    "question": "What data structure uses LIFO (Last In, First Out)?",
-    "answer": "Stack",
-    "topic": "Data Structures",
-    "difficulty": "Easy",
-    "explanation": "A stack follows LIFO - the last element added is the first one removed."
-  },
-  {
-    "question": "What data structure uses FIFO (First In, First Out)?",
-    "answer": "Queue",
-    "topic": "Data Structures",
-    "difficulty": "Easy",
-    "explanation": "A queue follows FIFO - the first element added is the first one removed."
-  },
-  {
-    "question": "In a binary search tree, where are smaller values stored relative to a node?",
-    "answer": "Left",
-    "alternateAnswers": ["Left subtree", "Left child"],
-    "topic": "Data Structures",
-    "difficulty": "Easy",
-    "explanation": "In a BST, values less than a node go in the left subtree, greater values go right."
-  },
-  {
-    "question": "What is the maximum number of nodes in a binary tree of height 3?",
-    "answer": "15",
-    "topic": "Data Structures",
-    "difficulty": "Medium",
-    "explanation": "Max nodes = 2^(h+1) - 1 = 2^4 - 1 = 16 - 1 = 15"
-  },
-  {
-    "question": "What is the time complexity of binary search on a sorted array of n elements?",
-    "answer": "O(log n)",
-    "alternateAnswers": ["log n", "O(log(n))"],
-    "topic": "Data Structures",
-    "difficulty": "Medium",
-    "explanation": "Binary search halves the search space each step, giving O(log n) complexity."
-  }
+    {
+        "question": "Convert the binary number <code>10110</code> to decimal.",
+        "answer": "22",
+        "topic": "Number Systems",
+        "difficulty": "Easy",
+        "explanation": "10110 = 1×16 + 0×8 + 1×4 + 1×2 + 0×1 = 16 + 4 + 2 = 22"
+    },
+    {
+        "question": "Convert the decimal number <code>45</code> to binary.",
+        "answer": "101101",
+        "topic": "Number Systems",
+        "difficulty": "Easy",
+        "explanation": "45 ÷ 2 = 22 R1, 22 ÷ 2 = 11 R0, 11 ÷ 2 = 5 R1, 5 ÷ 2 = 2 R1, 2 ÷ 2 = 1 R0, 1 ÷ 2 = 0 R1. Reading remainders bottom-up: 101101"
+    },
+    {
+        "question": "Convert the hexadecimal number <code>2F</code> to decimal.",
+        "answer": "47",
+        "topic": "Number Systems",
+        "difficulty": "Easy",
+        "explanation": "2F = 2×16 + 15×1 = 32 + 15 = 47"
+    },
+    {
+        "question": "Convert the octal number <code>75</code> to decimal.",
+        "answer": "61",
+        "topic": "Number Systems",
+        "difficulty": "Easy",
+        "explanation": "75 in octal = 7×8 + 5×1 = 56 + 5 = 61"
+    },
+    {
+        "question": "Convert the decimal number <code>255</code> to hexadecimal.",
+        "answer": "FF",
+        "topic": "Number Systems",
+        "difficulty": "Easy",
+        "explanation": "255 ÷ 16 = 15 R15. 15 = F in hex. So 255 = FF"
+    },
+    {
+        "question": "What is <code>10110</code> + <code>01101</code> in binary?",
+        "answer": "100011",
+        "topic": "Number Systems",
+        "difficulty": "Medium",
+        "explanation": "Adding column by column with carries: 10110 + 01101 = 100011 (22 + 13 = 35)"
+    },
+    {
+        "question": "Convert <code>1A3</code> (base 16) to base 8.",
+        "answer": "643",
+        "topic": "Number Systems",
+        "difficulty": "Hard",
+        "explanation": "1A3₁₆ = 1×256 + 10×16 + 3 = 419₁₀. 419 ÷ 8 = 52 R3, 52 ÷ 8 = 6 R4, 6 ÷ 8 = 0 R6. Answer: 643₈"
+    },
+    {
+        "question": "Evaluate: <code>NOT (1 AND 0) OR 1</code>",
+        "answer": "1",
+        "alternateAnswers": [
+            "True",
+            "TRUE"
+        ],
+        "topic": "Boolean Algebra",
+        "difficulty": "Easy",
+        "explanation": "1 AND 0 = 0, NOT 0 = 1, 1 OR 1 = 1"
+    },
+    {
+        "question": "Simplify the Boolean expression: <code>A AND (A OR B)</code>",
+        "answer": "A",
+        "topic": "Boolean Algebra",
+        "difficulty": "Medium",
+        "explanation": "By the Absorption Law: A AND (A OR B) = A"
+    },
+    {
+        "question": "Evaluate <code>(1 XOR 0) AND (1 OR 0)</code>",
+        "answer": "1",
+        "alternateAnswers": [
+            "True",
+            "TRUE"
+        ],
+        "topic": "Boolean Algebra",
+        "difficulty": "Easy",
+        "explanation": "1 XOR 0 = 1, 1 OR 0 = 1, 1 AND 1 = 1"
+    },
+    {
+        "question": "What is the Boolean expression for: output is 1 only when both inputs are different?",
+        "answer": "XOR",
+        "alternateAnswers": [
+            "A XOR B",
+            "A ⊕ B"
+        ],
+        "topic": "Boolean Algebra",
+        "difficulty": "Easy",
+        "explanation": "XOR (exclusive or) outputs 1 when inputs are different, 0 when they are the same."
+    },
+    {
+        "question": "Simplify: <code>NOT(A AND B)</code> using De Morgan's Law",
+        "answer": "NOT A OR NOT B",
+        "alternateAnswers": [
+            "(NOT A) OR (NOT B)",
+            "A' + B'"
+        ],
+        "topic": "Boolean Algebra",
+        "difficulty": "Medium",
+        "explanation": "De Morgan's Law: NOT(A AND B) = (NOT A) OR (NOT B)"
+    },
+    {
+        "question": "If <code>A = 1</code>, <code>B = 0</code>, <code>C = 1</code>, evaluate: <code>(A AND B) OR (NOT B AND C)</code>",
+        "answer": "1",
+        "alternateAnswers": [
+            "True",
+            "TRUE"
+        ],
+        "topic": "Boolean Algebra",
+        "difficulty": "Medium",
+        "explanation": "(1 AND 0) OR (NOT 0 AND 1) = 0 OR (1 AND 1) = 0 OR 1 = 1"
+    },
+    {
+        "question": "What value of x makes this true: <code>x AND 1 = 0</code>",
+        "answer": "0",
+        "alternateAnswers": [
+            "False",
+            "FALSE"
+        ],
+        "topic": "Boolean Algebra",
+        "difficulty": "Easy",
+        "explanation": "Only 0 AND 1 = 0. If x were 1, then 1 AND 1 = 1."
+    },
+    {
+        "question": "How many different Boolean functions of 2 variables exist?",
+        "answer": "16",
+        "topic": "Boolean Algebra",
+        "difficulty": "Hard",
+        "explanation": "With 2 variables, there are 4 input combinations. Each can output 0 or 1, so 2^4 = 16 functions."
+    },
+    {
+        "question": "What does the following code output?<pre>x = 5\nfor i in range(3):\n    x = x + i\nprint(x)</pre>",
+        "answer": "8",
+        "topic": "What Does This Program Do",
+        "difficulty": "Easy",
+        "explanation": "x starts at 5. Loop: i=0: x=5+0=5, i=1: x=5+1=6, i=2: x=6+2=8"
+    },
+    {
+        "question": "What does this output?<pre>s = \"ACSL\"\nprint(s[1] + s[3])</pre>",
+        "answer": "CL",
+        "topic": "What Does This Program Do",
+        "difficulty": "Easy",
+        "explanation": "s[1] = 'C' (index 1), s[3] = 'L' (index 3). Concatenated: 'CL'"
+    },
+    {
+        "question": "What is the output?<pre>a = [1, 2, 3, 4, 5]\nprint(a[2:4])</pre>",
+        "answer": "[3, 4]",
+        "alternateAnswers": [
+            "3, 4"
+        ],
+        "topic": "What Does This Program Do",
+        "difficulty": "Easy",
+        "explanation": "Slice [2:4] gets elements at index 2 and 3, which are 3 and 4."
+    },
+    {
+        "question": "What is printed?<pre>def foo(n):\n    if n <= 1:\n        return 1\n    return n * foo(n-1)\nprint(foo(4))</pre>",
+        "answer": "24",
+        "topic": "What Does This Program Do",
+        "difficulty": "Medium",
+        "explanation": "This is factorial. foo(4) = 4 × foo(3) = 4 × 3 × foo(2) = 4 × 3 × 2 × foo(1) = 4 × 3 × 2 × 1 = 24"
+    },
+    {
+        "question": "What is the output?<pre>x = 10\nwhile x > 0:\n    x = x - 3\nprint(x)</pre>",
+        "answer": "-2",
+        "topic": "What Does This Program Do",
+        "difficulty": "Medium",
+        "explanation": "x: 10 → 7 → 4 → 1 → -2. Loop stops when x = -2 (not > 0)."
+    },
+    {
+        "question": "In prefix notation, how do you write: <code>(3 + 4) * 5</code>",
+        "answer": "* + 3 4 5",
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Easy",
+        "explanation": "First + 3 4 (for 3+4), then * that result with 5: * + 3 4 5"
+    },
+    {
+        "question": "In postfix notation, how do you write: <code>2 + 3 * 4</code>",
+        "answer": "2 3 4 * +",
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Medium",
+        "explanation": "Due to precedence, 3*4 first: 3 4 *, then add 2: 2 3 4 * +"
+    },
+    {
+        "question": "Evaluate the postfix expression: <code>5 3 + 2 *</code>",
+        "answer": "16",
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Easy",
+        "explanation": "5 3 + = 8, then 8 2 * = 16"
+    },
+    {
+        "question": "Evaluate the prefix expression: <code>- * 4 5 + 2 3</code>",
+        "answer": "15",
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Medium",
+        "explanation": "* 4 5 = 20, + 2 3 = 5, - 20 5 = 15"
+    },
+    {
+        "question": "Convert to infix: <code>+ * 2 3 4</code>",
+        "answer": "(2 * 3) + 4",
+        "alternateAnswers": [
+            "2 * 3 + 4",
+            "2*3+4"
+        ],
+        "topic": "Prefix/Infix/Postfix",
+        "difficulty": "Medium",
+        "explanation": "* 2 3 → 2*3, then + (2*3) 4 → (2*3) + 4"
+    },
+    {
+        "question": "What data structure uses LIFO (Last In, First Out)?",
+        "answer": "Stack",
+        "topic": "Data Structures",
+        "difficulty": "Easy",
+        "explanation": "A stack follows LIFO - the last element added is the first one removed."
+    },
+    {
+        "question": "What data structure uses FIFO (First In, First Out)?",
+        "answer": "Queue",
+        "topic": "Data Structures",
+        "difficulty": "Easy",
+        "explanation": "A queue follows FIFO - the first element added is the first one removed."
+    },
+    {
+        "question": "In a binary search tree, where are smaller values stored relative to a node?",
+        "answer": "Left",
+        "alternateAnswers": [
+            "Left subtree",
+            "Left child"
+        ],
+        "topic": "Data Structures",
+        "difficulty": "Easy",
+        "explanation": "In a BST, values less than a node go in the left subtree, greater values go right."
+    },
+    {
+        "question": "What is the maximum number of nodes in a binary tree of height 3?",
+        "answer": "15",
+        "topic": "Data Structures",
+        "difficulty": "Medium",
+        "explanation": "Max nodes = 2^(h+1) - 1 = 2^4 - 1 = 16 - 1 = 15"
+    },
+    {
+        "question": "What is the time complexity of binary search on a sorted array of n elements?",
+        "answer": "O(log n)",
+        "alternateAnswers": [
+            "log n",
+            "O(log(n))"
+        ],
+        "topic": "Data Structures",
+        "difficulty": "Medium",
+        "explanation": "Binary search halves the search space each step, giving O(log n) complexity."
+    }
 ]

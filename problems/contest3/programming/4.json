@@ -4,12 +4,27 @@
     "difficulty": "Medium",
     "statement": "# Stack Operations\n\nSimulate stack operations and output the final state.\n\n## Problem Description\n\nPerform a sequence of stack operations:\n- PUSH X: Push integer X onto the stack\n- POP: Remove top element\n- TOP: Print the top element (or EMPTY if stack is empty)\n\nPrint the result of each TOP operation.\n\n## Input Format\n\nFirst line: integer N (number of operations)\nNext N lines: operations\n\n## Output Format\n\nOutput of each TOP operation, one per line.\n\n## Constraints\n\n- 1 ≤ N ≤ 1000",
     "examples": [
-        { "input": "5\nPUSH 5\nPUSH 3\nTOP\nPOP\nTOP", "output": "3\n5" },
-        { "input": "3\nTOP\nPUSH 1\nTOP", "output": "EMPTY\n1" }
+        {
+            "input": "5\nPUSH 5\nPUSH 3\nTOP\nPOP\nTOP",
+            "output": "3\n5"
+        },
+        {
+            "input": "3\nTOP\nPUSH 1\nTOP",
+            "output": "EMPTY\n1"
+        }
     ],
     "testCases": [
-        { "input": "5\nPUSH 5\nPUSH 3\nTOP\nPOP\nTOP", "output": "3\n5" },
-        { "input": "3\nTOP\nPUSH 1\nTOP", "output": "EMPTY\n1" },
-        { "input": "4\nPUSH 10\nPOP\nTOP\nPUSH 20", "output": "EMPTY" }
+        {
+            "input": "5\nPUSH 5\nPUSH 3\nTOP\nPOP\nTOP",
+            "output": "3\n5"
+        },
+        {
+            "input": "3\nTOP\nPUSH 1\nTOP",
+            "output": "EMPTY\n1"
+        },
+        {
+            "input": "4\nPUSH 10\nPOP\nTOP\nPUSH 20",
+            "output": "EMPTY"
+        }
     ]
 }

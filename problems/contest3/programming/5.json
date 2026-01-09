@@ -4,14 +4,35 @@
     "difficulty": "Medium",
     "statement": "# Two Sum\n\nFind two numbers in an array that add up to a target.\n\n## Problem Description\n\nGiven an array of N integers and a target sum T, find two distinct indices i and j such that arr[i] + arr[j] = T. Print the indices (0-based) in ascending order.\n\n## Input Format\n\nFirst line: two integers N and T\nSecond line: N space-separated integers\n\n## Output Format\n\nTwo space-separated indices (smaller first), or `NOT FOUND` if no solution.\n\n## Constraints\n\n- 2 ≤ N ≤ 10^4\n- Exactly one solution exists if found",
     "examples": [
-        { "input": "4 9\n2 7 11 15", "output": "0 1" },
-        { "input": "3 6\n3 2 4", "output": "1 2" },
-        { "input": "3 10\n1 2 3", "output": "NOT FOUND" }
+        {
+            "input": "4 9\n2 7 11 15",
+            "output": "0 1"
+        },
+        {
+            "input": "3 6\n3 2 4",
+            "output": "1 2"
+        },
+        {
+            "input": "3 10\n1 2 3",
+            "output": "NOT FOUND"
+        }
     ],
     "testCases": [
-        { "input": "4 9\n2 7 11 15", "output": "0 1" },
-        { "input": "3 6\n3 2 4", "output": "1 2" },
-        { "input": "3 10\n1 2 3", "output": "NOT FOUND" },
-        { "input": "5 0\n-1 0 1 2 -2", "output": "0 2" }
+        {
+            "input": "4 9\n2 7 11 15",
+            "output": "0 1"
+        },
+        {
+            "input": "3 6\n3 2 4",
+            "output": "1 2"
+        },
+        {
+            "input": "3 10\n1 2 3",
+            "output": "NOT FOUND"
+        },
+        {
+            "input": "5 0\n-1 0 1 2 -2",
+            "output": "0 2"
+        }
     ]
 }

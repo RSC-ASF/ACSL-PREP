@@ -4,16 +4,43 @@
     "difficulty": "Medium",
     "statement": "# Prime Number Check\n\nWrite a program to determine if a given number is prime.\n\n## Problem Description\n\nA prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.\n\n## Input Format\n\nA single line containing a positive integer N.\n\n## Output Format\n\nPrint `PRIME` if N is prime, `NOT PRIME` otherwise.\n\n## Constraints\n\n- 1 ≤ N ≤ 10^9",
     "examples": [
-        { "input": "7", "output": "PRIME" },
-        { "input": "12", "output": "NOT PRIME" },
-        { "input": "2", "output": "PRIME" }
+        {
+            "input": "7",
+            "output": "PRIME"
+        },
+        {
+            "input": "12",
+            "output": "NOT PRIME"
+        },
+        {
+            "input": "2",
+            "output": "PRIME"
+        }
     ],
     "testCases": [
-        { "input": "7", "output": "PRIME" },
-        { "input": "12", "output": "NOT PRIME" },
-        { "input": "2", "output": "PRIME" },
-        { "input": "1", "output": "NOT PRIME" },
-        { "input": "997", "output": "PRIME" },
-        { "input": "1000000007", "output": "PRIME" }
+        {
+            "input": "7",
+            "output": "PRIME"
+        },
+        {
+            "input": "12",
+            "output": "NOT PRIME"
+        },
+        {
+            "input": "2",
+            "output": "PRIME"
+        },
+        {
+            "input": "1",
+            "output": "NOT PRIME"
+        },
+        {
+            "input": "997",
+            "output": "PRIME"
+        },
+        {
+            "input": "1000000007",
+            "output": "PRIME"
+        }
     ]
 }

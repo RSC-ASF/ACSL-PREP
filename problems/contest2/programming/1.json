@@ -4,15 +4,39 @@
     "difficulty": "Easy",
     "statement": "# Decimal to Binary\n\nWrite a program that converts a decimal number to binary.\n\n## Problem Description\n\nGiven a non-negative integer N in base 10, convert it to its binary (base 2) representation.\n\n## Input Format\n\nA single line containing a non-negative integer N.\n\n## Output Format\n\nThe binary representation of N (without leading zeros, except for 0 itself).\n\n## Constraints\n\n- 0 ≤ N ≤ 10^9",
     "examples": [
-        { "input": "10", "output": "1010" },
-        { "input": "255", "output": "11111111" },
-        { "input": "0", "output": "0" }
+        {
+            "input": "10",
+            "output": "1010"
+        },
+        {
+            "input": "255",
+            "output": "11111111"
+        },
+        {
+            "input": "0",
+            "output": "0"
+        }
     ],
     "testCases": [
-        { "input": "10", "output": "1010" },
-        { "input": "255", "output": "11111111" },
-        { "input": "0", "output": "0" },
-        { "input": "1", "output": "1" },
-        { "input": "1024", "output": "10000000000" }
+        {
+            "input": "10",
+            "output": "1010"
+        },
+        {
+            "input": "255",
+            "output": "11111111"
+        },
+        {
+            "input": "0",
+            "output": "0"
+        },
+        {
+            "input": "1",
+            "output": "1"
+        },
+        {
+            "input": "1024",
+            "output": "10000000000"
+        }
     ]
 }

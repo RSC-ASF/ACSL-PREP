@@ -4,15 +4,39 @@
     "difficulty": "Hard",
     "statement": "# Postfix Expression Evaluator\n\nWrite a program to evaluate a postfix (Reverse Polish Notation) expression.\n\n## Problem Description\n\nEvaluate a postfix expression containing integers and operators (+, -, *, /).\nDivision should be integer division (truncate toward zero).\n\n## Input Format\n\nA single line with space-separated tokens (integers and operators).\n\n## Output Format\n\nA single integer - the result of the expression.\n\n## Constraints\n\n- Valid postfix expression\n- No division by zero\n- Result fits in 64-bit integer",
     "examples": [
-        { "input": "5 3 +", "output": "8" },
-        { "input": "10 2 /", "output": "5" },
-        { "input": "3 4 + 5 *", "output": "35" }
+        {
+            "input": "5 3 +",
+            "output": "8"
+        },
+        {
+            "input": "10 2 /",
+            "output": "5"
+        },
+        {
+            "input": "3 4 + 5 *",
+            "output": "35"
+        }
     ],
     "testCases": [
-        { "input": "5 3 +", "output": "8" },
-        { "input": "10 2 /", "output": "5" },
-        { "input": "3 4 + 5 *", "output": "35" },
-        { "input": "2 3 4 * +", "output": "14" },
-        { "input": "15 7 1 1 + - / 3 * 2 1 1 + + -", "output": "5" }
+        {
+            "input": "5 3 +",
+            "output": "8"
+        },
+        {
+            "input": "10 2 /",
+            "output": "5"
+        },
+        {
+            "input": "3 4 + 5 *",
+            "output": "35"
+        },
+        {
+            "input": "2 3 4 * +",
+            "output": "14"
+        },
+        {
+            "input": "15 7 1 1 + - / 3 * 2 1 1 + + -",
+            "output": "5"
+        }
     ]
 }

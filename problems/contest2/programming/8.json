@@ -4,15 +4,39 @@
     "difficulty": "Medium",
     "statement": "# String Rotation\n\nCheck if one string is a rotation of another.\n\n## Problem Description\n\nA rotation of string S is obtained by moving some characters from the beginning to the end. For example, \"lloHe\" is a rotation of \"Hello\".\n\nGiven two strings, determine if one is a rotation of the other.\n\n## Input Format\n\nTwo lines, each containing a string.\n\n## Output Format\n\nPrint `YES` if one is a rotation of the other, `NO` otherwise.\n\n## Constraints\n\n- 1 ≤ length ≤ 1000\n- Strings contain only alphanumeric characters",
     "examples": [
-        { "input": "Hello\nlloHe", "output": "YES" },
-        { "input": "ABCD\nCDAB", "output": "YES" },
-        { "input": "ABC\nACB", "output": "NO" }
+        {
+            "input": "Hello\nlloHe",
+            "output": "YES"
+        },
+        {
+            "input": "ABCD\nCDAB",
+            "output": "YES"
+        },
+        {
+            "input": "ABC\nACB",
+            "output": "NO"
+        }
     ],
     "testCases": [
-        { "input": "Hello\nlloHe", "output": "YES" },
-        { "input": "ABCD\nCDAB", "output": "YES" },
-        { "input": "ABC\nACB", "output": "NO" },
-        { "input": "AAAA\nAAAA", "output": "YES" },
-        { "input": "AB\nBA", "output": "YES" }
+        {
+            "input": "Hello\nlloHe",
+            "output": "YES"
+        },
+        {
+            "input": "ABCD\nCDAB",
+            "output": "YES"
+        },
+        {
+            "input": "ABC\nACB",
+            "output": "NO"
+        },
+        {
+            "input": "AAAA\nAAAA",
+            "output": "YES"
+        },
+        {
+            "input": "AB\nBA",
+            "output": "YES"
+        }
     ]
 }

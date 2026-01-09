@@ -4,15 +4,39 @@
     "difficulty": "Easy",
     "statement": "# Anagram Check\n\nDetermine if two strings are anagrams of each other.\n\n## Problem Description\n\nTwo strings are anagrams if they contain the same characters with the same frequencies, ignoring case.\n\n## Input Format\n\nTwo lines, each containing a string (letters only, no spaces).\n\n## Output Format\n\nPrint `YES` if anagrams, `NO` otherwise.\n\n## Constraints\n\n- 1 ≤ length ≤ 1000\n- Only alphabetic characters",
     "examples": [
-        { "input": "listen\nsilent", "output": "YES" },
-        { "input": "Hello\nWorld", "output": "NO" },
-        { "input": "Astronomer\nMoonStarer", "output": "YES" }
+        {
+            "input": "listen\nsilent",
+            "output": "YES"
+        },
+        {
+            "input": "Hello\nWorld",
+            "output": "NO"
+        },
+        {
+            "input": "Astronomer\nMoonStarer",
+            "output": "YES"
+        }
     ],
     "testCases": [
-        { "input": "listen\nsilent", "output": "YES" },
-        { "input": "Hello\nWorld", "output": "NO" },
-        { "input": "Astronomer\nMoonStarer", "output": "YES" },
-        { "input": "abc\nabc", "output": "YES" },
-        { "input": "ab\nba", "output": "YES" }
+        {
+            "input": "listen\nsilent",
+            "output": "YES"
+        },
+        {
+            "input": "Hello\nWorld",
+            "output": "NO"
+        },
+        {
+            "input": "Astronomer\nMoonStarer",
+            "output": "YES"
+        },
+        {
+            "input": "abc\nabc",
+            "output": "YES"
+        },
+        {
+            "input": "ab\nba",
+            "output": "YES"
+        }
     ]
 }

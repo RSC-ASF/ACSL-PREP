@@ -4,15 +4,39 @@
     "difficulty": "Easy",
     "statement": "# Palindrome Checker\n\nWrite a program that checks if a given string is a palindrome.\n\n## Problem Description\n\nA palindrome is a string that reads the same forwards and backwards. Check if the input string is a palindrome (case-insensitive, ignore spaces).\n\n## Input Format\n\nA single line containing a string.\n\n## Output Format\n\nPrint `YES` if the string is a palindrome, `NO` otherwise.\n\n## Constraints\n\n- 1 ≤ length ≤ 1000\n- String contains only letters and spaces",
     "examples": [
-        { "input": "racecar", "output": "YES" },
-        { "input": "hello", "output": "NO" },
-        { "input": "A man a plan a canal Panama", "output": "YES" }
+        {
+            "input": "racecar",
+            "output": "YES"
+        },
+        {
+            "input": "hello",
+            "output": "NO"
+        },
+        {
+            "input": "A man a plan a canal Panama",
+            "output": "YES"
+        }
     ],
     "testCases": [
-        { "input": "racecar", "output": "YES" },
-        { "input": "hello", "output": "NO" },
-        { "input": "A man a plan a canal Panama", "output": "YES" },
-        { "input": "Was it a car or a cat I saw", "output": "YES" },
-        { "input": "Python", "output": "NO" }
+        {
+            "input": "racecar",
+            "output": "YES"
+        },
+        {
+            "input": "hello",
+            "output": "NO"
+        },
+        {
+            "input": "A man a plan a canal Panama",
+            "output": "YES"
+        },
+        {
+            "input": "Was it a car or a cat I saw",
+            "output": "YES"
+        },
+        {
+            "input": "Python",
+            "output": "NO"
+        }
     ]
 }

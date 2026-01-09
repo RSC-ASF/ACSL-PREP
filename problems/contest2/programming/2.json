@@ -4,15 +4,39 @@
     "difficulty": "Medium",
     "statement": "# Hexadecimal to Decimal\n\nWrite a program that converts a hexadecimal number to decimal.\n\n## Problem Description\n\nGiven a hexadecimal string (using 0-9 and A-F), convert it to its decimal equivalent.\n\n## Input Format\n\nA single line containing a hexadecimal string (uppercase letters).\n\n## Output Format\n\nThe decimal equivalent as an integer.\n\n## Constraints\n\n- 1 ≤ length ≤ 15\n- Valid hexadecimal characters only",
     "examples": [
-        { "input": "1A", "output": "26" },
-        { "input": "FF", "output": "255" },
-        { "input": "100", "output": "256" }
+        {
+            "input": "1A",
+            "output": "26"
+        },
+        {
+            "input": "FF",
+            "output": "255"
+        },
+        {
+            "input": "100",
+            "output": "256"
+        }
     ],
     "testCases": [
-        { "input": "1A", "output": "26" },
-        { "input": "FF", "output": "255" },
-        { "input": "100", "output": "256" },
-        { "input": "CAFE", "output": "51966" },
-        { "input": "0", "output": "0" }
+        {
+            "input": "1A",
+            "output": "26"
+        },
+        {
+            "input": "FF",
+            "output": "255"
+        },
+        {
+            "input": "100",
+            "output": "256"
+        },
+        {
+            "input": "CAFE",
+            "output": "51966"
+        },
+        {
+            "input": "0",
+            "output": "0"
+        }
     ]
 }
