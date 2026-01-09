@@ -303,7 +303,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const contestNum = urlParams.get('contest') || '1';
         const division = urlParams.get('division') || 'senior';
-        const totalProblems = 5;
+        const totalProblems = 10;
         let currentProblem = 1;
         let completedProblems = [];
         let currentUser = null;
@@ -641,10 +641,6 @@ int main() {
             generateDots();
             loadProblem(1);
         });
-
-        initEditor();
-        generateDots();
-        loadProblem(1);
     </script>
 </body>
 
