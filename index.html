@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -446,6 +446,8 @@
             }
         };
 
+        let currentIndex = 0;
+
         function renderContests() {
             const track = document.getElementById('carouselTrack');
             const data = divisionData[currentDivision];
@@ -569,7 +571,6 @@
         const dots = document.querySelectorAll('.carousel-dot');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
-        let currentIndex = 0;
         const totalSlides = 4;
 
         function updateCarousel(index, instant = false) {
